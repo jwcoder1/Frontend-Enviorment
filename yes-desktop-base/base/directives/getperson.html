@@ -1,0 +1,20 @@
+<div ng-class="{'input-group': (form.fieldAddonLeft || form.fieldAddonRight)}">
+
+    <ui-select ng-change="onChange($select.selected);" ng-model-options="form.ngModelOptions" ng-model="model.field" theme="bootstrap" ng-disabled="form.readonly" ng-change="form.onChange($select.selected);" reset-search-input="true" schema-validate="form"
+        style="min-width: 80px;" id="{{form.key.slice(-1)[0]}}">
+        <ui-select-match placeholder="{{form.placeholder|translate}}">{{$select.selected.value?$select.selected.name:'' | translate}}</ui-select-match>
+
+        <ui-select-choices refresh="form.refresh(form,$select.search)" refresh-delay="0" repeat="item.value as item in form.titleMap | filter:$select.search">
+            <div class="select2-item" ng-bind-html="item.name | highlight: $select.search"></div>
+            <small ng-if="form.small" ng-bind-html="item.value | highlight: $select.search | translate"></small>
+        </ui-select-choices>
+
+    </ui-select>
+
+    <span ng-hide="form.readonly" ng-if="form.fieldAddonRight" class="input-group-btn">
+	            <button class="btn btn-default btn-sm" ng-click="form.dialog(form,$parent)"
+	                    type="button">
+	                <i class="fa {{form.fieldAddonRight}}" ></i>
+	            </button>
+	        </span>
+</div>

@@ -1,0 +1,10 @@
+<div class="form-group  single-line" ng-class="{'has-error': form.disableErrorState !== true && hasError(), 'has-success': form.disableSuccessState !== true && hasSuccess(), 'has-feedback': form.feedback !== false}">
+
+    <div class="col caption" ng-class="{'required':form.required}">
+        <label class="control-label {{form.labelHtmlClass}}" ng-class="{'sr-only': !showTitle()}" for="{{form.key.slice(-1)[0]}}">{{form.title | translate }}
+            </label>
+    </div>
+    <div class="col content">
+        <div class="form-control" yes-uploader options="form.options" data-ng-model="$$value$$" readonly="form.readonly" editable="false"></div>
+    </div>
+</div>

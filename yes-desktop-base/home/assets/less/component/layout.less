@@ -1,0 +1,236 @@
+/* 宽度 */
+
+.rsp-body {
+    position: relative;
+    min-width: 200px;
+}
+
+.rsp-body-detail {
+    margin-left: 0!important;
+    margin-right: 0!important;
+}
+
+.rsp-left,
+.rsp-right {
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    z-index: 1;
+    background: #fff;
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    >div {
+        height: 100%;
+    }
+}
+
+.rsp-left {
+    left: 0;
+}
+
+.rsp-right {
+    right: 0;
+}
+
+.ms-sw-xs {
+    width: floor((@screen-xs / 2));
+}
+
+.ms-sw-sm {
+    width: floor((@screen-sm / 2));
+}
+
+.ms-sw-md {
+    width: floor((@screen-md / 2));
+}
+
+.ms-sw-lg {
+    width: floor((@screen-lg / 2));
+}
+
+
+/* 高度 */
+
+.ms-sh-xs {
+    height: @font-size-h4; // ~18px
+    line-height: @font-size-h4;
+}
+
+.ms-sh-sm {
+    height: @font-size-h3; // ~24px
+    line-height: @font-size-h3;
+}
+
+.ms-sh-md {
+    height: @font-size-h2; // ~30px
+    line-height: @font-size-h2;
+}
+
+.ms-sh-lg {
+    height: @font-size-h1; // ~36px
+    line-height: @font-size-h1;
+}
+
+
+/* 颜色 */
+
+.ms-color-white {
+    background: @white;
+}
+
+.ms-color-black {
+    background: @black;
+    color: @white;
+}
+
+.ms-color-border {
+    border-color: @borderColor;
+}
+
+.ms-color-theme {
+    background: @brand-primary;
+    color: @white;
+}
+
+.ms-color-theme-dark {
+    background: darken(@brand-primary, 8%);
+    color: @white;
+}
+
+.ms-color-theme-light {
+    background: lighten(@brand-primary, 20%);
+    color: @white;
+}
+
+.ms-color-theme-background {
+    background: @lighter;
+}
+
+
+/* 字号 */
+
+.ms-font-xs {
+    font-size: @font-size-small;
+}
+
+.ms-font-sm {
+    font-size: @font-size-base;
+}
+
+.ms-font-md {
+    font-size: ceil((@font-size-base * 1.125));
+}
+
+.ms-font-lg {
+    font-size: @font-size-large;
+}
+
+.ms-font-bold {
+    font-weight: bold;
+}
+
+
+/* 边框样式 */
+
+.ms-border-top,
+.ms-border-right,
+.ms-border-bottom,
+.ms-border-left,
+.ms-border-all {
+    border: 0 solid @borderColor;
+}
+
+.ms-border-top {
+    border-top-width: 1px;
+}
+
+.ms-border-right {
+    border-right-width: 1px;
+}
+
+.ms-border-bottom {
+    border-bottom-width: 1px;
+}
+
+.ms-border-left {
+    border-left-width: 1px;
+}
+
+.ms-border-all {
+    border-width: 1px;
+}
+
+.ms-border-none {
+    border: 0;
+}
+
+
+/* 间居样式 */
+
+.ms-padding-xs {
+    padding: @padding-xs-horizontal;
+}
+
+.ms-padding-sm {
+    padding: @padding-small-horizontal;
+}
+
+.ms-padding-md {
+    padding: @padding-base-horizontal;
+}
+
+.ms-padding-lg {
+    padding: @padding-large-horizontal;
+}
+
+.ms-padding-left {
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+}
+
+.ms-padding-top {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+}
+
+.ms-padding-right {
+    padding-top: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+}
+
+.ms-padding-bottom {
+    padding-top: 0;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+
+/* 内容容器样式 */
+
+.ms-content {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 0px;
+}
+
+@media (max-width: 768px) {
+    .rsp-left {
+        left: -100%;
+    }
+    .rsp-left.toggled {
+        left: 0;
+    }
+    .rsp-right {
+        right: -100%;
+    }
+    .rsp-right.toggled {
+        right: 0;
+    }
+    .rsp-body {
+        margin-left: 0!important;
+        margin-right: 0!important;
+    }
+}

@@ -1,0 +1,10 @@
+<div class="" ng-hide="form.hide" ng-model-options="form.ngModelOptions">
+    <layout-responsive>
+        <div gridcol-control ng-model="$$value$$" model="model" form="form">
+            <view-grid ng-model="$$value$$" form="form"></view-grid>
+        </div>
+        <layout-footer>
+
+        </layout-footer>
+    </layout-responsive>
+</div>

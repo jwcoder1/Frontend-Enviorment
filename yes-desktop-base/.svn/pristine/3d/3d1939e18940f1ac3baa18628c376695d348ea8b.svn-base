@@ -1,0 +1,48 @@
+<div>
+    <div class="widget-body">
+        <form name="edit$form" class="schema-form" role="form"
+              ng-submit="save(edit$form)">
+              <label style="  margin-bottom: 0;margin-top: 3px;">{{model.uid?"编辑":"新建" | translate}}</label>
+            <div class="buttons-wrap">
+                <button type="submit" name="yes_temp_show_task" class="btn btn-sm btn-primary"
+                        title=""><i class="fa fa-save bigger-110"></i> {{'保存' | translate}}
+                </button>
+                <div class="base-form selector-form clearfix">
+
+                    <div class="form-group col-xs-12 col-sm-12">
+                        <div class="col caption">
+                            <label class="control-label required">
+                                {{'编号' | translate}}
+                            </label>
+                        </div>
+                        <div class="col content">
+                            <input type="text" class="form-control" ng-model="model.pid" maxlength="32">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-xs-12 col-sm-12">
+                        <div class="col caption">
+                            <label class="control-label required">
+                                {{'名称' | translate}}
+                            </label>
+                        </div>
+                        <div class="col content">
+                            <input type="text" class="form-control" ng-model="model.name" maxlength="32">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-xs-12 col-sm-12">
+                        <div class="col caption">
+                            <label class="control-label">{{'已启用' | translate}}</label>
+                        </div>
+
+                        <div class="col content">
+                            <input type="checkbox" ng-model="model.enable">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

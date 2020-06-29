@@ -1,0 +1,13 @@
+<div>
+
+    <div class="clearfix editgrid">
+        <form name="grid">
+            <!-- <div ng-if="gridstyle" ui-grid='gridOptions' ui-grid-selection ui-grid-resize-columns ui-grid-exporter ui-grid-move-columns ui-grid-edit ui-grid-pinning ui-grid-cellNav ng-style="gridstyle"></div>
+            <div ng-if="!gridstyle" auto-height ui-grid='gridOptions' ui-grid-selection ui-grid-resize-columns ui-grid-exporter ui-grid-move-columns ui-grid-auto-resize ui-grid-edit ui-grid-pinning ui-grid-cellNav></div> -->
+
+            <div ng-if="form.records" auto-height ui-grid='gridOptions' ui-grid-selection ui-grid-resize-columns ui-grid-exporter ui-grid-move-columns ui-grid-auto-resize ui-grid-pagination ui-grid-pinning ui-grid-resize></div>
+            <div ng-if="!form.records" auto-height ui-grid='gridOptions' ui-grid-selection ui-grid-resize-columns ui-grid-exporter ui-grid-move-columns ui-grid-auto-resize ui-grid-pagination ui-grid-pinning ui-grid-resize></div>
+        </form>
+    </div>
+
+</div>

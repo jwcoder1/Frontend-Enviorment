@@ -1,0 +1,51 @@
+.container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+@media (max-width: 768px) {
+    .drawer {
+        width: 100%;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+    .drawer-main {
+        width: 100%;
+        position: fixed;
+        margin-left: -18px;
+        background: white;
+    }
+    .drawer-left,
+    .drawer-right {
+        background: white;
+        z-index: 1;
+        position: fixed;
+        width: 100%;
+        overflow-y: auto;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+    .drawer-left {
+        left: 100%;
+        margin-left: -100%;
+    }
+    .drawer-right {
+        right: 100%;
+        margin-right: -100%;
+    }
+    .drawer-left.toggled {
+        left: 0;
+    }
+    .drawer-right.toggled {
+        right: 0;
+    }
+}
+
+.show-mouse-move{
+    z-index: 9999;width: auto;height: auto;background: #F7F5D1;border:1px solid;position: fixed;
+}

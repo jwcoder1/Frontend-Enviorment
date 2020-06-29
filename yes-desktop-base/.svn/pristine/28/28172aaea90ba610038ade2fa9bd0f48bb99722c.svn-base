@@ -1,0 +1,17 @@
+<div ng-init="parentmodel=$parent.$parent.$parent.model;" class="schema-form-section sfs-region clearfix {{form.htmlClass}}" ng-class="{'hide': form.hide}">
+    <div ng-hide="!form.title" class="header smaller lighter collapsed">
+        <label tooltip={{form.title}} ng-class="{'sr-only': !showTitle() }">{{form.title | translate}}</label>
+        <label ng-show="item.showtitle" style="font-weight: initial;margin-left: 8px;" ng-repeat="item in form.items">{{$parent.model[item.key]}}</label>
+        <!--<label style="font-weight: initial;">申请</label>-->
+        <div class="widget-toolbar">
+            <a data-action="collapse" ng-click="isCollapsed = !isCollapsed">
+                <i class="ace-icon fa fa-chevron-up click" ng-class="{'fa-chevron-down':!isCollapsed}"></i>
+            </a>
+        </div>
+    </div>
+
+    <div ng-show="!isCollapsed">
+        <sf-decorator ng-class="{'hide': form.hide}" class="{{form.type=='bpmDetail' || form.type=='basDetail' || form.type=='bpmRegion' || form.type=='bpmArrayitem' || form.type=='bpmArray' || form.type=='bpmTable' || form.type=='basTable' || form.type=='tabarray' ?'form-cells  col-xs-12 col-sm-12 clearfix':'form-cells cell'}} {{form.css}}"
+            ng-repeat="item in form.items" form="item"></sf-decorator>
+    </div>
+</div>

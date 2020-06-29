@@ -1,0 +1,15 @@
+<div>
+    <div ng-if="action || hide " class="operation" style=" margin-top: 6px;">
+        <button obj-control model="model" dmodel="model" form="item" ng-repeat="item in action" data-ng-disabled="item.readonly" ng-hide="item.hide" class="btn btn-primary" type="button" ng-click="item.preclick();" style="margin-right: 2px;">
+                <i class="fa {{item.icon}}"></i> {{item.name}}
+        </button>
+    </div>
+
+    <div class="clearfix editgrid">
+        <form name="grid">
+            <div ng-if="gridstyle" ui-grid='gridOptions' ui-grid-selection ui-grid-resize-columns ui-grid-exporter ui-grid-move-columns ui-grid-edit ui-grid-pinning ui-grid-cellNav ng-style="gridstyle"></div>
+            <div ng-if="!gridstyle" auto-height ui-grid='gridOptions' ui-grid-selection ui-grid-resize-columns ui-grid-exporter ui-grid-move-columns ui-grid-auto-resize ui-grid-edit ui-grid-pinning ui-grid-cellNav></div>
+        </form>
+    </div>
+
+</div>

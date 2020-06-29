@@ -1,0 +1,326 @@
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+.divchecked{
+	background: #92C5DE;
+}
+.clickable {
+  cursor: pointer;
+}
+.my-list {
+  border: 1px solid #d4d4d4;
+}
+.my-list .my-table-title {
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eee), color-stop(1, #fff));
+  line-height: 25px;
+  height: 25px;
+  font-size: 14px;
+  border-bottom: 1px solid #d4d4d4;
+}
+.my-list .my-table-title > div {
+  float: left;
+  text-align: center;
+  margin: 0;
+}
+.my-list .my-table-title > div:not(:first-child) {
+  border-left: 1px solid #d4d4d4;
+}
+.my-list .my-table-item:nth-child(odd) {
+  background-color: #fdfdfd;
+}
+.my-list .my-table-item:nth-child(even) {
+  background-color: #f3f3f3;
+}
+.my-list .my-table-item > div {
+  float: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0;
+  text-align: center;
+}
+.my-list .my-table-item > div:not(:first-child) {
+  border-left: 1px solid #d4d4d4;
+}
+.my-list .page-div {
+  width: 100%;
+  text-align: center;
+}
+.my-list .page-div .curePage {
+  font-size: 15px;
+}
+.my-list .page-div .page-icon {
+  font-size: 20px;
+  padding: 0 6px;
+  cursor: pointer;
+}
+.my-list > .my-title {
+  line-height: 35px;
+  height: 35px;
+  border-bottom: 1px solid #B8B1B1;
+  text-align: center;
+  font-size: 16px;
+}
+.my-list > .my-title button {
+  margin-bottom: 5px;
+}
+.my-list .my-item {
+  line-height: 25px;
+  height: 25px;
+  font-size: 12px;
+}
+.my-list .my-item.current {
+  background-color: #2a88be !important;
+  color: #fff !important;
+}
+.my-list .my-item .hover-show {
+  display: none;
+}
+.my-list .my-item:hover {
+  background-color: rgba(98, 168, 209, 0.1);
+}
+.my-list .my-item:hover .hover-show {
+  display: inline !important;
+}
+.operate-span {
+  padding: 2px 3px;
+}
+.operate-span-edit {
+  padding: 2px 1px;
+}
+.operate-span:hover {
+  color: red;
+}
+.operate-span-edit:hover {
+  color: red;
+}
+.add-btn {
+  font-size: 16px;
+  color: #06ca06;
+}
+.search-items > .item {
+  width: 33% !important;
+}
+.dialog-people-selector {
+  padding-top: 25px !important;
+}
+.dialog-people-selector .tree .checked {
+  background-color: #f0f7fc;
+}
+.dialog-people-selector .tree .operate-span {
+  padding: 2px 4px;
+}
+.dialog-people-selector .tree .operate-btn.fa-plus-circle {
+  font-size: 14px !important;
+  color: #06ca06;
+}
+.dialog-people-selector .tree .operate-btn.fa-minus-circle {
+  font-size: 14px !important;
+  color: #c71313;
+}
+.dialog-people-selector .tree .tree-branch {
+  cursor: auto !important;
+}
+.dialog-people-selector .tree-small .tree-branch .tree-branch-children {
+  margin: 0 0 0 17px !important;
+}
+.dialog-people-selector .tree-small:before {
+  bottom: 12px !important;
+}
+.dialog-people-selector .tree-small .tree-branch:before,
+.dialog-people-selector .tree-small .tree-item:before {
+  top: 10px !important;
+  left: -14px !important;
+}
+.dialog-people-selector .tree-small .tree-branch .tree-branch-children:before {
+  left: -13px !important;
+  bottom: 12px !important;
+}
+.dialog-people-selector .tree-small .tree-item,
+.dialog-people-selector .tree-small .tree-branch .tree-branch-header {
+  padding: 1px !important;
+}
+.dialog-people-selector .tree-small div {
+  font-size: 12px !important;
+}
+.dialog-people-selector .tree-children {
+  padding-left: 20px;
+}
+.dialog-people-selector .tree-item-name,
+.dialog-people-selector .tree-branch-name {
+  white-space: nowrap !important;
+}
+.dialog-people-selector .ngdialog-content {
+  background: #fff !important;
+  width: 1000px !important;
+}
+.my-organization-edit .ngdialog-content {
+  width: 600px !important;
+}
+.document-selector .btn-bottom {
+  margin: 0;
+  padding: 0;
+}
+.document-selector .btn-bottom .btn {
+  margin-top: 4px;
+  float: right;
+  padding: 3px 5px;
+}
+.document-selector .checkbox-label input {
+  margin: 2px 0;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+}
+.document-selector .checkbox-label span {
+  font-weight: 400;
+  font-size: 14px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.document-selector div {
+  font-size: 14px;
+}
+.document-selector a {
+  color: #337ab7;
+  text-decoration: none;
+  background-color: transparent;
+}
+.document-selector a:hover,
+.document-selector a:focus {
+  color: #23527c;
+  text-decoration: underline !important;
+}
+.document-selector a:active,
+.document-selector a:hover {
+  outline: 0;
+}
+.sift-div {
+  width: 25px;
+  float: left;
+  font-family: Arial, "微软雅黑", "宋体";
+  font-size: 14px;
+  line-height: 18px;
+  color: #333333;
+  text-decoration: none;
+  text-align: center;
+}
+.sift-div .characters-ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sift-div .characters-ul > li {
+  line-height: 17px;
+  color: #6fb3e0;
+  font-size: 14px;
+  cursor: pointer;
+}
+.sift-div .characters-ul > li:hover {
+  color: #fff;
+  background-color: #6fb3e0;
+}
+.document-selector .top-div {
+  height: 43px;
+  width: 100%;
+}
+.document-selector .tree-div {
+  font-family: Verdana, Arial, Helvetica, AppleGothic, sans-serif !important;
+  width: auto;
+  height: 442px;
+  overflow-y: auto;
+  border: 1px solid #DCE8F1;
+}
+.document-selector .tree-div .person_girl {
+  background-position: left 50%;
+  background-image: url(../images/woman.gif);
+}
+.document-selector .tree-div .person_man {
+  background-image: url(../images/man.gif);
+  background-position: left 50%;
+}
+.document-selector .tree-div .person_dept {
+  background-image: url(../images/dept.gif);
+  background-position: left 50%;
+}
+.document-selector .tree-div .people-row:hover {
+  background-color: #F0F7FC;
+}
+.document-selector .tree-div .people-row {
+  border-bottom: 1px solid #CCCCCC;
+  color: #333333;
+  text-decoration: none;
+  text-indent: 20px;
+  height: 27px;
+  padding: 3px 5px 0 0;
+  cursor: pointer;
+  font-size: 14px;
+  background-repeat: no-repeat;
+}
+.document-selector .tree-div .people-row > i {
+  text-indent: 5px;
+  float: right;
+  margin-top: 3px;
+}
+.document-selector .tree-div .people-row > i.fa-minus {
+  color: #FAFA0B;
+}
+.document-selector .tree-div .people-row > i.fa-plus {
+  color: #0B0D9B;
+}
+.document-selector .tree-div .people-row > .right {
+  text-indent: 0px;
+  display: block;
+  width: 170px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.document-selector .page-div {
+  width: 100%;
+  text-align: center;
+}
+.document-selector .page-div .curePage {
+  font-size: 15px;
+}
+.document-selector .page-div .page-icon {
+  font-size: 20px;
+  padding: 0 6px;
+  cursor: pointer;
+}
+.search-span {
+  width: 100%;
+}
+.search-span > input {
+  height: 29px;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+.enterprise-selector {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #B8B1B1;
+}
+.enterprise-selector input,
+.enterprise-selector select {
+  border: 1px solid #ddd;
+}
+.enterprise-selector > .enterprise-name {
+  float: left;
+  height: 29px;
+  width: 45px;
+  line-height: 29px;
+  font-size: 14px;
+  margin-left: 5px;
+}
+.enterprise-selector > .enterprise-input {
+  margin-left: 50px;
+  margin-right: 5px;
+}
+.my-table-delete {
+  padding-left: 20% !important;
+  padding-right: 20% !important;
+}

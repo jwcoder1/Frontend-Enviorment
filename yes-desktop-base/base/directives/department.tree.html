@@ -1,0 +1,55 @@
+<style>
+    .yellow{
+        color: #FC0;
+        font-size: initial;
+    }
+    .red{
+        color: #FF0000;
+        font-size: initial;
+    }
+    span.float-right{
+        float: right;
+        margin-right: 35px;
+        margin-top: -2px;
+    }
+    .tree-branch-name{
+        width: 100%;
+    }
+    
+    @media (max-width: 768px) {
+        .media-display{
+            display: block;
+        }
+    }
+    @media (min-width: 768px) {
+        .display-none{
+            display: none;
+        }
+        .display-block{
+            display: block;
+        }
+    }
+</style>
+<ul ng-if="items" class="{{::isChild?'tree-branch-children':'tree tree-small'}}" ng-hide="hide">
+    <li ng-repeat="item in items" class="{{item.children?'tree-branch':'tree-item'}}{{item.opened?' tree-open':''}}{{(item.checked&&(!item.children))?' checked':''}}"
+        ng-click="treeSelect(item,$event);" ng-mouseenter="item.showPlus='display-block'" ng-mouseleave="item.showPlus=''">
+        <span class="tree-item-name" title="{{::item.name}}" ng-if="!item.children">
+            <span class="tree-label">{{::item.name}}</span>
+            <span class="operate-span float-right media-display display-none {{item.showPlus}}" ng-click="onOperate(item);$event.stopPropagation();">
+                <i class="operate-btn fa {{item.selected?'fa-minus red':'fa-plus yellow'}}"></i>
+            </span>
+        </span>
+        <div ng-if="item.children" class="tree-branch-header {{item.checked?'checked':''}}" title="{{::item.name}}" ng-click="open(item);treeSelect(item,$event);">
+            <i ng-click="open(item);$event.stopPropagation();" class="icon-folder ace-icon {{item.opened?'tree-minus':'tree-plus'}}"></i>
+            <span class="tree-branch-name">
+                <span class="tree-label">{{::item.name}}</span>
+                <span class="operate-span float-right media-display display-none {{item.showPlus}}" ng-click="onOperate(item);$event.stopPropagation();">
+                    <i class="operate-btn fa {{item.selected?'fa-minus red':'fa-plus yellow'}}"></i>
+                </span>
+            </span>
+        </div>
+        <div ng-if="item.children" department-tree items="item.children" is-child="true" hide="!item.opened" on-select="onSelect"
+            on-operate="onOperate" on-footerbuttonclick="onFooterbuttonclick">
+        </div>
+    </li>
+</ul>

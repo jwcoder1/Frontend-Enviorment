@@ -1,0 +1,18 @@
+.breadcrumb {
+    margin-bottom: 0;
+    // padding: 9px 20px 10px 20px;
+    i {
+        font-size: 16px;
+        color: @gray;
+    }
+    // margin-bottom: 0;
+    // height: @breadcrumb-height;
+    // padding: 9px 20px 10px 20px;
+    // i {
+    //     font-size: 16px;
+    //     color: @gray;
+    // }
+    // font-size: 12px;
+    border-bottom: 1px solid @silver;
+    border-radius: 0;
+}

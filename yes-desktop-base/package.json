@@ -1,0 +1,89 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "yes-desktop-base@^6.1.7",
+        "scope": null,
+        "escapedName": "yes-desktop-base",
+        "name": "yes-desktop-base",
+        "rawSpec": "^6.1.7",
+        "spec": ">=6.1.7 <7.0.0",
+        "type": "range"
+      },
+      "D:\\org_yessoft_vehicle_front_end\\org_yessoft_vehicle_front_end\\vehicle"
+    ]
+  ],
+  "_cnpm_publish_time": 1477983659486,
+  "_from": "yes-desktop-base@>=6.1.7 <7.0.0",
+  "_id": "yes-desktop-base@6.1.7",
+  "_inCache": true,
+  "_location": "/yes-desktop-base",
+  "_nodeVersion": "6.9.1",
+  "_npmUser": {
+    "name": "admin",
+    "email": "vellengs@qq.com"
+  },
+  "_npmVersion": "3.10.8",
+  "_phantomChildren": {},
+  "_publish_on_cnpm": true,
+  "_requested": {
+    "raw": "yes-desktop-base@^6.1.7",
+    "scope": null,
+    "escapedName": "yes-desktop-base",
+    "name": "yes-desktop-base",
+    "rawSpec": "^6.1.7",
+    "spec": ">=6.1.7 <7.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "http://192.168.50.67:7001/yes-desktop-base/download/yes-desktop-base-6.1.7.tgz",
+  "_shasum": "bc30062d0c3bfa31951026b899695b9166e3da1d",
+  "_shrinkwrap": null,
+  "_spec": "yes-desktop-base@^6.1.7",
+  "_where": "D:\\org_yessoft_vehicle_front_end\\org_yessoft_vehicle_front_end\\vehicle",
+  "author": {
+    "name": "vellengs"
+  },
+  "bugs": {
+    "url": "https://github.com/yes-soft/base/issues"
+  },
+  "dependencies": {
+    "yes-desktop-core": "3.6.8"
+  },
+  "description": "通用基础模块",
+  "devDependencies": {},
+  "directories": {
+    "test": "tests"
+  },
+  "dist": {
+    "shasum": "bc30062d0c3bfa31951026b899695b9166e3da1d",
+    "size": 114581,
+    "key": "/yes-desktop-base/-/yes-desktop-base-6.1.7.tgz",
+    "tarball": "http://192.168.50.67:7001/yes-desktop-base/download/yes-desktop-base-6.1.7.tgz"
+  },
+  "homepage": "https://github.com/yes-soft/base#readme",
+  "keywords": [
+    "web",
+    "base"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "admin",
+      "email": "vellengs@qq.com"
+    }
+  ],
+  "name": "yes-desktop-base",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yes-soft/base.git"
+  },
+  "scripts": {},
+  "version": "6.1.7"
+}

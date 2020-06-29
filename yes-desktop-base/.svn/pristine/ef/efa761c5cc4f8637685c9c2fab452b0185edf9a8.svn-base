@@ -1,0 +1,10 @@
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
+
+.ui-logo {
+  line-height: 42px;
+  margin: 0;
+  img {
+    max-width: 190px;
+  }
+}

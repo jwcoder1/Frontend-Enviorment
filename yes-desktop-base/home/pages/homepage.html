@@ -1,0 +1,20 @@
+<div class="welcome-title">
+
+    <script type="text/ng-template" id="menu_icon">
+        <a ng-if="!cmenu.children && (cmenu.home || cmenu.isdefault=='True')" ng-click="onselecthome(cmenu)" class="btn btn-app btn-sm menu-btn {{::cmenu.color}}" title="{{::cmenu.name | translate}}">
+            <i class="ace-icon bigger-200 fa {{::cmenu.icon}}"></i> {{::cmenu.name | translate}}
+        </a>
+        <span ng-repeat="cmenu in cmenu.children" ng-include="'menu_icon'"></span>
+    </script>
+
+    <div class="col-xs-12 menu-group">
+        <div class="row" ng-repeat="menu in ::menus">
+            <h3 class="header smaller lighter green">{{::menu.name | translate}}
+                <small>&nbsp;</small>
+            </h3>
+            <p>
+                <span ng-include="'menu_icon'" ng-repeat="cmenu in menu.children"></span>
+            </p>
+        </div>
+    </div>
+</div>

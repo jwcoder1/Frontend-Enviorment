@@ -1,0 +1,12 @@
+<div class="input-group">
+    <input ng-disabled="form.readonly" date-picker ng-change="changeddate()" class="form-control" ng-model="datefield" id="{{form.key.slice(-1)[0]}}" type="text" picker-type="'date'" options="form.options" schema-validate="form">
+    <span class="input-group-addon">
+                    <i class="fa fa-clock-o bigger-110"></i>
+                </span>
+    <div class="input-group" uib-dropdown dropdown-append-to-body auto-close="outsideClick">
+        <input ng-disabled="form.readonly" readonly id="btn-append-to-body" ng-change="changetimestr()" class="form-control" ng-model="timefield" id="{{form.key.slice(-1)[0]}}" type="text" options="form.options" schema-validate="form" uib-dropdown-toggle style="width: 70px; padding-right: 10px; padding-left: 10px;">
+        <ul uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+            <uib-timepicker ng-model="mytime" ng-change="changedtime()" hour-step="hstep" minute-step="mstep" show-seconds="false" show-meridian="false"></uib-timepicker>
+        </ul>
+    </div>
+</div>

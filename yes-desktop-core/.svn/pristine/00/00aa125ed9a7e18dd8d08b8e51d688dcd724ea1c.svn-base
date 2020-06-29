@@ -1,0 +1,26 @@
+<div ng-controller='app.default.layout'>
+	<layout-responsive class="max-4">
+		<widget class="box cell" title="一格容器">
+
+		</widget>
+		<widget class="box cell2" title="两格容器">
+
+		</widget>
+		<widget class="box cell" title="一格容器">
+
+		</widget>
+		<widget class="box cell" title="一格容器">
+
+		</widget>
+		<widget class="box cell3" title="三格容器">
+
+		</widget>
+		<widget class="box cell100" title="满格容器">
+
+		</widget>
+		<widget class="box cell" title="一格容器">
+
+		</widget>
+
+	</layout-responsive>
+</div>

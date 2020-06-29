@@ -1,0 +1,14 @@
+<div class="ngdialog-content-wrap detail-view">
+    <form name="edit_form" class="base-form">
+        <div class="buttons-wrap">
+            <button class="btn btn-sm btn-primary" type="submit" ng-click="action.save(edit_form);">
+                <i class="glyphicon glyphicon-search "></i> {{'保存' | translate}}
+            </button>
+            <button class="btn btn-sm btn-primary" type="button" ng-click="action.close();">
+                <i class="ace-icon fa fa-arrow-left bigger-110"></i> {{'返回' | translate}}
+            </button>
+        </div>
+
+        <div sf-schema="form.schema" sf-form="form.form" sf-model="form.model"></div>
+    </form>
+</div>

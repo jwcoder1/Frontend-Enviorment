@@ -1,0 +1,160 @@
+{
+  "error": 0,
+  "message": "success",
+  "body": [
+    {
+      "uid": "0001",
+      "name": "首页",
+      "color": "blue",
+      "icon": "fa-desktop",
+      "order": 920,
+      "url": "#",
+      "parent": "",
+      "type": "menu",
+      "home": true
+    },
+    {
+      "uid": "00010001",
+      "name": "框架首页",
+      "color": "btn-primary",
+      "icon": "fa-user",
+      "order": 100,
+      "url": "#/$default",
+      "parent": "0001",
+      "type": "menu",
+      "home": true
+    },
+    {
+      "uid": "0002",
+      "name": "页面布局",
+      "color": "btn-success",
+      "icon": "fa-desktop",
+      "order": 900,
+      "url": "#$default/layout",
+      "parent": "",
+      "type": "menu",
+      "home": true
+    },
+    {
+      "uid": "00020001",
+      "name": "通用自适应布局",
+      "color": "btn-info",
+      "icon": "fa-user",
+      "order": 100,
+      "url": "#/$default/layout",
+      "parent": "0002",
+      "type": "menu",
+      "home": true
+    },
+    {
+      "uid": "00020002",
+      "name": "布局标准页",
+      "color": "btn-warning",
+      "icon": "fa-user",
+      "order": 100,
+      "url": "#/$default/page",
+      "parent": "0002",
+      "type": "menu",
+      "home": true
+    },
+    {
+      "uid": "00020003",
+      "name": "布局查询页",
+      "color": "btn-danger",
+      "icon": "fa-user",
+      "order": 100,
+      "url": "#/$default/query",
+      "parent": "0002",
+      "type": "menu",
+      "home": true
+    },
+    {
+      "uid": "00020004",
+      "name": "自动高度",
+      "color": "btn-primary",
+      "icon": "fa-user",
+      "order": 100,
+      "url": "#/$default/auto-height",
+      "parent": "0002",
+      "type": "menu",
+      "home": true
+    },
+    {
+      "uid": "00020005",
+      "name": "表格自动最小行",
+      "color": "btn-success",
+      "icon": "fa-user",
+      "order": 100,
+      "url": "#/$default/grid-auto-min-rows",
+      "parent": "0002",
+      "type": "menu",
+      "home": true
+    },
+    {
+      "uid": "00020006",
+      "name": "布局表单页",
+      "color": "btn-info",
+      "icon": "fa-user",
+      "order": 100,
+      "url": "#/$default/form",
+      "parent": "0002",
+      "type": "menu",
+      "home": true
+    },
+    {
+      "uid": "0003",
+      "name": "组件与服务",
+      "color": "blue",
+      "icon": "fa-desktop",
+      "order": 910,
+      "url": "#",
+      "parent": "",
+      "type": "menu",
+      "home": true
+    },
+    {
+      "uid": "00030001",
+      "name": "自动高度",
+      "color": "btn-primary",
+      "icon": "fa-user",
+      "order": 100,
+      "url": "#/$default/auto-height",
+      "parent": "0003",
+      "type": "menu",
+      "home": true
+    },
+    {
+      "uid": "00030002",
+      "name": "图表组件",
+      "color": "btn-primary",
+      "icon": "fa-user",
+      "order": 100,
+      "url": "#/$default/widgets",
+      "parent": "0003",
+      "type": "menu",
+      "home": true
+    },
+    {
+      "uid": "00030003",
+      "name": "经典页面",
+      "color": "btn-primary",
+      "icon": "fa-user",
+      "order": 100,
+      "url": "#/$default/helper",
+      "parent": "0003",
+      "type": "menu",
+      "home": true
+    },
+    {
+      "uid": "00030004",
+      "name": "表单验证约束",
+      "color": "btn-primary",
+      "icon": "fa-user",
+      "order": 100,
+      "url": "#/$default/validation",
+      "parent": "0003",
+      "type": "menu",
+      "home": true
+    }
+  ]
+}

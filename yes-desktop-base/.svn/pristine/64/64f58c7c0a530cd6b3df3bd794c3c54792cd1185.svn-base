@@ -1,0 +1,11 @@
+<div ng-show="!form.hide" class="form-group {{form.htmlClass}} single-line" ng-class="{'has-error': form.disableErrorState !== true && hasError(), 'has-success': form.disableSuccessState !== true && hasSuccess(), 'has-feedback': form.feedback !== false}">
+
+    <div class="col caption">
+        <label class="control-label {{form.labelHtmlClass}}" title="{{form.title | translate}}" ng-show="showTitle()">
+            {{form.title | translate}}
+        </label>
+    </div>
+    <div class="col content" obj-control model="$parent.parentmodel?$parent.parentmodel:model" dmodel="model" form="form">
+        <div class="form-control" get-gallery options="form.options" readonly="form.readonly" ng-model="$$value$$"></div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{
+  "name": "default",
+  "version": "0.1.0",
+  "description": "Example for start",
+  "author": "yes-soft",
+  "dependencies": {
+    "desktop": "^3.6.0"
+  },
+  "type": "plugin",
+  "root": true
+}

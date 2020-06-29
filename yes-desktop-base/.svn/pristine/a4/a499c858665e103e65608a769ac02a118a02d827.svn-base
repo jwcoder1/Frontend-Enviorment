@@ -1,0 +1,12 @@
+<div class="visible-xs navbar-fixed-bottom" style="background-color: #3b485b;border-color: #27303c;">
+    <div class="btn-wrap clearfix ng-scope">
+        <div style="float: left;padding-left: 12px;">
+            <button ng-repeat="item in leftbuttons" type="button" class="btn btn-primary" style="width: 74px;" ng-click="item.onFooterbuttonclick(item)">
+                    {{item.name}}</button>
+        </div>
+        <div style="float: right;padding-right: 12px;">
+            <button ng-repeat="item in rightbuttons" type="button" class="btn btn-primary" style="width: 74px;" ng-click="item.onFooterbuttonclick(item)">
+                    {{item.name}}</button>
+        </div>
+    </div>
+</div>

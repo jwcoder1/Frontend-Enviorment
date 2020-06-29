@@ -1,0 +1,6 @@
+<div class="esylov">
+    <input type="text" sf-changed="form" class="form-control  esylovinput" id="{{form.key.slice(-1)[0]}}" ng-model-options="form.ngModelOptions" ng-model="ngModel" ng-disabled="form.readonly" schema-validate="form" name="{{form.key.slice(-1)[0]}}" aria-describedby="{{form.key.slice(-1)[0] + 'Status'}}">
+    <span ng-disabled="form.readonly" class="esylovioc" ng-click="dialog(form,$parent)">
+             <i class="fa fa-arrows-alt" ></i>
+        </span>
+</div>

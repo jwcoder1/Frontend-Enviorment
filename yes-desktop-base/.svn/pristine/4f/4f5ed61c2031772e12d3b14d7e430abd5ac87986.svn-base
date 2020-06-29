@@ -1,0 +1,45 @@
+<div>
+    <div class="page-content list-scope">
+        <div class="row">
+            <div class="col-xs-5" style="padding-right: 4px;">
+                <div class="my-list">
+                    <div class="my-title" style="text-align:left;">
+                        <b style="margin-left:15px;">{{'所属角色' | translate}}</b>
+                    </div>
+                    <div class="my-content" style="height: 495px;padding:15px;">
+                        <div style="width:100%;height:100%;border:1px solid #d4d4d4;overflow-y: auto;">
+                            <div class="my-table-title">
+                                <div style="width:20%;">{{"类型" | translate}}</div>
+                                <div style="width:40%;">{{"编号" | translate}}</div>
+                                <div style="width:40%;">{{"名称" | translate}}</div>
+                            </div>
+                            <div>
+                                <div ng-repeat="item in authoritys" ng-class="{'current':item == current}"
+                                     ng-click="action.selectAuthority(item);"
+                                     class="my-item clickable my-table-item">
+                                    <div style="width:20%;" title="{{item.showType | translate}}">{{item.showType |
+                                        translate}}
+                                    </div>
+                                    <div style="width:40%;" title="{{item.value}}">{{item.value}}</div>
+                                    <div style="width:40%;" title="{{item.show}}">{{item.show}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-7">
+                <div class="my-list">
+                    <div class="my-title" style="position: relative;">
+                        <b>{{'所有权限' | translate}}</b>
+                    </div>
+                    <div class="my-content" style="height: 495px;overflow-y: auto;">
+                        <div yes-application-tree data-nodes="node.children" data-root="true" cant-selected="true"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

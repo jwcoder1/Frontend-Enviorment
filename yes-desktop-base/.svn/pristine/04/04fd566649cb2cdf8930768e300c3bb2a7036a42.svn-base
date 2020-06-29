@@ -1,0 +1,4 @@
+<div style=" border: 1px solid #ccc; border-radius: 4px;">
+    <a ng-show="!form.readonly" class="btn-primary" ng-click="edit();" style="font-size: 17px;"> <i class="fa fa-pencil-square-o "></i></a>
+    <div ng-bind-html="ngModel" style=" overflow-y: scroll;  height: 140px;"></div>
+</div>

@@ -1,0 +1,81 @@
+<div class="login-page" ng-controller="app.login">
+
+    <div class="login-header-wrap">
+        <div class="container">
+            <h3>
+                青维供应莲管理平台
+            </h3>
+
+            <div class="links">
+                <!--<a href="#">亿商互联</a>
+				<a href="#">帮助与文档</a>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="login-container">
+        <div class="container">
+            <div class="login-container-inner">
+                <div class="login-banner-wrap col-sm-12 col-md-6">
+                    <img src="plugins\home\assets\images\erp.png" />
+                </div>
+                <div class="container-fluid col-sm-12 col-md-6 login-form-outer">
+                    <div class="login-form-wrap">
+                        <div class="login-form-inner">
+                            <h4>
+                                <i class="fa fa-user"></i> 用户登录
+                            </h4>
+                            <form ng-submit="action.login()">
+                                <fieldset>
+                                    <div class="row">
+                                        <label class="col-sm-12">
+                                <input type="text" class="form-control input" 
+                                                ng-model="vm.username" placeholder="账号"/>
+                            </label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-sm-12">
+                                <input type="password" class="form-control input"
+                                                ng-model="vm.password" placeholder="密码"/>
+                            </label>
+                                    </div>
+                                    <div class="row text-extra">
+                                        <div class="col-xs-6">
+                                            <label class="ys-checkbox"> 
+                                    <input type="checkbox" ng-model="vm.rememberMe"/> 
+                                    自动登录
+                                </label>
+                                        </div>
+                                        <div class="col-xs-6 text-right">
+                                            <label class="forgot-passord">
+                                    <!--<a class="click" ng-click="action.forgotPassword()"> 忘记密码？</a>-->
+                                </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <button type="submit" class="btn btn-primary btn-full">
+                                登录
+                                </button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="login-footer-wrap">
+        <div class="container">
+            <div class="support">
+                青维信息自动化管理中心
+            </div>
+            <div class="copy-right">
+                技术支持:厦门青维科技有限公司 &copy; <a href="http://www.qw-soft.com/" target="_blank">Web:www.qw-soft.com</a> &copy; Tel:15160002270 &copy; Mail:ardui@qw-soft.com &copy; 2017 - 2018
+            </div>
+        </div>
+    </div>
+</div>

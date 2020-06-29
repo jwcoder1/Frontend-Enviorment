@@ -1,0 +1,3 @@
+<div ng-controller="base.mqueue">
+    <div class="list-account-view" ng-include="'plugins/base/templates/list.html'"></div>
+</div>

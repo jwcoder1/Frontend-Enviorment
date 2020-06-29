@@ -1,0 +1,19 @@
+<div class="ngdialog-content-wrap detail-view" ng-controller="base.account.detail">
+
+    <form name="base_form" class="base-form" ng-submit="action.save($event, base_form)">
+        <div class="buttons-wrap">
+            <button class="btn btn-primary" type="submit">
+                <i class="fa fa-save "></i> {{'保存' | translate}}
+            </button>
+            <button class="btn btn-primary" type="button" ng-click="detailReset();">
+                <i class="fa fa-undo"></i> {{'重置' | translate}}
+            </button>
+            <button class="btn btn-primary" type="button" ng-click="action.back() || closeThisDialog() ;">
+                <i class="fa fa-arrow-left"></i> {{'返回' | translate}}
+            </button>
+        </div>
+        <layout-responsive class="max-4">
+            <div class="ys-schema-form" sf-schema="detail.schema" sf-form="detail.form" sf-model="$parent.$parent.model"></div>
+        </layout-responsive>
+    </form>
+</div>

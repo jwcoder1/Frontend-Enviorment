@@ -1,0 +1,36 @@
+<section class="list-view ngdialog-content-wrap" ng-controller="app.readdocuments">
+    <div class="header smaller lighter collapsed">
+        <label>{{config.title | translate}}</label>
+    </div>
+    <layout-responsive class="max-6">
+        <div ng-show="config.readfilterItems" class="header smaller lighter clearfix">
+            <ui-query ng-repeat="config in config.readfilterItems" ng-model="filter" option="config" class="query-item form-cells cell {{config.css}}"></ui-query>
+        </div>
+        <form name="query" ng-submit="action.load()" class="list-queries query-form clearfix">
+            <ui-query ng-repeat="config in config.filterItems" ng-model="filter" option="config" class="query-item form-cells cell {{config.css}}"></ui-query>
+            <div class="buttons-wrap">
+                <button class="btn btn-sm btn-primary ng-binding" type="submit">
+                <i class="glyphicon glyphicon-search"></i> 查询
+            </button>
+                <button class="btn btn-sm btn-primary ng-binding" type="button" ng-click="action.reset();">
+                <i class="ace-icon fa fa-undo bigger-110"></i> 重置
+            </button>
+                </button>
+                <button class="btn btn-sm btn-primary ng-binding" type="button" ng-click="action.repsure();">
+                <i class="ace-icon fa fa-undo bigger-110"></i> 覆盖选定
+            </button>
+                <button class="btn btn-sm btn-primary ng-binding" type="button" ng-click="action.addsure();">
+                <i class="ace-icon fa fa-undo bigger-110"></i> 添加选定
+            </button>
+            </div>
+        </form>
+    </layout-responsive>
+
+    <div cg-busy="{promise:promise,templateUrl:'',message:'please wait..',backdrop:true,delay:0,minDuration:0}">
+        <form name="grid" ng-class="{'enable-filter':gridOptions.enableFiltering}">
+            <list-grid headers="config.headers" row-dblclick="action.rowclick;" onchangepage="action.changepage" resource="model">
+            </list-grid>
+        </form>
+    </div>
+
+</section>

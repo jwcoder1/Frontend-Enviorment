@@ -1,0 +1,323 @@
+<style type="text/css">
+.list-wrap {
+    display: none;
+}
+
+.widget-box {
+    border: 0;
+}
+
+.identitys-table tr td {
+    border: 1px solid #000;
+    height: 37px;
+    padding: 3px;
+}
+
+.identitys-table tr th {
+    border: 1px solid #000;
+    height: 37px;
+    padding: 3px;
+}
+
+.enterprise-selector .btn {
+    margin: 2px;
+}
+</style>
+<div ng-controller="app.page.organization">
+    <div class="page-content list-scope" style="padding-left:0;padding-right:0;">
+        <div class="row no-margin">
+            <div class="col-xs-5" style="padding-right: 4px;">
+                <div class="my-list">
+                    <div class="my-title">
+                        <b>{{'组织列表' | translate}}</b>
+                    </div>
+                    <div class="enterprise-selector clearfix">
+                        <div class="enterprise-name"><span style="font-size:12px">企业：</span></div>
+                        <div class="enterprise-input">
+                            <span style="width:100%;float:left;" ng-click="action.changeEnterprise();" class="input-icon clickable search-span">
+                                <input ng-model="showEnterpriseName" placeholder="请选择企业" class="clickable" readonly>
+                                <i class="ace-icon fa fa-search "></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="enterprise-selector clearfix" style=>
+                        <div class="col-md-2 col-sm-2 enterprise-name"><span style="font-size:12px">类型：</span></div>
+                        <div class="col-md-7 col-sm-7">
+                            <select ng-change="orgtypechanged()" ng-model="orgType" style="width:100%;height:29px">
+                                <option value="">全部类型</option>
+                                <option ng-repeat="type in types" value="{{type.value}}">{{type.name | translate}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-sm-3" style="padding-top:3px;">
+                            <input style="margin-left:15px" type="checkbox" ng-click="orgtypechanged()" ng-model="showGroupOrg">分组显示
+                        </div>
+                    </div>
+                    <div class="enterprise-selector clearfix">
+                        <button class="btn btn-sm btn-primary" type="button" ng-click="action.addRoot();">
+                            <i class="ace-icon glyphicon glyphicon-plus bigger-110"></i> {{'根组织' | translate}}
+                        </button>
+                        <button class="btn btn-sm btn-primary" type="button" ng-disabled="current==null" ng-click="action.addChildren();">
+                            <i class="ace-icon glyphicon glyphicon-plus bigger-110"></i> {{'新增下级' | translate}}
+                        </button>
+                        <button class="btn btn-sm btn-primary" type="button" ng-disabled="current==null" ng-click="openOrgTree('child')">
+                            <i class="ace-icon glyphicon glyphicon-plus bigger-110"></i> {{'选择下级' | translate}}
+                        </button>
+                        <button class="btn btn-sm btn-primary right" type="button" ng-disabled="current==null" ng-click="action.delOrganization();">
+                            <i class="ace-icon glyphicon glyphicon-remove bigger-110"></i> {{'删除' | translate}}
+                        </button>
+                    </div>
+                    <div class="my-content" id="myCon" onload="changeFrameHeight()" style="overflow-x: auto;overflow-y: auto;">
+                        <div yes-organization-tree sortable="true" sort-option="organizationSortOption" on-select="action.selectOrganization" data-nodes="node.children" data-initial="node.children" data-root="true"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-7">
+                <div class="tabbable">
+                    <ul class="nav nav-tabs" id="myTab">
+                        <li class="active">
+                            <a data-toggle="tab" href="#organization" aria-expanded="true">
+                                {{'组织信息' | translate}}
+                            </a>
+                        </li>
+                        <li class="">
+                            <a data-toggle="tab" href="#position" aria-expanded="false">
+                                {{'职务信息' | translate}}
+                            </a>
+                        </li>
+                        <li class="">
+                            <a data-toggle="tab" href="#post" aria-expanded="false">
+                                {{'岗位信息' | translate}}
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" style="padding: 0;border: 0;">
+                        <div id="organization" class="tab-pane fade active in">
+                            <div class="my-list base-form no-padding" style="border-top: 0;">
+                                <div class="my-title" style="text-align:left;">
+                                    <button style="margin-left:10px;" class="btn btn-sm btn-primary" type="button" ng-disabled="current==null" ng-click="action.saveOrganization();">
+                                        <i class="ace-icon fa fa-save bigger-110"></i> {{'保存' | translate}}
+                                    </button>
+                                </div>
+                                <div class="my-content" id="myConn" style="height: 502px;padding:10px 0px;">
+                                    <div class="form-group form-cells col-xs-12 col-sm-6 clearfix">
+                                        <div class="col caption">
+                                            <label class="control-label">{{'组织编号' | translate}}</label>
+                                        </div>
+                                        <div class="col content">
+                                            <input type="text" class="form-control" ng-model="editEntity.showid" readonly>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" class="form-control" ng-model="editEntity.oid">
+                                    <div class="form-group form-cells col-xs-12 col-sm-6 clearfix ">
+                                        <div class="col caption">
+                                            <label class="control-label">{{'组织名称' | translate}}</label>
+                                        </div>
+                                        <div class="col content">
+                                            <input type="text" class="form-control" ng-model="editEntity.name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-cells col-xs-12 col-sm-6 clearfix ">
+                                        <div class="col caption">
+                                            <label class="control-label">{{'上级组织' | translate}}</label>
+                                        </div>
+                                        <div class="col content">
+                                            <input type="text" class="form-control" ng-model="editEntity.parentName" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-cells col-xs-12 col-sm-6 clearfix ">
+                                        <div class="col caption">
+                                            <label class="control-label">{{'简称' | translate}}</label>
+                                        </div>
+                                        <div class="col content">
+                                            <input type="text" class="form-control" ng-model="editEntity.abbreviated">
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-cells col-xs-12 col-sm-6 clearfix ">
+                                        <div class="col caption">
+                                            <label class="control-label">{{'简拼' | translate}}</label>
+                                        </div>
+                                        <div class="col content">
+                                            <input type="text" class="form-control" ng-model="editEntity.py" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-cells col-xs-12 col-sm-6 clearfix ">
+                                        <div class="col caption">
+                                            <label class="control-label">{{'分组组织' | translate}}</label>
+                                        </div>
+                                        <div class="col content">
+                                            <ui-select ng-model="editEntity.isGroup" theme="bootstrap" reset-search-input="true" style="min-width: 120px;">
+                                                <ui-select-match>
+                                                    {{$select.selected.name}}
+                                                </ui-select-match>
+                                                <ui-select-choices repeat="item.value as item in isGroupTypes | filter:$select.search">
+                                                    <div class="select2-item" ng-bind-html="item.name | highlight: $select.search"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-cells col-xs-12 col-sm-6 clearfix ">
+                                        <div class="col caption">
+                                            <label class="control-label">{{'状态' | translate}}</label>
+                                        </div>
+                                        <div class="col content">
+                                            <ui-select ng-model="editEntity.enable" theme="bootstrap" reset-search-input="true" style="min-width: 120px;">
+                                                <ui-select-match>
+                                                    {{$select.selected.name}}
+                                                </ui-select-match>
+                                                <ui-select-choices repeat="item.value as item in enableTypes | filter:$select.search">
+                                                    <div class="select2-item" ng-bind-html="item.name | highlight: $select.search"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-cells col-xs-12 col-sm-12 clearfix ">
+                                        <div class="col caption" style="width:15%;">
+                                            <label class="control-label">{{'备注' | translate}}</label>
+                                        </div>
+                                        <div class="col content" style="width:85%;">
+                                            <input type="text" class="form-control" ng-model="editEntity.memo">
+                                        </div>
+                                    </div>
+                                    <!-- 组织类型信息 -->
+                                    <div style="margin-top:10px" class="schema-form-section sfs-group col-xs-12 clearfix">
+                                        <div class="header smaller lighter collapsed">
+                                            <label style="margin-left:10px">{{"组织类型信息" | translate}}</label>
+                                            <div class="widget-toolbar">
+                                                <a data-action="collapse" ng-click="isCollapsed = !isCollapsed">
+                                                    <i class="ace-icon fa fa-chevron-up click" ng-class="{'fa-chevron-down':!isCollapsed}"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 group-wrap" style="padding-top:10px;overflow:visible;height:200px;" collapse="isCollapsed">
+                                            <div style="margin-left: 10px;margin-bottom: 10px" class="col-xs-12">
+                                                <button class="btn btn-sm btn-primary" type="button" ng-disabled="current==null" ng-click="openOrgTree('parent')">
+                                                    <i class="ace-icon glyphicon glyphicon-plus bigger-110"></i> {{'新增上级' | translate}}
+                                                </button>
+                                            </div>
+                                            <div style="margin-left: 10px;" class="col-xs-12">
+                                                <div class="col-xs-9" style="height:100%;border:1px solid #d4d4d4;overflow-y: auto;">
+                                                    <div class="my-table-title">
+                                                        <div style="width:40%;">{{"组织类型" | translate}}</div>
+                                                        <div style="width:40%;">{{"上级组织" | translate}}</div>
+                                                        <div style="width:10%;">{{"序号" | translate}}</div>
+                                                        <div style="width:10%;">{{"删除" | translate}}</div>
+                                                    </div>
+                                                    <div>
+                                                        <div ng-repeat="item in relations " class="my-item clickable my-table-item">
+                                                            <div style="width:40%;">{{item.rootname}}</div>
+                                                            <div style="width:40%;">{{item.pname | translate}}</div>
+                                                            <div style="width:10%;">{{item.seq}}</div>
+                                                            <div style="width:10%;">
+                                                                <span ng-click="deleteRelation(item)" class="operate-span my-table-delete">
+                                                                 <i class="glyphicon glyphicon-remove"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="position" class="tab-pane fade">
+                            <div class="my-list" style="border-top: 0;">
+                                <div class="my-title" style="text-align:left;">
+                                    <button style="margin-left:10px;" class="btn btn-sm btn-primary" type="button" ng-disabled="current==null" ng-click="action.addMember();">
+                                        <i class="ace-icon glyphicon glyphicon-plus bigger-110"></i> {{'新建职务' | translate}}
+                                    </button>
+                                </div>
+                                <div class="my-content" style="height: 502px;padding:10px;">
+                                    <div style="margin-bottom: 6px;">
+                                        <span class="input-icon search-span"> <input
+                                                ng-model="memberSearch" placeholder="{{'请输入' | translate}}"
+                                                class="ng-pristine ng-valid ng-touched"> <i
+                                                class="ace-icon fa fa-search "></i>
+                                        </span>
+                                    </div>
+                                    <div style="width:100%;height:452px;border:1px solid #d4d4d4;overflow-y: auto;">
+                                        <div class="my-table-title">
+                                            <div style="width:20%;">{{'组织名称' | translate}}</div>
+                                            <div style="width:20%;">{{'职务编号' | translate}}</div>
+                                            <div style="width:20%;">{{'职务名称' | translate}}</div>
+                                            <div style="width:20%;">{{'编辑' | translate}}</div>
+                                            <div style="width:20%;">{{'删除' | translate}}</div>
+                                        </div>
+                                        <div ng-sortable="sortOption">
+                                            <div ng-repeat="item in members | filter:myfilter" class="my-item clickable my-table-item">
+                                                <div style="width:20%;" title="{{item.orgName}}">{{item.orgName}}</div>
+                                                <div style="width:20%;" title="{{item.pid}}">{{item.pid}}</div>
+                                                <div style="width:20%;" title="{{item.name}}">{{item.name}}</div>
+                                                <div style="width:20%;">
+                                                    <span ng-click="action.editMember(item);$event.stopPropagation();" class="operate-span my-table-delete">
+                                                        <i class="glyphicon glyphicon-edit"></i>
+                                                    </span>
+                                                </div>
+                                                <div style="width:20%;">
+                                                    <span ng-click="action.removeMember(item);$event.stopPropagation();" class="operate-span my-table-delete" style="float:left;margin-left: 15px;">
+                                                        <i class="glyphicon glyphicon-remove"></i>
+                                                    </span>
+                                                    <span style="float:right;" class="my-handle">
+                                                        <i class="glyphicon glyphicon-move"></i>
+                                                    </span> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="post" class="tab-pane fade">
+                            <div class="my-list" style="border-top: 0;">
+                                <div class="my-title" style="text-align:left;">
+                                    <button ng-disabled="current==null" ng-click="action.addMemberPost();" style="margin-left:10px;" class="btn btn-sm btn-primary" type="button">
+                                        <i class="ace-icon glyphicon glyphicon-plus bigger-110"></i> {{'新建岗位' | translate}}
+                                    </button>
+                                </div>
+                                <div class="my-content" style="height: 502px;padding:10px;">
+                                    <div style="margin-bottom: 6px;">
+                                        <span class="input-icon search-span"> <input
+                                                ng-model="memberSearch2" placeholder="{{'请输入' | translate}}"
+                                                class="ng-pristine ng-valid ng-touched"> <i
+                                                class="ace-icon fa fa-search "></i>
+                                        </span>
+                                    </div>
+                                    <div style="width:100%;height:452px;border:1px solid #d4d4d4;overflow-y: auto;">
+                                        <div class="my-table-title">
+                                            <div style="width:20%;">{{'组织名称' | translate}}</div>
+                                            <div style="width:20%;">{{'岗位编号' | translate}}</div>
+                                            <div style="width:20%;">{{'岗位名称' | translate}}</div>
+                                            <div style="width:20%;">{{'编辑' | translate}}</div>
+                                            <div style="width:20%;">{{'删除' | translate}}</div>
+                                        </div>
+                                        <div ng-sortable="postSortOption">
+                                            <div ng-repeat="item in members2 | filter:myfilter2" class="my-item clickable my-table-item">
+                                                <div style="width:20%;" title="{{item.orgName}}">{{item.orgName}}</div>
+                                                <div style="width:20%;" title="{{item.pid}}">{{item.pid}}</div>
+                                                <div style="width:20%;" title="{{item.name}}">{{item.name}}</div>
+                                                <div style="width:20%;">
+                                                    <span ng-click="action.editMemberPost(item);$event.stopPropagation();" class="operate-span my-table-delete">
+                                                        <i class="glyphicon glyphicon-edit"></i>
+                                                    </span>
+                                                </div>
+                                                <div style="width:20%;">
+                                                    <span ng-click="action.removeMemberPost(item);$event.stopPropagation();" class="operate-span my-table-delete" style="float:left;margin-left: 15px;">
+                                                        <i class="glyphicon glyphicon-remove"></i>
+                                                    </span>
+                                                    <span style="float:right;" class="my-handle">
+                                                        <i class="glyphicon glyphicon-move"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

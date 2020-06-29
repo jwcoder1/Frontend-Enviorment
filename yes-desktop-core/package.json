@@ -1,0 +1,52 @@
+{
+  "name": "yes-desktop-core",
+  "version": "3.7.29",
+  "description": "an angular front end solution",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yes-soft/base.git"
+  },
+  "keywords": [
+    "web",
+    "base"
+  ],
+  "author": "vellengs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yes-soft/base/issues"
+  },
+  "homepage": "https://github.com/yes-soft/base#readme",
+  "devDependencies": {
+    "angular": "^1.4.8",
+    "angular-animate": "^1.4.8",
+    "angular-aria": "^1.4.8",
+    "angular-bootstrap": "^0.14.3",
+    "angular-file-upload": "^2.1.1",
+    "angular-sanitize": "^1.4.8",
+    "angular-schema-form": "^0.8.13",
+    "angular-toastr": "^2.1.1",
+    "angular-translate": "^2.8.1",
+    "angular-translate-loader-partial": "^2.8.1",
+    "angular-ui-grid": "^3.2.5",
+    "angular-ui-router": "^0.2.15",
+    "bootstrap": "^3.1.1",
+    "font-awesome": "^4.5.0",
+    "jquery": "^2.1.4",
+    "mermaid": "^3.1.1",
+    "moment": "^2.11.0",
+    "ng-dialog": "^0.6.4",
+    "oclazyload": "^1.0.9",
+    "sortable": "^1.4.2",
+    "tinymce": "^4.1.10",
+    "typescript": "^2.0.10",
+    "ui-select": "^0.19.4"
+  },
+  "dependencies": {}
+}

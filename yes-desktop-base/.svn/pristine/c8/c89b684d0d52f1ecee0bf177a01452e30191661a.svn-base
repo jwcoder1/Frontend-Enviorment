@@ -1,0 +1,250 @@
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+@import '../bootstrap/responsive-utilities';
+.layout-responsive {
+    width: 100%;
+    .layout-header, .layout-row {
+        .clearfix();
+    }
+    .layout-body {
+        width: 100%;
+        .layout-col {
+            float: left;
+            width: 240px;
+        }
+        .layout-main {
+            float: left;
+        }
+        .clearfix();
+    }
+    .layout-footer {
+        .clearfix();
+        z-index: 999;
+        background-color: @brand-primary;
+        @media (min-width: @screen-sm-min) {
+            display: none;
+        }
+    }
+    @media (max-width: @screen-sm-min) {
+        .layout-body, .layout-main, .layout-col, .layout-body .layout-main, .layout-body .layout-col, {
+            display: block;
+        }
+    }
+    @media (max-width: @screen-sm-min) {
+        .layout-col.hidden-mobile, .layout-header.hidden-mobile, .layout-body.hidden-mobile, .layout-main.hidden-mobile, .layout-row.hidden-mobile {
+            display: none;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            z-index: 10;
+            transition: all 0.2s ease 0s
+        }
+    }
+}
+
+@media (min-width: @screen-sm-min) {
+    #wrapper {
+        padding-left: 209px;
+    }
+}
+
+.sidebar {
+    margin-left: -211px;
+}
+
+.gutter-20.row {
+    margin-right: -10px;
+    margin-left: -10px;
+}
+
+.gutter-20 > [class^="col-"], .gutter-20 > [class^=" col-"] {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.gutter-10.row {
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
+.gutter-10 > [class^="col-"], .gutter-10 > [class^=" col-"] {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.gutter-0.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.gutter-0 > [class^="col-"], .gutter-0 > [class^=" col-"] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.no-gutter {
+    .row {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
+.no-gutter {
+    [class^="col-"], .gutter-0 > [class^=" col-"] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+.layout-responsive {
+    .cell, .cell1, .cell2, .cell3, .cell4, .cell5, .cell100 {
+        float: left;
+        width: 100%;
+    }
+}
+
+.layout-responsive.max-2 {
+    &, &.responsive-xl &.responsive-lg, &.responsive-md {
+        .cell {
+            width: 50%;
+        }
+        .cell2 {
+            width: 100%;
+        }
+    }
+    &.responsive-sm {
+        .cell {
+            width: 100%;
+        }
+    }
+}
+
+.layout-responsive.max-3 {
+    &.responsive-xl, &.responsive-lg, &.responsive-md {
+        .cell {
+            width: 33.33%;
+        }
+        .cell2 {
+            width: 66.66%;
+        }
+    }
+    &.responsive-sm {
+        .cell {
+            width: 50%;
+        }
+    }
+}
+
+.layout-responsive.max-4 {
+    &.responsive-xl, &.responsive-lg {
+        .cell {
+            width: 25%;
+        }
+        .cell2 {
+            width: 50%;
+        }
+        .cell3 {
+            width: 75%;
+        }
+    }
+    &.responsive-md {
+        .cell {
+            width: 33.33%;
+        }
+        .cell2 {
+            width: 66.66%;
+        }
+    }
+    &.responsive-sm {
+        .cell {
+            width: 50%;
+        }
+    }
+}
+
+.layout-responsive.max-5 {
+    &.responsive-xl {
+        .cell {
+            width: 20%;
+        }
+        .cell2 {
+            width: 40%;
+        }
+        .cell3 {
+            width: 60%;
+        }
+    }
+    &.responsive-lg {
+        .cell {
+            width: 25%;
+        }
+        .cell2 {
+            width: 50%;
+        }
+        .cell3 {
+            width: 75%;
+        }
+    }
+    &.responsive-md {
+        .cell {
+            width: 33.33%;
+        }
+        .cell2 {
+            width: 66.66%;
+        }
+    }
+    &.responsive-sm {
+        .cell {
+            width: 50%;
+        }
+    }
+}
+
+.layout-responsive.max-6 {
+    &.responsive-xl {
+        .cell {
+            width: 16.6666%;
+        }
+        .cell2 {
+            width: 33.33%;
+        }
+        .cell3 {
+            width: 50%;
+        }
+    }
+    &.responsive-lg {
+        .cell {
+            width: 20%;
+        }
+        .cell2 {
+            width: 40%;
+        }
+        .cell3 {
+            width: 60%;
+        }
+    }
+    &.responsive-md {
+        .cell {
+            width: 25%;
+        }
+        .cell2 {
+            width: 50%;
+        }
+        .cell3 {
+            width: 75%;
+        }
+    }
+    &.responsive-sm {
+        .cell {
+            width: 33.33%;
+        }
+        .cell2 {
+            width: 66.66%;
+        }
+    }
+    &.responsive-xs {
+        .cell {
+            width: 50%;
+        }
+    }
+}

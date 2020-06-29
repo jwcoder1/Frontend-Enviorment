@@ -1,0 +1,67 @@
+<div ng-controller="app.home" class="page-content ">
+    <layout-responsive class="max-1">
+        <!--option: "=",
+                help: "=",
+                configurable: "=",
+                refreshable: "=",
+                fullscreenable: "=",
+                selectable: "=",
+                closable: "=",
+                collapsable: "=",
+                gridable: '=',
+                togglable: '=',
+                title: "@",
+                subtitle: "@",
+                ngModel: "=",
+                wrap: "=",-->
+        <widget class="box cell no-padding hidden-xs hidden-sm" subtitle="portlet" wrap="false" fullscreenable="false" collapsable="false" collapsable="false" configurable="false" closable="false" title="系统菜单">
+            <div style="min-height:490px">
+                <script type="text/ng-template" id="menu_icon">
+                    <a ng-click="action.nav(cmenu, menus)" class="btn btn-app btn-sm menu-btn {{::cmenu.color}}" title="{{::cmenu.name | translate}}">
+                        <i class="ace-icon bigger-200 fa {{::cmenu.icon}}"></i> {{::cmenu.name | translate}}
+                    </a>
+
+                    <!--<span ng-repeat="cmenu in cmenu.children" ng-include="'menu_icon'"></span>-->
+                </script>
+                <div class="col-xs-12 menu-group">
+                    <div class="row">
+                        <!--<h5 class="header lighter">{{::menu.name | translate}}
+                            <small>&nbsp;</small>
+                        </h5>-->
+                        <div class="entry" ng-include="'menu_icon'" ng-repeat="cmenu in menus"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--<li ng-repeat="item in menus" ng-class="{'active':item.active}">
+                <a class="click" ng-click="action.nav(item, menus)">
+                        {{item.name | translate}}
+                    </a>
+            </li>-->
+        </widget>
+
+        <widget class="box cell no-padding hidden-lg hidden-md" subtitle="portlet" wrap="false" fullscreenable="false" collapsable="false" collapsable="false" configurable="false" closable="false" title="系统菜单">
+            <div style="min-height:490px">
+                <script type="text/ng-template" id="menu_icona">
+                    <a ng-if="!cmenu.children && (cmenu.home || cmenu.isdefault=='True')" href="{{::cmenu.url}}" class="btn btn-app btn-sm menu-btn {{::cmenu.color}}" title="{{::cmenu.name | translate}}">
+                        <i class="ace-icon bigger-200 fa {{::cmenu.icon}}"></i> {{::cmenu.name | translate}}
+                    </a>
+                    <span ng-repeat="cmenu in cmenu.children" ng-include="'menu_icon'"></span>
+                </script>
+                <div class="col-xs-12 menu-group">
+                    <div class="row" ng-repeat="menu in ::menus">
+                        <h5 class="header lighter">{{::menu.name | translate}}
+                            <small>&nbsp;</small>
+                        </h5>
+                        <div class="entry" ng-include="'menu_icona'" ng-repeat="cmenu in menu.children"> </div>
+                    </div>
+                </div>
+            </div>
+        </widget>
+
+
+    </layout-responsive>
+
+
+</div>

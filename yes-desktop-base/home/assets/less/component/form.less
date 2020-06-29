@@ -1,0 +1,146 @@
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
+.ys-schema-form {
+    .clearfix();
+    clear: both;
+}
+
+.form-cells {
+    .col-xs-12.col-sm-12 {
+        padding: 0;
+    }
+    .col.caption {
+        width: 35%;
+        float: left;
+        padding: @padding-base-vertical @padding-base-horizontal;
+        .control-label {
+            width: 100%;
+            height: @input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+            padding: @padding-base-vertical 0;
+            font-size: @font-size-base;
+            line-height: @line-height-base;
+            font-weight: normal;
+            float: left;
+            position: relative;
+            white-space: nowrap;
+            text-overflow: clip;
+            overflow: hidden;
+        }
+    }
+    .col.caption.required:after {
+        content: ' *';
+        color: @brand-danger;
+        position: absolute;
+        padding: @padding-base-vertical 0;
+        margin-left: 5px;
+        // right: 0;
+    }
+    .col.content {
+        width: 65%;
+        float: left;
+        padding: @padding-base-vertical @padding-base-horizontal;
+        & > input[type='checkbox'] {
+            height: @input-height-base;
+            margin: 0;
+        }
+    }
+}
+
+.responsive-lg, .responsive-md {
+    .form-cells.cell2 {
+        .col.caption {
+            width: 17.5%;
+        }
+        .col.content {
+            width: 82.5%;
+        }
+    }
+}
+
+.base-form {
+    legend {
+        font-weight: bold;
+        padding: 10px 0;
+    }
+    select:focus, textarea:focus, input:focus {
+        outline: none;
+    }
+    .schema-form-section {
+        .header {
+            border-bottom: 1px solid @light;
+            margin: 10px 0;
+            padding: @padding-base-vertical @padding-base-horizontal;
+            position: relative;
+            .widget-toolbar {
+                position: absolute;
+                right: 10px;
+                top: 5px;
+            }
+        }
+    }
+    .schema-form-select > .content {
+        .ui-select-toggle {
+            width: 100%;
+        }
+        .ui-select-search {
+            width: 100%;
+        }
+        .ui-select-match-text span {
+            display: block;
+        }
+        .ui-select-multiple {
+            height: auto;
+            li.ui-select-match-item {
+                list-style: none;
+                display: inline-block;
+            }
+        }
+    }
+    .form-control[date-picker] {
+        cursor: pointer;
+        background: #fff;
+    }
+    .input-group {
+        .ui-select-container {
+            width: 100%;
+        }
+        input[date-picker] {
+            width: 100%;
+        }
+        button {
+            padding-bottom: 5px;
+        }
+        .input-group-addon {
+            cursor: pointer;
+            padding: 3px 8px;
+            background: #fff;
+        }
+    }
+    .schema-form-section .input-group button {
+        padding-bottom: 6px;
+    }
+    .single-line {
+        textarea {
+            resize: vertical;
+        }
+        .form-control {
+            height: auto;
+            padding: 5px;
+        }
+    }
+    .help-block {
+        display: none;
+    }
+}
+
+.schema-form-container {
+    padding-right: 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.operation {
+    & > button {
+        margin-right: 4px;
+    }
+}

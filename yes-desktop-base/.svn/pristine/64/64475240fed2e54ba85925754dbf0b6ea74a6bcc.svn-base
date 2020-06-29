@@ -1,0 +1,3 @@
+<div>
+    <input date-picker readonly data-date-format="dateformat" class="form-control" ng-model="dateval" type="text" picker-type="'date'" options="option.options">
+</div>

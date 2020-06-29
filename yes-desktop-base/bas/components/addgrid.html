@@ -1,0 +1,19 @@
+<div>
+
+    <div class="clearfix editgrid">
+        <form name="grid">
+            <div ui-grid='gridOptions' ui-grid-selection ui-grid-resize-columns ui-grid-exporter ui-grid-move-columns ui-grid-pinning ui-grid-auto-resize ng-style="gridstyle"></div>
+        </form>
+    </div>
+
+    <div ng-if="action || hide " class="operation" style=" margin-top: 6px;">
+        <button obj-control model="model" dmodel="model" form="item" ng-repeat="item in action" data-ng-disabled="item.readonly" class="btn btn-primary" type="button" ng-click="item.preclick();" style="margin-right: 2px;">
+                <i class="fa {{item.icon}}"></i> {{item.name}}
+        </button>
+    </div>
+
+    <div style="margin-right: 15px;">
+        <div sf-schema="gridconfig.schema" sf-form="gridconfig.form" sf-model="rowmodel"></div>
+    </div>
+
+</div>

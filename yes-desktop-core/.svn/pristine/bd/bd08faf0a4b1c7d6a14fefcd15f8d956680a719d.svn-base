@@ -1,0 +1,29 @@
+<div ng-controller='app.default.query'>
+    <layout-responsive class="max-5">
+        <form name="query" ng-submit="load()" class="list-queries query-form clearfix">
+            <ui-query ng-repeat="config in queries" ng-model="filter" option="config" class="query-item form-cells cell {{config.css}}"></ui-query>
+            <div class="buttons-wrap cell">
+                <button class="btn btn-primary ng-binding" type="submit">
+                                <i class="fa fa-search "></i> 查询
+                            </button>
+                <button class="btn btn-primary ng-binding" type="submit">
+                                <i class="fa fa-undo "></i> 重置
+                            </button>
+            </div>
+        </form>
+    </layout-responsive>
+
+    <layout-responsive class="max-5">
+        <form name="query" ng-submit="load()" class="list-queries query-form no-caption clearfix">
+            <ui-query ng-repeat="config in queries" ng-model="filter" option="config" class="query-item form-cells cell {{config.css}}"></ui-query>
+            <div class="buttons-wrap cell">
+                <button class="btn btn-primary ng-binding" type="submit">
+                                <i class="fa fa-search "></i> 查询
+                            </button>
+                <button class="btn btn-primary ng-binding" type="submit">
+                                <i class="fa fa-undo "></i> 重置
+                            </button>
+            </div>
+        </form>
+    </layout-responsive>
+</div>

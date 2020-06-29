@@ -1,0 +1,2 @@
+<grid-cell-lov grid-field="{{COL_FIELD}}" form="col.colDef">
+</grid-cell-lov>

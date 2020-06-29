@@ -1,0 +1,9 @@
+<section class=" ngdialog-content-wrap">
+    <div class="header smaller lighter collapsed">
+        <label>图示({{item.fileName}})</label>
+    </div>
+    <layout-responsive class="max-6">
+        <div get-image form="form" ng-model="bigimageurl"></div>
+    </layout-responsive>
+
+</section>

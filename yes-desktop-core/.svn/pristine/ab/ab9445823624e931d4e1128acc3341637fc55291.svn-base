@@ -1,0 +1,12 @@
+<ul class="nav tree nav-list ui-tree-nav">
+    <li ng-repeat="node in ::resource" class="tree-branch" ng-class="{'tree-item':!nodeExpanded(node)}">
+        <i ng-if="nodeExpanded(node)" ng-class="{'tree-plus':!node.collapsed}" ng-click="node.collapsed=!node.collapsed" class="tree-toggle icon-caret ace-icon tree-minus"></i>
+        <a class="tree-branch-header" ng-click="nodeSelect($event,node)">
+            <span class="tree-branch-name">
+                <i class="ace-icon fa {{node.icon}}"></i>
+                <span class="tree-label"> {{::node.name}}</span>
+            </span>
+        </a>
+        <ui-tree-nav ng-show="node.collapsed" template="plugins/base/templates/ui.tree.nav.html" ng-if="nodeExpanded(node)" resource="node.children"></ui-tree-nav>
+    </li>
+</ul>

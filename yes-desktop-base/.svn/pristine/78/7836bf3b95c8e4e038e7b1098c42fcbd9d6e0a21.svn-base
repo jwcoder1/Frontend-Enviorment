@@ -1,0 +1,79 @@
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
+.carousel-caption {
+    text-shadow: none;
+    p {
+        color: @gray;
+    }
+}
+
+.carousel-control {
+    &.left {
+        background-image: none;
+    }
+    &.right {
+        background-image: none;
+    }
+}
+
+.carousel {
+    padding: 10px 4px;
+    h2, h3, h4, h5 {
+        padding: 4px 0;
+        font-weight: normal;
+        margin: 0;
+        line-height: 1.42857143;
+    }
+    h5 {
+        padding: 0;
+        margin: 0;
+        color: @white !important;
+    }
+    width: 5000px;
+    .carousel-item {
+        // background-color:  @brand-primary;
+        display: inline-block;
+        margin: 6px;
+        padding: 8px;
+        min-width: 140px;
+        margin-top: 2px;
+        border-radius: @menu-btn-app-radius;
+    }
+    .header, a, p {
+        color: @white !important;
+    }
+    .header {
+        font-size: 24px;
+    }
+    //@btn-success-bg
+    .primary {
+        background-color: @btn-primary-bg;
+        &:hover {
+            background-color: darken(@btn-primary-bg, 10%);
+        }
+    }
+    .success {
+        background-color: @btn-success-bg;
+        &:hover {
+            background-color: darken(@btn-success-bg, 10%);
+        }
+    }
+    .info {
+        background-color: @btn-info-bg;
+        &:hover {
+            background-color: darken(@btn-info-bg, 10%);
+        }
+    }
+    .warning {
+        background-color: @btn-warning-bg;
+        &:hover {
+            background-color: darken(@btn-warning-bg, 10%);
+        }
+    }
+    .danger {
+        background-color: @btn-danger-bg;
+        &:hover {
+            background-color: darken(@btn-danger-bg, 10%);
+        }
+    }
+}

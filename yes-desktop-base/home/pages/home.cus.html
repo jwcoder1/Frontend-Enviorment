@@ -1,0 +1,64 @@
+<style type="text/css">
+    .line-limit-length {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+</style>
+<div ng-controller="app.home.cus">
+    <div class="widget-box ui-sortable-handle" ng-show="detailUrl">
+        <div ng-include="detailUrl"></div>
+    </div>
+    <div class="row no-margin" ng-hide="detailUrl">
+        <layout-responsive class="max-5">
+            <div id="adaptionleft" self-adaption postion="right" buttontitle="类别查询" class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                <div class="my-list">
+                    <div class="my-title">
+                        <b>{{'企业类型' | translate}}</b>
+                    </div>
+                    <div class="enterprise-selector clearfix">
+                        <div class="enterprise-name">企业:</div>
+                        <div class="enterprise-input">
+                            <span ng-click="action.changeEnterprise();" class="input-icon clickable search-span">
+                          <input ng-model="showEnterpriseName" placeholder="请选择企业" class="clickable" readonly>
+                          <i class="ace-icon fa fa-search "></i>
+                        </span>
+                        </div>
+                    </div>
+                    <div class="my-content" id="con" style="overflow-y: auto;">
+                        <div auto-height class="autotreeheight">
+                            <bas-tree resource="menus1" option="treeOption" boot-value=""></bas-tree>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="list-wrap col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                <div class="page-content list-scope" style="padding-left: 10px;">
+                    <div class="col-xs-12 col-sm-2 col-md-3 col-lg-3" style="margin-left: 6px;margin-right: 6px;" ng-repeat="invitm in invitms">
+                        <div class="thumbnail">
+                            <img ng-src="{{invitm.thumbUrl}}" alt="无图片" style=" width: 100%;">
+                            <div class="caption">
+                                <label class="line-limit-length">品名:{{invitm.item_desc}}</label>
+                                <p class="line-limit-length">规格:{{invitm.itemdesc}}</p>
+                                <p class="line-limit-length">单价:{{invitm.unit_price}}</p>
+                                <!--<p>
+                                    <a href="#" class="btn btn-primary" role="button">
+                        按钮
+                    </a>
+                                    <a href="#" class="btn btn-default" role="button">
+                        按钮
+                    </a>
+                                </p>-->
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div self-adaption postion="bottom">
+
+            </div>
+        </layout-responsive>
+    </div>
+</div>

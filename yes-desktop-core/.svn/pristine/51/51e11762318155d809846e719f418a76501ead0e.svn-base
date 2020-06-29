@@ -1,0 +1,7 @@
+<div ng-controller='app.default.auto.height'>
+    <layout-responsive>
+        <widget auto-height class="box cell100" title="一格容器">
+            
+        </widget>
+    </layout-responsive>
+</div>

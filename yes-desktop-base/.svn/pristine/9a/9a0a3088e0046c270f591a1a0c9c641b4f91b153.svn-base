@@ -1,0 +1,23 @@
+<div class="page-content widgets-container">
+    <layout-responsive class="max-1">
+        <!--option: "=",
+                help: "=",
+                configurable: "=",
+                refreshable: "=",
+                fullscreenable: "=",
+                selectable: "=",
+                closable: "=",
+                collapsable: "=",
+                gridable: '=',
+                togglable: '=',
+                title: "@",
+                subtitle: "@",
+                ngModel: "=",
+                wrap: "=",-->
+        <widget class="box cell no-padding" subtitle="portlet" wrap="false" fullscreenable="false" collapsable="false" collapsable="false" configurable="false" closable="false" title="系统菜单">
+            <iframe auto-height id="iframepage" ng-src="{{reporturl}}" height="100%" width="100%"></iframe>
+        </widget>
+
+    </layout-responsive>
+
+</div>

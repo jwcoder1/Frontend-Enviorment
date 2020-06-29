@@ -1,0 +1,129 @@
+{
+    "error": null,
+    "body": [
+        {
+            "hckey": "安徽省",
+            "value": 21.0
+        },
+        {
+            "hckey": "北京市",
+            "value": 35.0
+        },
+        {
+            "hckey": "重庆市",
+            "value": 14.0
+        },
+        {
+            "hckey": "福建省",
+            "value": 1696.0
+        },
+        {
+            "hckey": "广东省",
+            "value": 1378.0
+        },
+        {
+            "hckey": "甘肃省",
+            "value": 1.0
+        },
+        {
+            "hckey": "广西壮族自治区",
+            "value": 62.0
+        },
+        {
+            "hckey": "贵州省",
+            "value": 5.0
+        },
+        {
+            "hckey": "海南省",
+            "value": 12.0
+        },
+        {
+            "hckey": "湖北省",
+            "value": 73.0
+        },
+        {
+            "hckey": "河北省",
+            "value": 146.0
+        },
+        {
+            "hckey": "黑龙江省",
+            "value": 18.0
+        },
+        {
+            "hckey": "河南省",
+            "value": 36.0
+        },
+        {
+            "hckey": "湖南省",
+            "value": 28.0
+        },
+        {
+            "hckey": "吉林省",
+            "value": 12.0
+        },
+        {
+            "hckey": "江苏省",
+            "value": 458.0
+        },
+        {
+            "hckey": "江西省",
+            "value": 60.0
+        },
+        {
+            "hckey": "辽宁省",
+            "value": 50.0
+        },
+        {
+            "hckey": "内蒙古自治区",
+            "value": 4.0
+        },
+        {
+            "hckey": "宁夏回族自治区",
+            "value": 4.0
+        },
+        {
+            "hckey": "青海省",
+            "value": 2.0
+        },
+        {
+            "hckey": "山西省",
+            "value": 5.0
+        },
+        {
+            "hckey": "四川省",
+            "value": 135.0
+        },
+        {
+            "hckey": "山东省",
+            "value": 248.0
+        },
+        {
+            "hckey": "上海市",
+            "value": 80.0
+        },
+        {
+            "hckey": "陕西省",
+            "value": 13.0
+        },
+        {
+            "hckey": "天津市",
+            "value": 21.0
+        },
+        {
+            "hckey": "新疆维吾尔自治区",
+            "value": 1.0
+        },
+        {
+            "hckey": "西藏自治区",
+            "value": null
+        },
+        {
+            "hckey": "云南省",
+            "value": 30.0
+        },
+        {
+            "hckey": "浙江省",
+            "value": 759.0
+        }
+    ]
+}

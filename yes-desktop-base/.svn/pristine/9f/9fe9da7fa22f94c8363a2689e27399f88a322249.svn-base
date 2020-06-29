@@ -1,0 +1,6 @@
+<form name="inputForm">
+    <div class="ui-grid-cell-contents">
+        <input class=" form-control  esy-number" formatstep onmousewheel="return false;" min="{{col.colDef.min}}" max="{{col.colDef.max}}" step="{{col.colDef.step}}" ng-change="col.colDef.onchange(row.entity)" type="number" num="{{col.colDef.num}}" ng-class="'colt{col.uid}'"
+            ng-model="MODEL_COL_FIELD" ui-grid-editor>
+    </div>
+</form>

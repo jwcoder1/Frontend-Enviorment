@@ -1,0 +1,40 @@
+<div ng-controller="app.home.bak" class="page-content widgets-container">
+    <layout-responsive class="max-1">
+        <!--option: "=",
+                help: "=",
+                configurable: "=",
+                refreshable: "=",
+                fullscreenable: "=",
+                selectable: "=",
+                closable: "=",
+                collapsable: "=",
+                gridable: '=',
+                togglable: '=',
+                title: "@",
+                subtitle: "@",
+                ngModel: "=",
+                wrap: "=",-->
+        <widget class="box cell no-padding " subtitle="portlet" wrap="false" fullscreenable="false" collapsable="false" collapsable="false" configurable="false" closable="false" title="系统菜单">
+            <div style="min-height:490px">
+                <script type="text/ng-template" id="menu_icon">
+                    <a ng-if="!cmenu.children && (cmenu.home || cmenu.isdefault=='True')" href="{{::cmenu.url}}" class="btn btn-app btn-sm menu-btn {{::cmenu.color}}" title="{{::cmenu.name | translate}}">
+                        <i class="ace-icon bigger-200 fa {{::cmenu.icon}}"></i> {{::cmenu.name | translate}}
+                    </a>
+                    <span ng-repeat="cmenu in cmenu.children" ng-include="'menu_icon'"></span>
+                </script>
+                <div class="col-xs-12 menu-group">
+                    <div class="row" ng-repeat="menu in ::menus">
+                        <h5 class="header lighter">{{::menu.name | translate}}
+                            <small>&nbsp;</small>
+                        </h5>
+                        <div class="entry" ng-include="'menu_icon'" ng-repeat="cmenu in menu.children"> </div>
+                    </div>
+                </div>
+            </div>
+        </widget>
+
+
+    </layout-responsive>
+
+
+</div>

@@ -1,0 +1,1 @@
+<div class='ui-grid-cell-contents' ng-dblclick="col.colDef.ondblclick(row.entity)" ng-class="{'click-line': col.colDef.ondblclick  }">{{COL_FIELD}}</div>

@@ -1,0 +1,18 @@
+<div ng-controller='app.default.form'>
+    <layout-responsive>
+        <form name="base_form" class="base-form" ng-submit="action.save($event,base_form)">
+            <div class="buttons-wrap clearfix">
+                <button class="btn btn-primary" type="submit">
+                <i class="fa fa-search "></i> {{'保存' | translate}}
+                </button>
+                <button class="btn btn-primary" type="button" ng-click="action.cancel();">
+                    <i class="fa fa-undo"></i> {{'重置' | translate}}
+                </button>
+                <button class="btn btn-primary" type="button" ng-click="action.back()||closeThisDialog();">
+                    <i class="fa fa-arrow-left"></i> {{'返回' | translate}}
+                </button>
+            </div>
+            <div class="ys-schema-form" sf-schema="schema" sf-form="form" sf-model="model"></div>
+        </form>
+    </layout-responsive>
+</div>

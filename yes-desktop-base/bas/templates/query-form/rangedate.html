@@ -1,0 +1,14 @@
+<div class="ui-query form-group">
+    <div class="col caption" obj-control model="ngModel" dmodel="ngModel" form="option">
+        <label tooltip={{option.title}} tooltip-placement="right" class="control-label">{{(option.title||option.label) | translate }}
+        </label>
+    </div>
+    <div class="col content">
+        <div class="input-group">
+            <rangedate ng-model="ngModel[option.name]" option="option"></rangedate>
+            <span class="input-group-addon">
+                    <i class="fa fa-calendar bigger-110"></i>
+                </span>
+        </div>
+    </div>
+</div>

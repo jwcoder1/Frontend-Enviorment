@@ -1,0 +1,211 @@
+.ngdialog .ngdialog-content{
+    background: #fff !important;
+}
+.ui-grid-cell-contents>a{
+  color:blue;
+}
+.tree-branch-header {
+  .tree-plus, .tree-minus {
+    left: -21px;
+  }
+  .tree-branch-name {
+    position: absolute;
+    left: 5px;
+  }
+}
+
+[department-tree] {
+  .tree > .tree-branch > .tree-branch-header:first-child {
+    .tree-plus, .tree-minus {
+      left: -16px
+    }
+  }
+
+  .tree-branch-header {
+    .tree-plus, .tree-minus {
+      top: -1px;
+    }
+  }
+  .tree-branch-header .tree-branch-name {
+    left: 0;
+  }
+}
+
+.sidebar {
+  .fa-user {
+    font-size: 14px;
+    margin-left: 1px;
+  }
+  /*.tree-branch {
+    .tree-branch-name {
+      position: initial;
+    }
+    .tree-minus, tree-plus {
+      left: -16px;
+      top: -5px;
+    }
+  }*/
+
+  /* .tree-branch .tree-branch-header[href] {
+     padding: 3px 0;
+     margin-left: 18px;
+   }*/
+}
+
+.ngdialog {
+  .ngdialog-content {
+    padding: 18px !important;
+    overflow-y: visible !important;
+    text-align: left;
+  }
+  .ngdialog-close {
+    right: -8px !important;
+    top: -6px !important;
+  }
+  .ngdialog-close:before {
+    font-size: 35px !important;
+  }
+}
+
+.ui-select-match > .ui-select-toggle {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.abbreviation {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.input-people-selector {
+  cursor: pointer !important;
+  background-color: #ffffff !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.right {
+  float: right;
+}
+
+.schema-form-select .ui-select-multiple.ui-select-bootstrap .ui-select-match-item {
+  margin: 0 !important;
+}
+
+.schema-form-select.single-line .form-control {
+  padding: 0 !important;
+}
+
+.selector-form .col.content {
+  width: 80% !important;
+}
+
+.selector-form .col.caption {
+  width: 20% !important;
+}
+
+.selector-form {
+  border: 0 !important;
+  padding: 10px !important;
+}
+
+.row {
+  .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    padding: 0;
+  }
+}
+
+.my-selector-dialog {
+  padding-top: 40px !important;
+  padding-bottom: 0 !important;
+}
+
+.my-selector-dialog .ngdialog-content {
+  width: 1100px !important;
+}
+
+.my-handle {
+  padding-left: 3px;
+  padding-right: 3px;
+  cursor: move;
+}
+
+.not-handle {
+  padding-left: 3px;
+  padding-right: 3px;
+  cursor: no-drop;
+}
+
+.row {
+  margin: 0 !important;
+}
+
+.input-icon {
+  position: relative
+}
+
+span.input-icon {
+  display: inline-block
+}
+
+.input-icon > input {
+  padding-left: 24px;
+  padding-right: 6px
+}
+
+.input-icon.input-icon-right > input {
+  padding-left: 6px;
+  padding-right: 24px
+}
+
+.input-icon > .ace-icon {
+  padding: 0 3px;
+  z-index: 2;
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  left: 3px;
+  line-height: 30px;
+  display: inline-block;
+  color: #909090;
+  font-size: 16px
+}
+
+.input-icon.input-icon-right > .ace-icon {
+  left: auto;
+  right: 3px
+}
+
+.input-icon > input:focus + .ace-icon {
+  color: #579
+}
+
+.input-icon ~ .help-inline {
+  padding-left: 8px
+}
+
+.list-queries.base-form {
+  padding: 0;
+}
+
+.ui-select-container {
+  .form-control {
+    width: 100%;
+  }
+}
+
+.ui-logo {
+  margin: 0 10px;
+}
+
+.breadcrumb {
+  border-radius: 0;
+}

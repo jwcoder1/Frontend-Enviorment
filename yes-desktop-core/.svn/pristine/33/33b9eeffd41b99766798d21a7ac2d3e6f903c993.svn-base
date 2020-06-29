@@ -1,0 +1,50 @@
+<div ng-controller='app.default.page'>
+    <layout-responsive>
+        <layout-body>
+            <layout-col id="page_left" auto-height class="hidden-mobile">
+                <widget class="box full-height" title="树形结构">
+                    <div ng-repeat="item in treeSource">
+                        <ui-tree open-method="openMethod" ng-if="item.children" resource="item.children"></ui-tree>
+                    </div>
+                </widget>
+            </layout-col>
+            <layout-main>
+                <widget wrap='false'>
+                    <layout-responsive class="max-5">
+                        <form name="query" ng-submit="load()" class="list-queries query-form clearfix">
+                            <ui-query ng-repeat="config in queries" ng-model="filter" option="config" class="query-item form-cells cell {{config.css}}"></ui-query>
+                            <div class="buttons-wrap cell">
+                                <button class="btn btn-primary ng-binding" type="submit">
+                                <i class="fa fa-search "></i> 查询
+                            </button>
+                                <button class="btn btn-primary ng-binding" type="submit">
+                                <i class="fa fa-undo "></i> 重置
+                            </button>
+                            </div>
+                        </form>
+                    </layout-responsive>
+                </widget>
+                <widget wrap='false' title="主体">
+                    <div ui-grid='gridOptions' ui-grid-selection ui-grid-resize-columns ui-grid-exporter ui-grid-move-columns ui-grid-auto-resize
+                        ui-grid-auto-min-rows ui-grid-pagination ui-grid-resize></div>
+                </widget>
+            </layout-main>
+        </layout-body>
+        <layout-footer ng-init='hide_foot_subbar=true'>
+            <div ng-show="!hide_foot_subbar" class='footer-subbar footer-bar-more'>
+                <button type="button" class="navbar-toggle">
+                            <i class="ace-icon fa {{operation.icon}} bigger-110"></i> 二级操作
+                            </button>
+            </div>
+            <div class="navbar-left">
+                <button type="button" class="btn btn-default navbar-toggle" ng-click="toggle('page_left')"><i class="fa click" ng-class="{'fa-angle-double-left':showLeft,'fa-angle-double-right':!showLeft}"></i> 问题分类
+                        </button>
+                <button type="button" class="btn btn-default navbar-toggle" ng-click="toggle('page_top')">查询
+                        </button>
+            </div>
+            <div class="navbar-right">
+                <button type="button" class="btn btn-default navbar-toggle" ng-click="hide_foot_subbar=!hide_foot_subbar">操作</button>
+            </div>
+        </layout-footer>
+    </layout-responsive>
+</div>

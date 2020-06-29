@@ -1,0 +1,112 @@
+{
+    "chart": {
+        "zoomType": "xy"
+    },
+    "title": {
+        "text": "经营单位签约量"
+    },
+    "subtitle": {
+        "text": "数据来源：建发BI大数据分析系统"
+    },
+    "xAxis": [
+        {
+            "categories": [
+                "分销业务",
+                "分销业务",
+                "天津公司",
+                "青岛公司",
+                "运营一部本部",
+                "业务发展部",
+                "运营四部本部",
+                "耗材配送业务",
+                "营销一部",
+                "化工事业一部"
+            ],
+            "crosshair": true
+        }
+    ],
+    "yAxis": [
+        {
+            "labels": {
+                "format": "{value}元RMB",
+                "style": {
+                    "color": "#434348"
+                }
+            },
+            "title": {
+                "text": "金额",
+                "style": {
+                    "color": "#434348"
+                }
+            }
+        },
+        {
+            "title": {
+                "text": "数量",
+                "style": {
+                    "color": "#7cb5ec"
+                }
+            },
+            "labels": {
+                "format": "{value} 吨",
+                "style": {
+                    "color": "#7cb5ec"
+                }
+            },
+            "opposite": true
+        }
+    ],
+    "tooltip": {
+        "shared": true
+    },
+    "legend": {
+        "layout": "vertical",
+        "align": "left",
+        "x": 120,
+        "verticalAlign": "top",
+        "y": 100,
+        "floating": true,
+        "backgroundColor": "#FFFFFF"
+    },
+    "series": [
+        {
+            "name": "金额",
+            "type": "column",
+            "yAxis": 1,
+            "data": [
+                9945427.35,
+                9945427.35,
+                133935239.95,
+                35827877.21,
+                847877531.98,
+                153614684.31,
+                336191932.52,
+                22140670.99,
+                217210706.66,
+                189489909.12
+            ],
+            "tooltip": {
+                "valueSuffix": " 圆"
+            }
+        },
+        {
+            "name": "数量",
+            "type": "column",
+            "data": [
+                60761923.7,
+                60761923.7,
+                846926807.62,
+                226573018.49,
+                5405847043.94,
+                970502797.64,
+                2114508995.7,
+                135086780.16,
+                1367312995.2,
+                1165372874.03
+            ],
+            "tooltip": {
+                "valueSuffix": "吨"
+            }
+        }
+    ]
+}

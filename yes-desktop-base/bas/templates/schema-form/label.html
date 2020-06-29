@@ -1,0 +1,16 @@
+<div ng-hide="form.hide" obj-control model="model" dmodel="model" form="form" class="form-group has-feedback ">
+    <div class="col-xs-12 col-sm-12 clearfix">
+
+        <div class="col caption " ng-class="{'required':form.required}">
+            <label class="control-label {{form.labelHtmlClass}}" ng-class="{'sr-only': !showTitle()}" for="{{form.key.slice(-1)[0]}}" style="color: #666666;font-weight: normal;">{{form.title | translate }}
+            </label>
+        </div>
+
+        <div class="col content">
+            <div ng-if="!form.value" ng-bind-html="$$value$$?$$value$$:'&nbsp;'" class="col-label {{form.fieldHtmlClass}}"></div>
+            <div ng-if="form.value" ng-bind-html="form.value" class="col-label {{form.fieldHtmlClass}}"></div>
+        </div>
+
+        <div class="help-block clearfix text-right" sf-message="form.description"></div>
+    </div>
+</div>

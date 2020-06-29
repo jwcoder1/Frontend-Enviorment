@@ -1,0 +1,28 @@
+<ul class="{{::root?'raw-tree tree-selectable':'tree-branch-children'}}" ng-hide="hide">
+    <li class="{{::node.children.length?'tree-branch':'tree-item'}}{{item.collapsed?'':' tree-open'}}" ng-click="selectChanged(node)"
+        ng-repeat="node in nodes" ng-class="{'tree-selected':node.selected&&(!node.children.length)}">
+
+        <span ng-if="!node.children.length" class="tree-item-name" title="{{::node.name}}">
+        	<label>
+				<span class="tree-label">
+					<i ng-if="::node.isApp" class="menu-icon fa fa-cog"></i>{{::node.name}}
+				</span>
+            </label>
+        </span>
+
+
+        <div ng-if="node.children.length" ng-click="selectChanged(node,true)" class="tree-branch-header" ng-class="{'tree-selected':node.selected}"
+             title="{{::node.name}}">
+            <i class="icon-folder ace-icon {{node.collapsed?'tree-plus':'tree-minus'}}"></i>
+            <span class="tree-branch-name">
+                <label>
+                	<span class="tree-label">{{::node.name}}</span>
+              	</label>
+            </span>
+        </div>
+
+        <div ng-if="node.children.length" on-select="onSelect" hide="node.collapsed" yes-application-tree data-nodes="node.children" data-initial="initial"
+             data-root="false">
+        </div>
+    </li>
+</ul>

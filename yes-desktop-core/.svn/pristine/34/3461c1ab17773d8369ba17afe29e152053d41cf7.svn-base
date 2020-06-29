@@ -1,0 +1,25 @@
+<div ng-controller='app.default.widgets'>
+    <layout-responsive class="max-4">
+        <widget class="box cell3" title="签约量分析趋势">
+            <jq-chart id="chart1" style="height:297px;" config="chart1"></jq-chart>
+        </widget>
+        <widget class="box cell" title="指标轮动">
+            <jq-marquee style="height:297px;" ng-model="quotos"></jq-marquee>
+        </widget>
+        <widget class="box cell2" title="业务板块签约量">
+            <jq-chart id="chart2" style="height:297px;" config="chart2"></jq-chart>
+        </widget>
+        <widget class="box cell2" title="平台公司签约量">
+            <jq-chart id="chart3" style="height:297px;" config="chart3"></jq-chart>
+        </widget>
+        <widget class="box cell2" title="贸易类型">
+            <jq-chart id="chart4" style="height:297px;" config="chart4"></jq-chart>
+        </widget>
+        <widget class="box cell2" title="商品分类签约量">
+            <jq-chart id="chart5" style="height:297px;" config="chart5"></jq-chart>
+        </widget>
+        <widget class="box cell100" title="经营单位签约量">
+            <jq-chart id="chart6" style="height:297px;" config="chart6"></jq-chart>
+        </widget>
+    </layout-responsive>
+</div>

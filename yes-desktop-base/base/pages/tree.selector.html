@@ -1,0 +1,33 @@
+<div class="clearfix" style="min-height:500px;padding-right: 0;  background: #FFFFFF;">
+    <div class="my-list">
+
+        <div class="my-title" style="position: relative;">
+            <button ng-if="showConfirm" ng-click="action.confirm();" class="btn btn-sm btn-primary" type="button" style="margin-left:4px;position: absolute;top: 6px;left: 0;">
+                <i class="ace-icon fa fa-save bigger-110"></i> 确认
+            </button>
+            <b>{{title | translate}}</b>
+        </div>
+
+        <div ng-if="showtype" class="enterprise-selector clearfix" style="position: relative;height:37px; border-bottom: 1px solid #B8B1B1;">
+            <div style="float:left;padding-left: 5px; padding-top: 8px; "><span>组织类型：</span></div>
+
+            <div style="width:45%;float:left;padding-left: 5px;padding-top: 5px;">
+                <select ng-change="action.orgtypechanged(this)" ng-model="orgType" style="width: 100%;height: 23px;">
+		                 <option  value="">全部类型</option>
+		                  <option ng-repeat="type in types" value="{{type.value}}">{{type.name | translate}}</option>
+		              </select>
+            </div>
+
+            <div style="width:30%;float:left;padding-left: 15px;padding-top: 4px;">
+                <label>
+                     		<input type="checkbox"   ng-change="action.orgtypechanged(this)"  ng-model="showGroupOrg">分组显示
+                    	</label>
+            </div>
+        </div>
+
+
+        <div class="my-content" style="height: 482px;overflow-y: auto; width: 400px">
+            <div yes-organization-tree on-select="action.onSelect" multiple="multiple" data-nodes="node.children" data-initial="node.children" data-root="true"></div>
+        </div>
+    </div>
+</div>

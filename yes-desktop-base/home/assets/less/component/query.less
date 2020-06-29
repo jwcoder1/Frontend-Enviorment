@@ -1,0 +1,72 @@
+@import "../bootstrap/variables";
+.query-form {
+    border: 1px solid #ddd;
+    position: relative;
+    border-left: 0;
+    border-top: 0;
+    padding: 0;
+    margin-bottom: 10px;
+    &.full-query .col.content {
+        width: 100%;
+    }
+    .buttons-wrap {
+        padding: @padding-base-vertical 4px;
+        margin-top: 1px;
+        border-left: 1px solid #ddd;
+        float: left;
+        display: block;
+        button.col-xs-12 {
+            width: 40%;
+            float: left;
+            margin: 0 5%;
+        }
+    }
+    .hide-query {
+        .schema-form-section .list-queries, .operation .widget-toolbar {
+            display: none;
+        }
+    }
+    &::before {
+        width: 100%;
+        position: absolute;
+        border-top: 1px solid #ddd;
+    }
+    ui-query {
+        margin-bottom: -1px;
+        border: 1px solid #ddd;
+        border-width: 1px 0 1px 1px;
+        .col.caption {
+            line-height: 22px;
+        }
+    }
+    ui-query {
+        .control-label {
+            top: 1px;
+        }
+    }
+    label {
+        margin-bottom: 0;
+        font-weight: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-wrap: normal;
+        &.checkbox-inline {
+            padding-left: 0;
+        }
+    }
+    .ui-select-bootstrap > .ui-select-choices {
+        min-width: 70%;
+        left: auto;
+        right: 0;
+    }
+    /* 折叠ui-query */
+    .operation {
+        position: relative;
+    }
+    .operation .widget-toolbar {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+    }
+}

@@ -1,0 +1,17 @@
+<div obj-control model="$parent.parentmodel?$parent.parentmodel:model" dmodel="model" form="form">
+    <div ng-show="!form.hide" ng-init="selected = { tab: 0 }" class="schema-form-tabs ">
+        <ul class="nav nav-tabs">
+            <li ng-repeat="tab in form.tabs" ng-disabled="form.readonly" ng-click="$event.preventDefault() || (selected.tab = $index)" ng-class="{active: selected.tab === $index}">
+                <a class="tabtitle place{{$index}}" href="#">{{ tab.title | translate}}</a>
+            </li>
+        </ul>
+        <div class="tab-content {{form.fieldHtmlClass}}">
+            <!--<layout-responsive ng-class="form.css">-->
+            <div class="tab-pane " ng-disabled="form.readonly" ng-repeat="tab in form.tabs" ng-show="selected.tab === $index" ng-class="{active: selected.tab === $index}">
+                <sf-decorator ng-class="{'hide': form.hide}" class=" {{form.type=='basRegion' ||form.type=='region' || form.type=='basAddgrid' || form.type=='basTable'|| form.type=='basArray'|| form.type=='arrayschema' || form.type=='arrayschemarow' ?'':'form-cells cell'}} {{form.css}}"
+                    ng-repeat="item in tab.items" form="item"></sf-decorator>
+            </div>
+            <!--</layout-responsive>-->
+        </div>
+    </div>
+</div>

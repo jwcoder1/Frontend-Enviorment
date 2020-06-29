@@ -1,0 +1,2 @@
+<input ng-change="form.onChange();" type="text" sf-changed="form" placeholder="{{form.placeholder | translate}} " class="form-control  {{form.fieldHtmlClass}} " id="{{form.key.slice(-1)[0]}} " ng-model-options="form.ngModelOptions " ng-model="$$value$$ "
+    ng-readonly="form.readonly2 " ng-disabled="form.readonly " name="{{form.key.slice(-1)[0]}} ">

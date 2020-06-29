@@ -1,0 +1,38 @@
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
+.login-page {
+  text-align: center;
+  padding: @padding-large-vertical 0;
+  height: 100%;
+  background-color: @login-page-bg;
+  .login-container {
+    margin: 0 auto;
+    margin-top: @login-margin-top;
+    text-align: left;
+    max-width: @login-container-width;
+    .clearfix();
+    // border: 1px solid red;
+  }
+  .login-box {
+    width: @login-box-width;
+  }
+  .login-form-wrap {
+    background-color: @login-form-bg;
+    border-radius: @border-radius-base;
+  }
+  .login-form-inner {
+    padding: @padding-large-vertical 0;
+  }
+  .login-container-inner {
+    padding: @padding-large-vertical *2 0;
+    .clearfix();
+  }
+  .login-footer {
+    padding: @login-footer-padding-vertical 0;
+    color: @login-footer-text-color;
+    border-top: 1px solid @legend-border-color;
+  }
+  .row label.col-sm-12 {
+    width: 100%;
+  }
+}

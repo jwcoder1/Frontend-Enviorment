@@ -1,0 +1,22 @@
+<div class="ui-query form-group">
+    <div class="col caption">
+        <label tooltip={{option.title}} tooltip-placement="right" class="control-label">{{(option.title||option.label) | translate }}
+        </label>
+    </div>
+    <div class="col content " obj-control model="ngModel" dmodel="ngModel" form="option">
+        <div ng-show="option.ftcondition">
+            <div style="width:50%;float:left;padding-right: 2px;">
+                <input ng-model="ngModel[option.ftcondition.f.name]" class="form-control ng-pristine ng-untouched ng-valid" type="text" ng-disabled="option.readonly">
+            </div>
+            <div style="width:50%;float:left;padding-left: 2px;">
+                <input ng-model="ngModel[option.ftcondition.t.name]" class="form-control ng-pristine ng-untouched ng-valid" type="text" ng-disabled="option.readonly">
+            </div>
+
+        </div>
+        <div ng-show="!option.ftcondition">
+            <input ng-model="ngModel[option.name]" class="form-control " type="text" ng-disabled="option.readonly">
+        </div>
+
+
+    </div>
+</div>

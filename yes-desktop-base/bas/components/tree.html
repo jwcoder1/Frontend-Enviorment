@@ -1,0 +1,25 @@
+<ul class="nav tree nav-list">
+    <li ng-repeat="node in items" class="tree-branch" ng-class="{'tree-item':!node.hasnextlevel}">
+        <i ng-if="node.hasnextlevel" ng-class="{'tree-plus':!node.collapsed}" ng-click="node.collapsed=!node.collapsed" class="tree-toggle icon-caret ace-icon tree-minus"></i>
+        <input ng-hide="option.readonly" type="checkbox" ng-model="node.select">
+        <a class="tree-branch-header" ng-class="{'tree-selected':node.active}" ng-click="nodeSelect($event,node);node.collapsed=!node.collapsed">
+            <span class="tree-branch-name">
+            <i class="ace-icon fa {{node.icon}}"></i>
+            <span class="tree-label"> {{node[option.name]}}</span>
+            </span>
+        </a>
+        <a ng-if="option.addfn" class="tree-branch-header" ng-click="nodeadd(node)" style="float:right">
+            <span class="tree-branch-name">
+            <i class="ace-icon fa fa-plus"></i>
+             </span>
+        </a>
+        <a ng-if="option.editfn" class="tree-branch-header" ng-click="nodeedit(node)" style="float:right">
+            <span class="tree-branch-name">
+            <i class="ace-icon fa fa-pencil"></i>
+             </span>
+        </a>
+        <div ng-if="node.collapsed">
+            <bas-tree resource="resource" option="option" boot-value="{{node[option.id]}}" level-value={{levelValue+1}}></bas-tree>
+        </div>
+    </li>
+</ul>

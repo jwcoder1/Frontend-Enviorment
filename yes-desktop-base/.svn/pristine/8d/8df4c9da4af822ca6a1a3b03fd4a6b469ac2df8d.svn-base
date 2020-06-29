@@ -1,0 +1,16 @@
+@import '../bootstrap/mixins';
+
+.dashboard {
+  ul, li {
+    clear: both;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+#breadcrumbs {
+  position: fixed;
+  width: 100%;
+  top: 45px;
+  z-index: 999;
+}

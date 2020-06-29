@@ -1,0 +1,24 @@
+<div class="ui-query form-group">
+    <div class="col caption">
+        <label tooltip={{option.title}} tooltip-placement="right" class="control-label">{{(option.title||option.label) | translate }}
+        </label>
+    </div>
+    <div class="col content basget" obj-control model="ngModel" dmodel="ngModel" form="option">
+        <div ng-show="option.ftcondition">
+            <div style="width:50%;float:left;padding-right: 2px;">
+                <input date-picker readonly data-date-format="yyyy-mm-dd" class="form-control" ng-model="ngModel[option.ftcondition.f.name]" type="text" picker-type="'date'" options="option.options">
+            </div>
+            <div style="width:50%;float:left;padding-left: 2px;">
+                <input date-picker readonly data-date-format="yyyy-mm-dd" class="form-control" ng-model="ngModel[option.ftcondition.t.name]" type="text" picker-type="'date'" options="option.options">
+            </div>
+
+        </div>
+        <div ng-show="!option.ftcondition">
+            <div class="input-group">
+                <input date-picker readonly data-date-format="yyyy-mm-dd" class="form-control" ng-model="ngModel[option.name]" type="text" picker-type="'date'" options="option.options">
+                <span class="input-group-addon"><i class="fa fa-calendar bigger-110"></i></span>
+            </div>
+        </div>
+
+    </div>
+</div>

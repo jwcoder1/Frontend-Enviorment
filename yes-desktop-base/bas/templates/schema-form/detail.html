@@ -1,0 +1,28 @@
+<div ng-hide="form.hide" sf-array="form" class="schema-form-array " ng-model="$$value$$" ng-model-options="form.ngModelOptions">
+	<h5 ng-show="form.title && form.notitle !== true">{{ form.title | translate}}</h5>
+	<ol class="list-group" ng-model="modelArray" ui-sortable>
+		<li class="list-group-item {{form.fieldHtmlClass}}" ng-repeat="item in modelArray track by $index" style="overflow: visible;">
+			<button ng-hide="form.readonly || form.remove === null" ng-click="deleteFromArray($index)" style="position: absolute;right: 0;bottom: 6px;"
+				type="button" class="close pull-right">
+              <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+      </button>
+
+			<div style="border: 1px solid #ccc;">
+				
+				<layout-responsive class="{{form.css}}">
+					<sf-decorator ng-init="arrayIndex = $index" form="copyWithIndex($index)" ></sf-decorator>
+				</layout-responsive>
+			</div>
+
+
+		</li>
+	</ol>
+	<div class="clearfix" style="padding: 15px;">
+		<button ng-hide="form.readonly || form.add === null" ng-click="form.appendToArray()" type="button" class="btn {{ form.style.add || 'btn-default' }} pull-right">
+      <i class="glyphicon glyphicon-plus"></i>
+      {{ form.add || 'Add'}}
+    </button>
+	</div>
+	<div class="help-block" ng-show="(hasError() && errorMessage(schemaError())) || form.description" ng-bind-html="(hasError() && errorMessage(schemaError())) || form.description"></div>
+</div>
+

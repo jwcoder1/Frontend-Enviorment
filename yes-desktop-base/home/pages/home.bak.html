@@ -1,0 +1,153 @@
+<div ng-controller="app.home.bak" class="page-content widgets-container">
+    <layout-responsive class="max-2">
+        <!--option: "=",
+                help: "=",
+                configurable: "=",
+                refreshable: "=",
+                fullscreenable: "=",
+                selectable: "=",
+                closable: "=",
+                collapsable: "=",
+                gridable: '=',
+                togglable: '=',
+                title: "@",
+                subtitle: "@",
+                ngModel: "=",
+                wrap: "=",-->
+        <widget class="box cell no-padding" subtitle="portlet" fullscreenable="true" collapsable="true" collapsable="true" configurable="true" closable="true" title="系统菜单">
+            <div style="min-height:490px">
+                <script type="text/ng-template" id="menu_icon">
+                    <a ng-if="!cmenu.children && (cmenu.home || cmenu.isdefault=='True')" href="{{::cmenu.url}}" class="btn btn-app btn-sm menu-btn {{::cmenu.color}}" title="{{::cmenu.name | translate}}">
+                        <i class="ace-icon bigger-200 fa {{::cmenu.icon}}"></i> {{::cmenu.name | translate}}
+                    </a>
+                    <span ng-repeat="cmenu in cmenu.children" ng-include="'menu_icon'"></span>
+                </script>
+                <div class="col-xs-12 menu-group">
+                    <div class="row" ng-repeat="menu in ::menus">
+                        <h5 class="header lighter">{{::menu.name | translate}}
+                            <small>&nbsp;</small>
+                        </h5>
+                        <div class="entry" ng-include="'menu_icon'" ng-repeat="cmenu in menu.children"> </div>
+                    </div>
+                </div>
+            </div>
+        </widget>
+
+        <widget class="box cell no-padding trimed" title="指标轮动">
+
+            <div swiper class="swiper-container">
+                <div class="swiper-wrapper carousel">
+                    <div ng-repeat="quota in quotos" class="swiper-slide carousel-item {{quota.color}}">
+                        <h5>{{quota.name}}</h5>
+                        <h3 class="header">{{quota.value}}</h3>
+                        <p>
+                            同比
+                            <i ng-show='quota.yoy==0'>- -</i>
+                            <i ng-show='quota.yoy>0'>↑ {{quota.yoy}} %</i>
+                            <i ng-show='quota.yoy<0'>↓ {{quota.yoy}} %</i>
+                            <br/> 环比
+                            <i ng-show='quota.mom==0'>- -</i>
+                            <i ng-show='quota.mom>0'>↑ {{quota.mom}} %</i>
+                            <i ng-show='quota.mom<0'>↓ {{quota.mom}} %</i>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+            <style>
+                .swiper-container {
+                    width: 100%;
+                    height: 220px;
+                    margin: 20px auto;
+                }
+                
+                .swiper-slide {
+                    text-align: center;
+                    font-size: 18px;
+                    background: #fff;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: -webkit-flex;
+                    display: flex;
+                    -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                    -webkit-justify-content: center;
+                    justify-content: center;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                    -webkit-align-items: center;
+                    align-items: center;
+                }
+            </style>
+        </widget>
+
+        <widget class="box cell" subtitle="portlet" fullscreenable="true" collapsable="true" collapsable="true" configurable="true" closable="true" title="我的待办">
+
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>标题</th>
+                        <th style="width:120px;">日期</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>【收文】公司收文待办1</td>
+                        <td> 2016-09-12</td>
+                    </tr>
+                    <tr>
+                        <td>【收文】公司收文待办2</td>
+                        <td> 2016-09-12</td>
+                    </tr>
+                    <tr>
+                        <td>【收文】公司收文待办2</td>
+                        <td> 2016-09-12</td>
+                    </tr>
+                    <tr>
+                        <td>【收文】公司收文待办2</td>
+                        <td> 2016-09-12</td>
+                    </tr>
+                    <tr>
+                        <td>【收文】公司收文待办2</td>
+                        <td> 2016-09-12</td>
+                    </tr>
+                    <tr>
+                        <td>【收文】公司收文待办2</td>
+                        <td> 2016-09-12</td>
+                    </tr>
+                    <tr>
+                        <td>【收文】公司收文待办2</td>
+                        <td> 2016-09-12</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </widget>
+    </layout-responsive>
+
+    <layout-responsive class="max-2">
+        <widget class="box cell100" title="签约量分析趋势">
+            <jq-chart id="chart1" style="height:360px;" config="chart1"></jq-chart>
+        </widget>
+
+        <widget class="box cell" title="业务板块签约量">
+            <jq-chart id="chart2" style="height:360px;" config="chart2"></jq-chart>
+        </widget>
+        <widget class="box cell" title="贸易类型">
+            <jq-chart id="chart4" style="height:360px;" config="chart4"></jq-chart>
+        </widget>
+        <widget class="box cell100" title="平台公司签约量">
+            <jq-chart id="chart3" style="height:360px;" config="chart3"></jq-chart>
+        </widget>
+        <widget class="box cell100" title="商品分类签约量">
+            <jq-chart id="chart5" style="height:360px;" config="chart5"></jq-chart>
+        </widget>
+        <widget class="box cell100" title="经营单位签约量">
+            <jq-chart id="chart6" style="height:360px;" config="chart6"></jq-chart>
+        </widget>
+    </layout-responsive>
+</div>

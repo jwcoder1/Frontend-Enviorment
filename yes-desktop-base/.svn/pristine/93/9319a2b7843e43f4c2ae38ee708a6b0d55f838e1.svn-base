@@ -1,0 +1,5 @@
+<form name="inputForm">
+    <div class="ui-grid-cell-contents">
+        <input class=" form-control" ng-readonly="col.colDef.readonly" ng-change="col.colDef.onchange(row.entity)" type="{{col.colDef.type}}" ui-grid-editor ng-class="'colt{col.uid}'" ng-model="MODEL_COL_FIELD">
+    </div>
+</form>

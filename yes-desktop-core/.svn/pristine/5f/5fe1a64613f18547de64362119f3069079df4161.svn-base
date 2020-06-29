@@ -1,0 +1,255 @@
+{
+  "headers": {
+    "operations": {
+      "displayName": "操作",
+      "minWidth": 335,
+      "cellTemplate": "<div class='ui-grid-cell-contentsoperation'>&nbsp;<aclass='btnbtn-smbtn-default'ng-click='grid.appScope.customClick($event,\"children\",row)'>编辑标的</a>&nbsp;<a ng-disabled=' row.entity.status==0 || row.entity.status==1 || row.entity.status==-20'class='btnbtn-smbtn-default'ng-click='grid.appScope.customClick($event,\"watch\",row)'>监控</a>&nbsp;<aclass='btnbtn-smbtn-default'ng-click='grid.appScope.customClick($event,\"resetAuction\",row)'>重置标的</a>&nbsp;<a ng-disabled=' row.entity.status==0 || row.entity.status==1 || row.entity.status==-20'class='btnbtn-smbtn-default'ng-click='grid.appScope.customClick($event,\"screenShow\",row)'>大屏投影</a>&nbsp;<aclass='btnbtn-smbtn-default'ng-click='grid.appScope.customClick($event,\"enrollsManage\",row)'>报名管理</a></div>"
+    },
+    "name": {
+      "displayName": "专场名称",
+      "minWidth": 50
+    },
+    "margin": {
+      "displayName": "最低保证金",
+      "minWidth": 50
+    },
+    "liveDate": {
+      "displayName": "竞价时间",
+      "minWidth": 160,
+      "cellFilter": "date:'yyyy-MM-dd HH:mm: ss'"
+    },
+    "master": {
+      "displayName": "交易师",
+      "minWidth": 50,
+      "cellFilter": "field: 'displayName'"
+    },
+    "room": {
+      "displayName": "竞价大厅",
+      "minWidth": 50,
+      "cellFilter": "field:'name'",
+      "visible": false
+    },
+    "sid": {
+      "displayName": "场次号",
+      "minWidth": 50
+    },
+    "status": {
+      "displayName": "状态",
+      "minWidth": 50,
+      "cellFilter": "enums:'auctionStatus'"
+    }
+  },
+  "queries": [
+    {
+      "type": "input",
+      "name": "name$match",
+      "title": "专场名称"
+    },
+    {
+      "type": "date-range-picker",
+      "name": "liveDate$match",
+      "title": "竞价时间",
+      "css": "cell2"
+    },
+    {
+      "type": "select",
+      "name": "status",
+      "title": "状态",
+      "titleMap": [
+        {
+          "name": "待审核",
+          "value": 0
+        },
+        {
+          "name": "已审核",
+          "value": 1
+        },
+        {
+          "name": "进行中",
+          "value": 2
+        },
+        {
+          "name": "暂停",
+          "value": 3
+        },
+        {
+          "name": "结束",
+          "value": 10
+        },
+        {
+          "name": "房间待关闭",
+          "value": -10
+        }
+      ]
+    }
+  ],
+  "form": [
+    {
+      "type": "region",
+      "css": "max-3",
+      "title": "主要信息",
+      "items": [
+        {
+          "key": "name",
+          "title": "专场名称",
+          "required": true
+        },
+        {
+          "key": "margin",
+          "title": "最低保证金",
+          "type": "number"
+        },
+        {
+          "key": "liveDate",
+          "title": "竞价时间",
+          "type": "dateTimePicker",
+          "required": true
+        },
+        {
+          "key": "room",
+          "title": "竞价大厅",
+          "type": "auctionRoomSelect"
+        },
+        {
+          "key": "master",
+          "title": "交易师",
+          "type": "baseAccountSelect",
+          "role": "master",
+          "required": true
+        },
+        {
+          "key": "organization",
+          "title": "所属组织方",
+          "type": "select",
+          "titleMap": [],
+          "required": true
+        },
+        {
+          "key": "status",
+          "title": "状态",
+          "type": "select",
+          "titleMap": [
+            {
+              "name": "待审核",
+              "value": 0
+            },
+            {
+              "name": "已审核",
+              "value": 1
+            },
+            {
+              "name": "进行中",
+              "value": 2
+            },
+            {
+              "name": "暂停",
+              "value": 3
+            },
+            {
+              "name": "结束",
+              "value": 10
+            },
+            {
+              "name": "房间待关闭",
+              "value": -10
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "enums": {
+    "auctionStatus": [
+      {
+        "name": "待审核",
+        "value": 0
+      },
+      {
+        "name": "已审核",
+        "value": 1
+      },
+      {
+        "name": "进行中",
+        "value": 2
+      },
+      {
+        "name": "暂停",
+        "value": 3
+      },
+      {
+        "name": "结束",
+        "value": 10
+      },
+      {
+        "name": "房间待关闭",
+        "value": -10
+      }
+    ]
+  },
+  "operations": [
+    "add",
+    "edit",
+    "del"
+  ],
+  "populate": [
+    "room",
+    "master"
+  ],
+  "schema": {
+    "type": "object",
+    "properties": {
+      "uid": {
+        "type": "string",
+        "title": "uid"
+      },
+      "name": {
+        "type": "string",
+        "title": "专场名称"
+      },
+      "sid": {
+        "type": "number",
+        "title": "场次号"
+      },
+      "liveDate": {
+        "type": "date",
+        "title": "竞价时间"
+      },
+      "room": {
+        "type": "string",
+        "title": "竞价大厅"
+      },
+      "master": {
+        "type": "string",
+        "title": "交易师"
+      },
+      "mode": {
+        "type": "number",
+        "title": "mode"
+      },
+      "form": {
+        "type": "string",
+        "title": "form"
+      },
+      "status": {
+        "type": "number",
+        "title": "状态"
+      },
+      "organization": {
+        "type": "string",
+        "title": "organization"
+      },
+      "living": {
+        "type": "boolean",
+        "title": "living"
+      },
+      "createdAt": {
+        "type": "date",
+        "title": "createdAt"
+      },
+      "margin": {
+        "type": "number",
+        "title": "最低保证金"
+      }
+    }
+  }
+}

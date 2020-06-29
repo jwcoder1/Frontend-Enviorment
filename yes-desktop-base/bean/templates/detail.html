@@ -1,0 +1,15 @@
+<layout-responsive class="max-5">
+    <div class="ngdialog-content-wrap detail-view">
+        <div cg-busy="{promise:promise,templateUrl:'',message:loadmessage?loadmessage:'please wait..',backdrop:true,delay:0,minDuration:0}">
+            <form name="base_form" class="base-form" ng-submit="action.save($event, base_form)">
+                <div class="operation ">
+                    <button ng-hide="operation.hide" obj-control model="$parent.parentmodel?$parent.parentmodel:model" dmodel="model" form="operation" data-ng-disabled="operation.readonly" ng-repeat="operation in config.listoperation " class="btn btn-primary " ng-class="operation.htmlClass"
+                        type="button" ng-click="operation.action($event,$parent); "><i class="fa
+                {{operation.icon}} "></i> {{operation.name | translate}} </button>
+                </div>
+                <div class="ys-schema-form " sf-schema="config.form.schema" sf-form="config.form.form" sf-model="model"></div>
+            </form>
+        </div>
+
+    </div>
+</layout-responsive>

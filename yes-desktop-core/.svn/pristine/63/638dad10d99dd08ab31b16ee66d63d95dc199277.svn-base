@@ -1,0 +1,28 @@
+{
+	"error": null,
+	"body": {
+		"id": "KS00030070",
+		"commName": "厦门建发纸业有限公司",
+		"enName": "KS00030070",
+		"cnName": "KS00030070",
+		"registry": "厦门市",
+		"partnerType": "客户,供应商,服务供应商",
+		"tradeArea": "中国",
+		"lgrEpresentative": "郑永达",
+		"actualController": null,
+		"registryCapital": "500000000.00",
+		"registryCapitalCY": "CNY",
+		"addr": "厦门市思明区环岛东路1699号建发国际大厦24楼",
+		"businessLicenseNO": null,
+		"setupDate": "2001-03-21 16:00:00",
+		"taxNO": "350203705467516",
+		"service": "纸，浆",
+		"customerNature": "国有",
+		"enterpriseType": "贸易经销类",
+		"clisenType": "工厂",
+		"supsenType": "贸易商",
+		"quotedCOMP": null,
+		"certificateNO": null,
+		"totalItems": 0
+	}
+}

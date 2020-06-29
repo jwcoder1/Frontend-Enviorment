@@ -1,0 +1,44 @@
+<ul ng-sortable="sortOption" class="{{::root?'raw-tree tree-selectable':'tree-branch-children'}}" ng-hide="hide">
+    <li ng-repeat="node in nodes" ng-click="selectChanged(node)"
+        class="{{node.children.length?'tree-branch':'tree-item'}}{{item.collapsed?'':' tree-open'}}"
+        ng-class="{'tree-selected':node.selected&&(!node.children.length)}">
+        <div ng-if="!node.children.length" ng-mouseenter="showMoveIco(nodes);" ng-mouseleave="hideMoveIco(nodes);"
+             title="{{node.name}}">
+	        <span class="tree-item-name">
+	        	<label style="width: 96.5%;">
+					<span class="tree-label abbreviation">
+						<i ng-if="node.isApp" class="menu-icon fa fa-cog"></i>{{node.name}}
+					</span>
+                </label>
+	            <span ng-show="node.showMove" class="my-handle" style="right: 0;position: absolute;">
+					<i class="glyphicon glyphicon-move"></i>
+				</span>
+	        </span>
+        </div>
+
+
+        <div ng-if="node.children.length" ng-mouseenter="showMoveIco(nodes);" ng-mouseleave="hideMoveIco(nodes);"
+             ng-click="selectChanged(node,true)" class="tree-branch-header" ng-class="{'tree-selected':node.selected}"
+             title="{{node.name}}">
+            <i class="icon-folder ace-icon {{node.collapsed?'tree-plus':'tree-minus'}}"
+               ng-click="node.collapsed=!node.collapsed;">
+            </i>
+            <span class="tree-branch-name">
+                <label style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">
+                	<span class="tree-label">
+                		{{node.name}}
+                	</span>
+                </label>
+            </span>
+			<span ng-show="node.showMove" class="my-handle" style="right: 0;position: absolute;">
+                <i class="glyphicon glyphicon-move"></i>
+            </span>
+        </div>
+
+        <div ng-if="node.children.length" on-select="onSelect" hide="node.collapsed" yes-organization-tree
+             sortable="true" sort-option="sortOption" multiple="multiple" data-nodes="node.children"
+             data-initial="initial"
+             data-root="false">
+        </div>
+    </li>
+</ul>

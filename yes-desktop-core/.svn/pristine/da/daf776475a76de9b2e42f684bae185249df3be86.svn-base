@@ -1,0 +1,65 @@
+<div class="login-page" ng-controller="app.login">
+	<div class="login-container container">
+		<div class="login-container-inner">
+			<div class="login-banner-wrap col-sm-12 col-md-6">
+				<h2>
+					Base管理后台系统
+				</h2>
+				<p>系统简介</p>
+			</div>
+			<div class="login-form-wrap container-fluid col-sm-12 col-md-6">
+				<div class="login-form-inner">
+					<h4>
+						<i class="fa fa-coffee"></i> 用户登录
+					</h4>
+					<form ng-submit="action.login()">
+						<fieldset>
+							<div class="row">
+								<label class="col-sm-12">
+                                <input type="text" class="form-control input" 
+                                                ng-model="vm.username" placeholder="账号"/>
+                            </label>
+							</div>
+							<div class="row">
+								<label class="col-sm-12">
+                                <input type="password" class="form-control input"
+                                                ng-model="vm.password" placeholder="密码"/>
+                            </label>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<label class="ys-checkbox"> 
+                                    <input type="checkbox" ng-model="vm.rememberMe"/> 
+                                    自动登录
+                                </label>
+								</div>
+								<div class="col-sm-6 text-right">
+									<label class="forgot-passord">
+                                    <a class="click" ng-click="action.forgotPassword()"> 忘记密码？</a>
+                                </label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12">
+									<button type="submit" class="btn btn-primary btn-full">
+                                登录
+                                </button>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="login-footer">
+			<div class="row">
+				<div class="col-md-6">
+					版本所有：厦门亿实软件科技有限公司 &copy; 2009 - 2016
+				</div>
+				<div class="col-md-6 text-right">
+					技术支持：厦门亿实软件科技有限公司
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

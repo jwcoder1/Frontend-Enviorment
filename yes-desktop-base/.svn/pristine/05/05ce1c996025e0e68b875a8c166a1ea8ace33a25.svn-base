@@ -1,0 +1,4 @@
+<div ng-controller="bean.singlegconfigure.detail">
+    <div ng-include="detailUrl"></div>
+
+</div>

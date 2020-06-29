@@ -1,0 +1,44 @@
+@import '../bootstrap/variables';
+.widget-filter {
+
+    .form-group{
+        margin-bottom:0;
+    }
+
+    position: relative;
+
+  .ui-query {
+    min-width: 210px;
+    width:33%;
+    float: left;
+    border: 1px solid #efefef;
+    display: table;
+    border-collapse: collapse; 
+    margin:-1px 0 0 -1px;
+    .col{
+        vertical-align: middle;    
+        display: table-cell;
+        height: 36px;
+        padding:2px 5px;
+    }
+  }
+  
+  .col.caption {
+    min-width: 69px;
+    width: 35%;
+    label{
+      margin-bottom: 0
+    }
+    line-height: 36px;
+  }
+  .col.content {
+    min-width: 191px;
+    width: 65%;
+  }
+  .buttons-wrap{
+    position: absolute;  
+    bottom: 0;
+    right:20px;
+  }
+  padding-bottom: 40px;
+}

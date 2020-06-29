@@ -1,0 +1,20 @@
+<div class="schema-form-section sfs-region clearfix {{form.htmlClass}}" obj-control model="$parent.parentmodel?$parent.parentmodel:model" dmodel="model" form="form" ng-class="{'hide': form.hide}">
+    <div ng-show="form.title && !form.hide" class="header smaller lighter collapsed">
+        <label tooltip={{form.title}} ng-class="{'sr-only': !showTitle() }">
+            {{form.title | translate}}
+        </label>
+        <div class="widget-toolbar">
+            <a data-action="collapse" ng-click="isCollapsed = !isCollapsed">
+                <i class="ace-icon fa fa-chevron-up click" ng-class="{'fa-chevron-down':!isCollapsed}"></i>
+            </a>
+        </div>
+    </div>
+
+    <div ng-show="!isCollapsed">
+        <div ng-class="form.bottomClass">
+            <sf-decorator ng-class="{'hide': form.hide}" class=" {{form.type=='basRegion' ||form.type=='region' || form.type=='basAddgrid' || form.type=='basTable'|| form.type=='basArray'|| form.type=='arrayschema' || form.type=='arrayschemarow' ?'':'form-cells cell'}} {{form.css}}"
+                ng-repeat="item in form.items" form="item"></sf-decorator>
+        </div>
+
+    </div>
+</div>

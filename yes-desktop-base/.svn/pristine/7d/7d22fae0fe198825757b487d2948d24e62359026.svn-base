@@ -1,0 +1,21 @@
+<div class="ui-query form-group">
+    <div class="col caption">
+        <label tooltip={{option.title}} tooltip-placement="right" class="control-label">{{(option.title||option.label) | translate }}
+        </label>
+    </div>
+    <div class="col content basget" obj-control model="ngModel" dmodel="ngModel" form="option">
+        <div ng-show="option.ftcondition">
+            <div style="width:50%;float:left;padding-right: 2px;">
+                <get-lov ng-model="ngModel[option.ftcondition.f.name]" form="option"></get-lov>
+            </div>
+            <div style="width:50%;float:left;padding-left: 2px;">
+                <get-lov ng-model="ngModel[option.ftcondition.t.name]" form="option"></get-lov>
+            </div>
+
+        </div>
+        <div ng-show="!option.ftcondition">
+            <get-lov ng-model="ngModel[option.name]" form="option"></get-lov>
+        </div>
+
+    </div>
+</div>

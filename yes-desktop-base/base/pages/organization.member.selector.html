@@ -1,0 +1,36 @@
+<div class="clearfix" style="padding-right: 0;  background: #FFFFFF;">
+    <div class="my-list">
+        <div class="my-title" style="position: relative;">
+            <button ng-if="showConfirm" ng-click="action.confirm();" class="btn btn-sm btn-primary" type="button" style="margin-left:4px;position: absolute;top: 6px;left: 0;">
+                <i class="ace-icon fa fa-save bigger-110"></i> 确认
+            </button>
+            <b>{{title | translate}}</b>
+        </div>
+        <div class="my-content" style="overflow-y: auto;height: 300px;width: 300px">
+            <div class="input-group " style="margin:20px;">
+                <ui-select ng-model="result.organization" theme="bootstrap" ng-change="action.onDetailOrganizationChange();" reset-search-input="true" style="width: 100%;">
+                    <ui-select-match placeholder="{{'请选择组织' | translate}}">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="item in organizations | filter:$select.search">
+                        <div class="select2-item" ng-bind-html="item.name | highlight: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select>
+                <span class="input-group-btn">
+		            <button class="btn btn-default btn-sm" type="button" style="height: 24px;margin-left: -1px;"
+		                     ng-click="action.dialog()">
+		                <i class="fa fa-plus"></i>
+		            </button>
+		        </span>
+            </div>
+            <div style="margin-left:20px;margin-right:20px;margin-bottom:20px;">
+                <ui-select multiple ng-model="result.member" ng-change="" theme="bootstrap" reset-search-input="true" style="width: 100%;">
+                    <ui-select-match placeholder="{{'请'+title | translate}}">
+                        {{$item.name}}
+                    </ui-select-match>
+                    <ui-select-choices repeat="item in members | filter:$select.search">
+                        <span ng-bind="item.name"></span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+    </div>
+</div>

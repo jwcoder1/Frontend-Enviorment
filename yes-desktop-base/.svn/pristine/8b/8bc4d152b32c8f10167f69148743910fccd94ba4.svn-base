@@ -1,0 +1,28 @@
+<section class="list-view ngdialog-content-wrap" ng-controller="app.baslov">
+    <div class="header smaller lighter collapsed">
+        <label>{{config.title | translate}}</label>
+    </div>
+    <layout-responsive class="max-6">
+        <form name="query" ng-submit="action.load()" class="list-queries query-form clearfix">
+            <ui-query ng-repeat="config in config.dialogConfig.filterItems" ng-model="filter" option="config" class="query-item form-cells cell {{config.css}}"></ui-query>
+            <div class="buttons-wrap">
+                <button class="btn btn-sm btn-primary ng-binding" type="submit">
+                <i class="glyphicon glyphicon-search "></i> 查询
+            </button>
+                <button class="btn btn-sm btn-primary ng-binding" type="button" ng-click="action.reset();">
+                <i class="ace-icon fa fa-undo bigger-110"></i> 重置
+            </button>
+                </button>
+                <button class="btn btn-sm btn-primary ng-binding" type="button" ng-click="action.sure();">
+                <i class="ace-icon fa fa-undo bigger-110"></i> 确认
+            </button>
+            </div>
+        </form>
+    </layout-responsive>
+    <div cg-busy="{promise:promise,templateUrl:'',message:'please wait..',backdrop:true,delay:0,minDuration:0}">
+        <form name="grid" ng-class="{'enable-filter':gridOptions.enableFiltering}">
+            <viewsingle-grid headers="config.dialogConfig.headers" row-dblclick="action.rowclick;" onchangepage="action.changepage" resource="model" grid-api="$parent.gridApi" grid-key="config.gridkey"></viewsingle-grid>
+        </form>
+    </div>
+
+</section>

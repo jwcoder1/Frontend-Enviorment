@@ -1,0 +1,23 @@
+<div class="ui-query form-group">
+    <div class="col caption">
+        <label tooltip={{option.title}} tooltip-placement="right" class="control-label">{{(option.title||option.label) | translate }}
+        </label>
+    </div>
+    <div class="col content basget">
+        <div ng-show="option.ftcondition" obj-control model="ngModel" dmodel="ngModel" form="option">
+            <div style="width:50%;float:left;padding-right: 2px;">
+                <input esy-datetime readonly id="{{option.key.slice(-1)[0]+'a'}}" class="form-control" ng-model="ngModel[option.ftcondition.f.name]" type="text" options="option.options">
+            </div>
+            <div style="width:50%;float:left;padding-left: 2px;">
+                <input esy-datetime readonly id="{{option.key.slice(-1)[0]+'b'}}" class="form-control" ng-model="ngModel[option.ftcondition.t.name]" type="text" options="option.options">
+            </div>
+
+        </div>
+        <div ng-show="!option.ftcondition">
+            <div>
+                <input esy-datetime readonly id="{{option.key.slice(-1)[0]}}" class="form-control" ng-model="ngModel[option.name]" type="text" options="option.options">
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div>
+    <div class="yes-uploader yes-ui" style="min-height:35px;">
+        <div ng-if="!readonly" class="browser">
+            <label class="btn btn-sm btn-primary">
+                <span class="fa fa-paperclip"></span>
+                <span>{{"选择Excel文件" | translate}}</span>
+                <input type="file" nv-file-select="" uploader="uploader"  accept=".xlsx,.xls"  multiple/>
+            </label>
+        </div>
+    </div>
+    <div ng-show="downfile" class="col-xs-12 col-sm-12 clearfix">
+        <a href="{{downfile}}"><span
+            class="glyphicon glyphicon-download-alt" style="color: blue"></span>模版下载</a>
+    </div>
+</div>

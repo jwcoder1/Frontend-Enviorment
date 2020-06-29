@@ -1,0 +1,2 @@
+<div class='ui-grid-cell-contents '>
+    <i class="remarkico fa fa-arrows-alt" ng-click="dialog(form,$parent)"></i>{{ngModel}} </div>

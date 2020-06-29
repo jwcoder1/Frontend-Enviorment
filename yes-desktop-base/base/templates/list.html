@@ -1,0 +1,39 @@
+<div>
+    <style>
+        .operation .buttons-icons {
+            float: right;
+        }
+    </style>
+
+    <div class="widget-box ui-sortable-handle" ng-show="detailUrl">
+        <div ng-include="detailUrl"></div>
+    </div>
+    <section class="list-view ngdialog-content-wrap" ng-hide="detailUrl">
+        <div ng-init="isCollapsed=true" ng-show="filterItems && isCollapsed">
+            <layout-responsive class="max-4">
+                <form name="query" ng-submit="load()" class="list-queries query-form clearfix">
+                    <ui-query ng-repeat="config in filterItems" ng-model="filter" option="config" class="query-item form-cells cell {{config.css}}"></ui-query>
+                    <button type="submit" style="display:none;">提交</button>
+                </form>
+            </layout-responsive>
+        </div>
+
+        <div class="operation">
+            <button ng-repeat="operation in listOperations" class="btn btn-primary" type="button" ng-click="operation.action($event,$parent);">
+            <i class="fa {{operation.icon}}"></i> {{operation.name | translate}}
+            </button>
+
+            <button ng-if="back" class="btn btn-primary" type="button" ng-click="closeThisDialog();"><i class="fa fa-arrow-left"></i> {{'返回' | translate}}</button>
+            <div class="buttons-icons">
+                <i class="fa fa-search click" ng-click="load()"></i>
+                <i class="fa fa-undo click" ng-click="action.reset()"></i>
+                <i class="fa fa-chevron-up click" ng-click="isCollapsed=!isCollapsed" ng-class="{'fa-chevron-down':isCollapsed}"></i>
+            </div>
+        </div>
+        <div cg-busy="{promise:promise,templateUrl:'',message:loadmessage?loadmessage:'please wait..',backdrop:true,delay:0,minDuration:0}">
+            <form name="grid">
+                <div ui-grid='gridOptions' ui-grid-selection ui-grid-resize-columns ui-grid-exporter ui-grid-move-columns ui-grid-auto-resize ui-grid-auto-min-rows ui-grid-pagination ui-grid-resize></div>
+            </form>
+        </div>
+    </section>
+</div>

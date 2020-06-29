@@ -1,0 +1,9 @@
+<div class="ui-query checkboxes">
+    <div class="col caption">
+        <label tooltip={{option.title}} tooltip-placement="right" class="control-label">{{(option.title||option.label) | translate }}
+        </label>
+    </div>
+    <div class="col content" obj-control model="ngModel" dmodel="ngModel" form="option">
+        <checkboxs ng-model="ngModel[option.name]" option="option"></checkboxs>
+    </div>
+</div>

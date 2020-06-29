@@ -1,0 +1,104 @@
+<div ng-controller="app.base.application">
+    <div class="widget-box ui-sortable-handle" ng-show="detailUrl">
+        <div ng-include="detailUrl"></div>
+    </div>
+
+
+    <div class="row no-margin" ng-hide="detailUrl">
+        <div class="col-xs-5" style="padding-right: 0;">
+            <div class="my-list">
+                <div class="my-title" style="position: relative;">
+                    <b>{{'应用分组列表' | translate}}</b>
+                </div>
+                
+                <div class="my-title" style="position: relative;">
+                    <button class="btn btn-sm btn-primary" type="button" ng-click="action.addRoot();"
+                            style="left: 0;margin-top: 5px;margin-left: 5px;position: absolute;">
+                        <i class="ace-icon glyphicon glyphicon-plus bigger-110"></i> 根分组
+                    </button>
+                    <button class="btn btn-sm btn-primary" type="button" ng-disabled="current==null"
+                            ng-click="action.addChildren();"
+                            style="left: 0;margin-top: 5px;margin-left: 80px;position: absolute;">
+                        <i class="ace-icon glyphicon glyphicon-plus bigger-110"></i> 下级
+                    </button>
+                  
+                    <button class="btn btn-sm btn-primary" type="button" ng-disabled="current==null"
+                            ng-click="action.editAppGroup();"
+                            style="right: 0;margin-top: 5px;margin-right: 67px;position: absolute;">
+                        <i class="ace-icon glyphicon glyphicon-edit bigger-110"></i> 编辑
+                    </button>
+                    <button class="btn btn-sm btn-primary" type="button" ng-disabled="current==null"
+                            ng-click="action.delAppGroup();"
+                            style="right: 0;margin-top: 5px;margin-right: 5px;position: absolute;">
+                        <i class="ace-icon glyphicon glyphicon-remove bigger-110"></i> 删除
+                    </button>
+                </div>
+                
+                <div class="enterprise-selector clearfix">
+                    <div class="enterprise-name">企业:</div>
+                    <div class="enterprise-input">
+ 						<span ng-click="action.changeEnterprise();" class="input-icon clickable search-span">
+ 							<input ng-model="showEnterpriseName" placeholder="请选择企业" class="clickable" readonly>
+ 							<i class="ace-icon fa fa-search "></i>
+						</span>
+                    </div>
+                </div>
+                <div class="my-content" id="con" style="height: 426px;overflow-y: auto;">
+                    <div yes-organization-tree sortable="true" sort-option="appGroupSortOption"
+                         on-select="action.selectApplication" data-nodes="node.children" data-initial="node.children"
+                         data-root="true"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-wrap col-xs-7" style="padding-left: 0;">
+            <div class="page-content list-scope" style="padding-left: 10px;">
+                <div class="wrapper-md">
+                    <div class="search-controls clearfix">
+                        <form name="query" ng-submit="load()" class="list-queries base-form clearfix">
+                            <ui-query ng-repeat="config in list.filters" ng-model="filter" option="config"
+                                      class="col-xs-12 col-sm-6 col-md-6"></ui-query>
+                            <!--<form name="search" ng-submit="load()">-->
+                            <!--<ui-query ng-repeat="config in list.filters" ng-model="filter" option="config" class="col-xs-12 col-sm-6 col-md-3"></ui-query>-->
+                            <!--<div class="search-items" ng-class="{'line': list.filters.length}">
+                                <div class="item filter-{{item.type}}" ng-repeat="item in list.filters">
+                                    <div class="caption"> {{item.label | translate}} :</div>
+                                    <div class="control" yes-query="item" data-filter="filter"
+                                         data-ng-model="filter[item.name]"></div>
+                                </div>
+                            </div>-->
+                            <div class="buttons-wrap clearfix">
+                                <button class="btn btn-sm btn-primary" type="submit">
+                                    <i class="glyphicon glyphicon-search "></i> {{'搜索' | translate}}
+                                </button>
+                                <button class="btn btn-sm btn-primary" type="button" ng-click="action.reset();">
+                                    <i class="ace-icon fa fa-undo bigger-110"></i>{{'重置' | translate}}
+                                </button>
+                                <button class="btn btn-sm btn-primary" type="button" ng-click="action.add();">
+                                    <i class="ace-icon fa fa-plus bigger-110"></i> {{'新建' | translate}}
+                                </button>
+                                <button class="btn btn-sm btn-primary" type="button" ng-click="action.del();">
+                                    <i class="ace-icon fa fa-remove bigger-110"></i> {{'删除' | translate}}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="list-grid-wrap" ng-class="{'enable-filter':list.gridOptions.enableFiltering}">
+                        <div id="ui-grid" ui-grid="list.gridOptions" style="height:456px;"
+                             ui-grid-selection
+                             ui-grid-resize-columns
+                             ui-grid-exporter
+                             ui-grid-move-columns
+                             ui-grid-auto-resize
+                             ui-grid-pagination
+                             class="grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

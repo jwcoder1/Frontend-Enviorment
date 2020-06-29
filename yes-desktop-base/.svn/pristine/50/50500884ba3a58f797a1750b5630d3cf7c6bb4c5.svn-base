@@ -1,0 +1,25 @@
+<div ng-hide="form.hide" obj-control model="model" dmodel="model" form="form" class="schema-form-array col-xs-12 col-sm-12 clearfix">
+
+    <div ng-show="form.title" class="header smaller lighter collapsed  {{form.htmlClass}} ">
+        <label tooltip={{form.title}}>{{form.title | translate}}</label>
+    </div>
+    <ol class="list-group" ng-init="modelArray=$$value$$" ng-model="$$value$$" ui-sortable>
+        <li class="clearfix list-group-item {{form.fieldHtmlClass}}" ng-repeat="itemdata in $$value$$ track by $index" on-repeat style="overflow: visible;">
+
+            <button ng-hide="form.action.del.readonly" obj-control model="model" dmodel="model" form="form.action.del" ng-click="form.action.del.click($$value$$,$index)" style="position: absolute;right: 0;bottom: 6px;" type="button" class="close pull-right">
+              <span aria-hidden="true" style="font-size: 25px; color: rgb(23, 1, 1);">&times;</span><span class="sr-only">Close</span>
+            </button>
+
+            <div style="margin-right: 15px;">
+                <div sf-schema="form.schema" sf-form="rowform" sf-model="itemdata"></div>
+            </div>
+        </li>
+    </ol>
+    <div ng-hide="form.action.add.readonly" obj-control model="model" dmodel="model" form="form.action.add" class="clearfix" style="padding: 15px;">
+        <button ng-click="form.action.add.click($$value$$)" type="button" class="btn btn-primary  pull-right">
+      <i class="glyphicon glyphicon-plus"></i>
+      {{ form.action.add.title || 'Add'}}
+    </button>
+    </div>
+    <div class="help-block" ng-show="(hasError() && errorMessage(schemaError())) || form.description" ng-bind-html="(hasError() && errorMessage(schemaError())) || form.description"></div>
+</div>

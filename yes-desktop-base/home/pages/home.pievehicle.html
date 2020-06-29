@@ -1,0 +1,29 @@
+<div ng-controller="vehicle.pievehicle">
+	<style>
+		.operation .buttons-icons {
+			float: right;
+		}
+	</style>
+
+
+	<div ng-include="selectidentity"></div>
+	<!-- 模态框（Modal） -->
+	<div ng-show="detailurl">
+		<div ng-include="detailurl"></div>
+	</div>
+	<section ng-hide="detailurl"  class="list-view ngdialog-content-wrap" ng-hide="detailUrl">
+		
+
+		<div class="operation">
+			<button ng-repeat="operation in listOperations" class="btn btn-primary" type="button" ng-click="operation.action($event,$parent);">
+            <i class="fa {{operation.icon}}"></i> {{operation.name | translate}}
+            </button>
+
+		</div>
+
+		<form name="grid">
+			<div ui-grid='gridOptions' ui-grid-selection ui-grid-resize-columns ui-grid-exporter ui-grid-move-columns ui-grid-auto-resize
+				ui-grid-auto-min-rows ui-grid-pagination ui-grid-resize></div>
+		</form>
+	</section>
+</div>

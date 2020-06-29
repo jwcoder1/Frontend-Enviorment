@@ -1,0 +1,1 @@
+<div class='ui-grid-cell-contents esy-number' ng-dblclick="form.ondblclick($parent.row.entity)" ng-class="{'click-line': form.ondblclick  }">{{showprice?(gridField | number :form.num):"***"}}</div>

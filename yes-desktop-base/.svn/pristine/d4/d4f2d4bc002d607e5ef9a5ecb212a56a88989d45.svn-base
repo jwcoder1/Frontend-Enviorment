@@ -1,0 +1,8 @@
+<form name="inputForm">
+    <div class="ui-grid-cell-contents input-group">
+        <input date-picker readonly class="form-control" ng-class="'colt{{col.uid}}'" ng-model="MODEL_COL_FIELD" type="text" picker-type="'date'"  >
+        <span class="input-group-addon">
+                    <i class="fa fa-clock-o bigger-110"></i>
+                </span>
+    </div>
+</form>

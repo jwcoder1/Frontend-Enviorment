@@ -1,0 +1,4 @@
+<div ng-controller="bean.queryconfigure.detail">
+    <div ng-include="detailUrl"></div>
+
+</div>

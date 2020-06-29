@@ -1,0 +1,12 @@
+<div class="form-group schema-form-{{form.type}} " ng-class="{'has-error': form.disableErrorState !== true && hasError(), 'has-success': form.disableSuccessState !== true && hasSuccess(), 'has-feedback': form.feedback !== false }">
+    <div class="col-xs-12 col-sm-12 clearfix" obj-control model="$parent.parentmodel?$parent.parentmodel:model" dmodel="model" form="form">
+        <div class="col caption" ng-class="{'required':form.required}">
+            <label class="control-label {{form.labelHtmlClass}}" ng-class="{'sr-only': !showTitle()}" for="{{form.key.slice(-1)[0]}}">{{form.title | translate }}
+            </label>
+        </div>
+        <div class="col content">
+            <input type="checkbox" sf-changed="form" ng-disabled="form.readonly" ng-model="$$value$$" ng-model-options="form.ngModelOptions" schema-validate="form" class="{{form.fieldHtmlClass}}" name="{{form.key.slice(-1)[0]}}">
+        </div>
+        <div class="help-block" sf-message="form.description"></div>
+    </div>
+</div>

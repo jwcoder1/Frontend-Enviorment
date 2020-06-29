@@ -1,0 +1,19 @@
+<section class="list-view ngdialog-content-wrap" ng-controller="app.wrap.selector">
+    <form name="query" ng-submit="load()" class="list-queries base-form clearfix">
+        <ui-query ng-repeat="config in config.filters" ng-model="filter" option="config" class="col-xs-12 col-sm-6 col-md-3"></ui-query>
+        <div class="buttons-wrap">
+            <button class="btn btn-sm btn-primary ng-binding" type="submit">
+                <i class="glyphicon glyphicon-search "></i> 查询
+            </button>
+            <button class="btn btn-sm btn-primary ng-binding" type="button" ng-click="action.reset();">
+                <i class="ace-icon fa fa-undo bigger-110"></i> 重置
+            </button>
+            <button ng-repeat="op in config.operations" class="btn btn-sm btn-primary ng-binding" type="button" ng-click="op.action();">
+                <i class="ace-icon fa {{op.icon}} bigger-110"></i> {{op.name | translate}}
+            </button>
+        </div>
+    </form>
+    <form name="grid" ng-class="{'enable-filter':gridOptions.enableFiltering}">
+        <div id="ui-grid" ui-grid="gridOptions" ui-grid-selection ui-grid-resize-columns ui-grid-exporter ui-grid-move-columns ui-grid-auto-resize ui-grid-pagination class="grid"></div>
+    </form>
+</section>

@@ -1,0 +1,1 @@
+<grid-cell-number grid-field="{{COL_FIELD}}" form="col.colDef"></grid-cell-number>

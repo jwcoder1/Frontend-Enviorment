@@ -1,0 +1,23 @@
+<div class="ui-query checkboxes">
+    <div class="col caption">
+        <label tooltip={{option.title}} tooltip-placement="right" class="control-label">{{(option.title||option.label) | translate }}
+        </label>
+    </div>
+    <div class="col content">
+        <div ng-class="{'input-group': (option.fieldAddonLeft || option.fieldAddonRight)}">
+            <ui-select multiple ng-model="ngModel[option.name]" theme="bootstrap" ng-disabled="option.readonly" ng-change="option.onChange($select.selected);" reset-search-input="true">
+                <ui-select-match placeholder="{{option.placeholder}}">{{$item.name}}</ui-select-match>
+                <ui-select-choices refresh="option.refresh(form,$select.search)" refresh-delay="0" repeat="item.value as item in option.titleMap | filter:$select.search">
+                    <div class="select2-item" ng-bind-html="item.name | highlight: $select.search"></div>
+                    <small ng-if="option.small" ng-bind-html="item.value | highlight: $select.search | translate"></small>
+                </ui-select-choices>
+            </ui-select>
+            <span ng-if="option.fieldAddonRight" class="input-group-btn">
+                 <button class="btn btn-default btn-sm" ng-click="option.dialog(form,$parent)"
+                    type="button">
+                     <i class="fa {{option.fieldAddonRight}}"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>

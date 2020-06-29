@@ -1,0 +1,9 @@
+<form name="base_form" class="base-form"  ng-submit="save($event, base_form)">
+	<div class="modal-body">
+		<div class="ys-schema-form" sf-schema="config.schema" sf-form="config.form" sf-model="modalModel"></div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" type="submit" >保存</button>
+		<button class="btn btn-warning" type="button" ng-click="cancel()">取消</button>
+	</div>
+</form>

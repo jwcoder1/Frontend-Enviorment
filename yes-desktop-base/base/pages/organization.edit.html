@@ -1,0 +1,134 @@
+<div class="widget-body" style="">
+    <form name="edit$form" class="schema-form" role="form"
+          ng-submit="save(edit$form)">
+        <label style="  margin-bottom: 0;margin-top: 3px;">{{model.uid?"编辑组织":"新建组织" | translate}}</label>
+        <div class="buttons-wrap">
+            <button type="submit" name="yes_temp_show_task" class="btn btn-sm btn-primary"
+                    title=""><i class="fa fa-save bigger-110"></i> {{'保存' | translate}}
+            </button>
+            <div class="my-content base-form clearfix" style="height: 150px;border:0;padding:10px 0px;">
+
+                <div class="form-group col-xs-12 col-sm-6 clearfix">
+                    <div class="col caption">
+                        <label class="control-label ">{{'组织编号' | translate}}</label>
+                    </div>
+
+                    <div class="col content">
+                        <input type="text" class="form-control" ng-model="model.showid" placeholder="自动生成" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group col-xs-12 col-sm-6 clearfix ">
+                    <div class="col caption">
+                        <label class="control-label required">{{'组织名称' | translate}}</label>
+                    </div>
+
+                    <div class="col content">
+                        <input type="text" class="form-control" ng-model="model.name">
+                    </div>
+                </div>
+
+                <div class="form-group col-xs-12 col-sm-6 clearfix ">
+                    <div class="col caption">
+                        <label class="control-label">{{'上级组织' | translate}}</label>
+                    </div>
+
+                    <div class="col content">
+                        <input type="text" class="form-control" ng-model="model.parentName" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group col-xs-12 col-sm-6 clearfix ">
+	                 <div class="col caption">
+	                     <label class="control-label">{{'简称' | translate}}</label>
+	                 </div>
+	
+	                 <div class="col content">
+	                     <input type="text" class="form-control" ng-model="model.abbreviated">
+	                 </div>
+	             </div>
+	             
+	             <div class="form-group col-xs-12 col-sm-6 clearfix ">
+	                 <div class="col caption">
+	                     <label class="control-label">{{'简拼' | translate}}</label>
+	                 </div>
+	
+	                 <div class="col content">
+	                     <input type="text" class="form-control" ng-model="model.py" placeholder="自动生成"
+	                            readonly>
+	                 </div>
+	             </div>
+	
+	             <div class="form-group col-xs-12 col-sm-6 clearfix ">
+	                 <div class="col caption">
+	                     <label class="control-label">{{'分组组织' | translate}}</label>
+	                 </div>
+	
+	                 <div class="col content">
+	                     <ui-select ng-model="model.isGroup"
+	                                theme="bootstrap"
+	                                reset-search-input="true"
+	                                style="min-width: 120px;">
+	                         <ui-select-match>
+	                             {{$select.selected.name}}
+	                         </ui-select-match>
+	
+	                         <ui-select-choices
+	                                 repeat="item.value as item in isGroupTypes | filter:$select.search">
+	                             <div class="select2-item"
+	                                  ng-bind-html="item.name | highlight: $select.search"></div>
+	                         </ui-select-choices>
+	                     </ui-select>
+	                 </div>
+	             </div>
+	             
+	           <!--   <div ng-if=" model.parentName =='无' "   class="form-group col-xs-12 col-sm-6 clearfix ">
+                     <div class="col caption">
+                         <label class="control-label">{{'类型' | translate}}</label>
+                     </div>
+
+                     <div class="col content">
+                     	<label ng-repeat="type in types">
+                     		<input ng-disabled="true"     type="checkbox"  ng-model="model.type[type.value]">{{type.name}}&nbsp&nbsp&nbsp
+                     	</label>
+                     </div>
+                 </div> -->
+	             
+                <div class="form-group col-xs-12 col-sm-12 clearfix ">
+                    <div class="col caption" style="width:15%;">
+                        <label class="control-label">{{'备注' | translate}}</label>
+                    </div>
+
+                    <div class="col content" style="width:85%;">
+                        <input type="text" class="form-control" ng-model="model.memo">
+                    </div>
+                </div>
+
+                <div class="form-group col-xs-12 col-sm-6 clearfix ">
+                    <div class="col caption">
+                        <label class="control-label">{{'状态' | translate}}</label>
+                    </div>
+
+                    <div class="col content">
+                        <!-- <input type="checkbox" ng-model="model.enable"> -->
+                        <ui-select ng-model="model.enable"
+	                                theme="bootstrap"
+	                                reset-search-input="true"
+	                                style="min-width: 120px;">
+	                         <ui-select-match>
+	                             {{$select.selected.name}}
+	                         </ui-select-match>
+	
+	                         <ui-select-choices
+	                                 repeat="item.value as item in enableTypes | filter:$select.search">
+	                             <div class="select2-item"
+	                                  ng-bind-html="item.name | highlight: $select.search"></div>
+	                         </ui-select-choices>
+	                     </ui-select>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>

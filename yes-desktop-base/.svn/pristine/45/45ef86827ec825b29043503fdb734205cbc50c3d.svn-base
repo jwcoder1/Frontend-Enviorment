@@ -1,0 +1,19 @@
+<div class="form-group" ng-class="{'has-error': form.disableErrorState !== true && hasError(), 'has-success': form.disableSuccessState !== true && hasSuccess(), 'has-feedback': form.feedback !== false }">
+
+    <div class="col-xs-12 col-sm-12 clearfix">
+        <div ng-show="form.title" class="col caption" ng-class="{'required':form.required}">
+            <label class="control-label {{form.labelHtmlClass}}" ng-class="{'sr-only': !showTitle()}" for="{{form.key.slice(-1)[0]}}">{{form.title | translate }}
+            </label>
+        </div>
+        <div ng-show="form.title" class="col content">
+            <div obj-control model="$parent.parentmodel?$parent.parentmodel:model" dmodel="model" form="form">
+                <esy-ueditord ng-model="$$value$$" form="form"></esy-ueditord>
+            </div>
+        </div>
+        <div ng-hide="form.title" obj-control model="$parent.parentmodel?$parent.parentmodel:model" dmodel="model" form="form">
+            <esy-ueditord ng-model="$$value$$" form="form"></esy-ueditord>
+        </div>
+    </div>
+
+    <div class="help-block clearfix text-right" sf-message="form.description"></div>
+</div>

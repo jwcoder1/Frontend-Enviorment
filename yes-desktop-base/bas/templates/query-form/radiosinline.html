@@ -1,0 +1,9 @@
+<div class="ui-query form-group">
+    <div class="col caption" obj-control model="ngModel" dmodel="ngModel" form="option">
+        <label tooltip={{option.title}} tooltip-placement="right" class="control-label">{{(option.title||option.label) | translate }} </label>
+    </div>
+    <div class="col content" id="{{option.name}}">
+        <label class="radio-inline" ng-repeat="item in option.titleMap">
+            <input type="radio" name={{option.name}} value={{item.value}} ng-model="ngModel[option.name]" />{{item.name}} </label>
+    </div>
+</div>

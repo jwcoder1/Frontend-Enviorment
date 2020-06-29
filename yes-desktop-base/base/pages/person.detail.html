@@ -1,0 +1,219 @@
+<style type="text/css">
+    .list-wrap {
+        display: none;
+    }
+    
+    .widget-box {
+        border: 0;
+    }
+    
+    .identitys-table tr td {
+        border: 1px solid #000;
+        /*     height: 37px;
+padding: 3px; */
+        padding: 3px;
+        height: auto;
+        min-height: 37px;
+    }
+</style>
+
+<div class="ngdialog-content-wrap detail-view">
+    <form name="edit_form" class="base-form">
+        <div class="buttons-wrap">
+            <button class="btn btn-sm btn-primary" type="submit" ng-click="action.save(edit_form);">
+                <i class="fa fa-save "></i> {{'保存' | translate}}
+            </button>
+            <button class="btn btn-sm btn-primary" type="button" ng-click="action.close();">
+                <i class="ace-icon fa fa-arrow-left bigger-110"></i> {{'返回' | translate}}
+            </button>
+            <button ng-if="getShow()" class="btn btn-sm btn-primary" type="button" ng-click="action.get();">
+                <i class="ace-icon fa fa-bullhorn bigger-110"></i> {{'获取临时职工号' | translate}}
+            </button>
+        </div>
+        <layout-responsive class="max-4">
+            <div class="ys-schema-form" sf-schema="form.schema" sf-form="form.form" sf-model="form.model"></div>
+        </layout-responsive>
+        <div class="schema-form-section sfs-group col-xs-12 clearfix">
+            <div class="header smaller lighter collapsed">
+                <label>{{"身份信息" | translate}}</label>
+                <div class="widget-toolbar">
+                    <a data-action="collapse" ng-click="isCollapsed2 = !isCollapsed2">
+                        <i class="ace-icon fa fa-chevron-up click" ng-class="{'fa-chevron-down':!isCollapsed2}"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12 group-wrap" ng-show="!isCollapsed2">
+                <button ng-click="action.addIdentity();" class="btn btn-sm btn-primary" type="button" style="margin-bottom: 5px;">
+                    <i class="ace-icon fa fa-plus bigger-110"></i> {{'新建' | translate}}
+                </button>
+                <table class="identitys-table">
+                    <tr style="background-color: #F7F7F7;">
+                        <td style="min-width:210px;">{{"企业" | translate}}<span style="color: red;margin-left: 5px;">*</span></td>
+                        <td style="min-width:73px;">{{"类型" | translate}}<span style="color: red;margin-left: 5px;">*</span></td>
+                        <td style="min-width:55px;">{{"状态" | translate}}</td>
+                        <td style="min-width:150px;">{{"组织" | translate}}<span style="color: red;margin-left: 5px;">*</span></td>
+                        <td style="min-width:110px;">{{"职务" | translate}}</td>
+                        <td style="min-width:320px;">{{"岗位" | translate}}</td>
+                        <td style="min-width:110px;">{{"生效时间" | translate}}</td>
+                        <td style="min-width:110px;">{{"失效时间" | translate}}</td>
+                        <td style="min-width:49px;">{{"主身份" | translate}}<span style="color: red;">*</span></td>
+                        <td style="min-width:38px;">{{"操作" | translate}}</td>
+                    </tr>
+                    <tr ng-repeat="iden in identitys">
+                        <td ng-if="iden.isShow">
+                            <div class="input-group">
+                                <ui-select ng-model="iden.eid" theme="bootstrap" ng-change="action.onDetailEnterpriseChange(iden);" reset-search-input="true" style="width: 200px;">
+                                    <ui-select-match placeholder="请选择企业">{{$select.selected.name}}</ui-select-match>
+                                    <ui-select-choices repeat="item.value as item in ents | filter:$select.search">
+                                        <div class="select2-item" ng-bind-html="item.name | highlight: $select.search"></div>
+                                        <small ng-if="form.small" ng-bind-html="item.value | highlight: $select.search"></small>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <span class="input-group-btn">
+						            <button class="btn btn-default btn-sm" type="button"
+											ng-click="action.getEnterprise(iden)">
+										<i class="fa fa-plus"></i>
+									</button>
+								</span>
+                            </div>
+                        </td>
+                        <td ng-if="!iden.isShow">
+                            {{iden.enterpriseName}}
+                        </td>
+                        <td ng-if="iden.isShow">
+                            <ui-select ng-model="iden.type" theme="bootstrap" reset-search-input="true" style="width: 73px;">
+                                <ui-select-match placeholder="请选择">{{$select.selected.name}}</ui-select-match>
+                                <ui-select-choices repeat="item.value as item in iden.types | filter:$select.search">
+                                    <div class="select2-item" ng-bind-html="item.name | highlight: $select.search"></div>
+                                    <small ng-if="form.small" ng-bind-html="item.value | highlight: $select.search"></small>
+                                </ui-select-choices>
+                            </ui-select>
+                        </td>
+                        <td ng-if="!iden.isShow">
+                            {{ iden.showtype }}
+                        </td>
+                        <td ng-if="iden.isShow">
+                            <ui-select ng-model="iden.enable" theme="bootstrap" reset-search-input="true" style="width: 55px;">
+                                <ui-select-match placeholder="">{{$select.selected.name}}</ui-select-match>
+                                <ui-select-choices repeat="item.value as item in enables | filter:$select.search">
+                                    <div class="select2-item" ng-bind-html="item.name | highlight: $select.search"></div>
+                                    <small ng-if="form.small" ng-bind-html="item.value | highlight: $select.search"></small>
+                                </ui-select-choices>
+                            </ui-select>
+                        </td>
+                        <td ng-if="!iden.isShow">
+                            <span ng-if="iden.enable">启用</span> <span ng-if="!iden.enable">禁用</span>
+                        </td>
+                        <td ng-if="iden.isShow">
+                            <div class="input-group">
+                                <ui-select ng-model="iden.org" theme="bootstrap" ng-change="action.onDetailOrganizationChange(iden);" reset-search-input="true" style="width: 130px;">
+                                    <ui-select-match placeholder="请选择组织">{{$select.selected.name}}</ui-select-match>
+                                    <ui-select-choices repeat="item in iden.organizations |  filter:$select.search">
+                                        <div class="select2-item" ng-bind-html="item.name | highlight: $select.search"></div>
+                                        <small ng-if="form.small" ng-bind-html="item.value | highlight: $select.search"></small>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <span class="input-group-btn">
+						            <button class="btn btn-default btn-sm" type="button"
+											ng-click="action.dialog(iden)">
+										<i class="fa fa-plus"></i>
+									</button>
+								 </span>
+                            </div>
+                        </td>
+                        <td ng-if="!iden.isShow">
+                            {{iden.oName}}
+                        </td>
+                        <td ng-if="iden.isShow">
+                            <ui-select ng-model="iden.positionId" theme="bootstrap" reset-search-input="true" style="width: 130px;">
+                                <ui-select-match placeholder="请选择职务">{{$select.selected.name}}</ui-select-match>
+                                <ui-select-choices repeat="item.value as item in iden.positions | filter:$select.search">
+                                    <div class="select2-item" ng-bind-html="item.name | highlight: $select.search"></div>
+                                    <small ng-if="form.small" ng-bind-html="item.value | highlight: $select.search"></small>
+                                </ui-select-choices>
+                            </ui-select>
+                        </td>
+                        <td ng-if="!iden.isShow">
+                            {{iden.positionName}}
+                        </td>
+                        <td ng-if="iden.isShow">
+                            <ui-select multiple ng-model="iden.posts" theme="bootstrap" reset-search-input="true" style="width: 310px;">
+                                <ui-select-match placeholder="请选择岗位">
+                                    {{$item.name}}
+                                </ui-select-match>
+                                <ui-select-choices repeat="item in iden.postss | filter:$select.search">
+                                    <span ng-bind="item.name"></span>
+                                </ui-select-choices>
+                            </ui-select>
+                        </td>
+                        <td ng-if="!iden.isShow">
+                            {{iden.postName}}
+                        </td>
+                        <td ng-if="iden.isShow">
+                            <div class="input-group" style="width: 110px;">
+                                <input date-picker readonly data-date-format="yyyy-mm-dd" class="form-control" ng-model="iden.startDate" type="text" picker-type="'date'" end="iden.toDate">
+                                <span class="input-group-addon">
+						                    <i class="fa fa-calendar bigger-110"></i>
+						                </span>
+                            </div>
+                        </td>
+                        <td ng-if="!iden.isShow">
+                            {{iden.startDate}}
+                        </td>
+                        <td ng-if="iden.isShow">
+                            <div class="input-group" style="width: 110px;">
+                                <input date-picker readonly data-date-format="yyyy-mm-dd" class="form-control" ng-model="iden.toDate" type="text" picker-type="'date'" start="iden.startDate">
+                                <span class="input-group-addon">
+						                    <i class="fa fa-calendar bigger-110"></i>
+						                </span>
+                            </div>
+                        </td>
+                        <td ng-if="!iden.isShow">
+                            {{iden.startDate}}
+                        </td>
+                        <td ng-if="iden.isShow">
+                            <label ng-if="showisMain" class="clickable" style="padding: 7px 14px;">
+                                <input ng-change="action.isMainResetOther(iden);" class="clickable" type="radio" ng-model="iden.isMain" value="true">
+                            </label>
+                            <span ng-if="!showisMain"><span  ng-if="iden.isMain">主职</span></span>
+                        </td>
+                        <td ng-if="!iden.isShow">
+                            <span ng-if="iden.isMain">主职</span>
+                        </td>
+                        <td ng-if="iden.isShow">
+                            <span ng-click="action.removeIdentity(iden);" style="padding: 8px;cursor:pointer;" class="operate-span">
+										<i class="glyphicon glyphicon-remove"></i>
+									</span>
+                        </td>
+                        <td ng-if="!iden.isShow">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="schema-form-section sfs-group col-xs-12 clearfix">
+            <div class="header smaller lighter collapsed">
+                <label>{{"组织信息" | translate}}</label>
+                <div class="widget-toolbar">
+                    <a data-action="collapse" ng-click="isCollapsed3 = !isCollapsed3">
+                        <i class="ace-icon fa fa-chevron-up click" ng-class="{'fa-chevron-down':!isCollapsed3}"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12 group-wrap" ng-show="!isCollapsed3">
+                <div ng-show="identorgs.length>0" class="col-xs-8 my-list" style="height:100%;border:1px solid #d4d4d4;overflow-y: auto;">
+                    <div class="my-table-title">
+                        <div style="width:35%;">企业</div>
+                        <div style="width:65%;">所属组织</div>
+                    </div>
+                    <div>
+                        <div ng-repeat="item in identorgs" class="my-item clickable my-table-item">
+                            <div style="width:35%;">{{item.enterpriseName}}</div>
+                            <div style="width:65%;">{{item.oName}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

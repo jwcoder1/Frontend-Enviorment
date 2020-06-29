@@ -1,0 +1,98 @@
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
+.ui-grid-menu-button {
+    border-width: 0 0 1px 1px;
+}
+
+.ui-grid-pager-container {
+    position: relative;
+    padding: 0 10px;
+    margin-bottom: -3px;
+    .total-wrap, .page-size-selector, .ui-grid-pager-bar {
+        float: left;
+        display: inline-block;
+    }
+    .pagination {
+        margin: 0;
+    }
+    .total-wrap {
+        line-height: 28px;
+        padding: 0 5px;
+    }
+    .page-size-selector {
+        min-width: 70px;
+        margin-left: 5px;
+    }
+}
+
+.page-size-selector {
+    .btn {
+        padding: 3px 6px;
+    }
+    .form-control {
+        padding: 3px 6px;
+        height: 28px;
+    }
+}
+
+.ui-grid-row:hover .ui-grid-cell {
+    color: @brand-primary;
+    background-color: @gray-lighter;
+}
+
+.ui-grid-sort-priority-number {
+    visibility: hidden;
+}
+
+.ui-grid-pager-control input, .ui-grid-pager-row-count-picker select {
+    padding-top: 0;
+}
+
+.ui-grid-top-panel {
+    font-weight: normal;
+}
+
+.ui-grid-pager-panel .ui-select-bootstrap>.ui-select-match>.btn {
+    height: 28px;
+    // line-height: 28px;
+}
+
+//col-select 改为 checkbox时所添加的样式
+div.ui-grid-cell-contents, div.ui-grid-cell {
+    input[type="checkbox"].row-header-button {
+        margin: 2px 3px;
+    }
+}
+
+.ui-grid-pinned-container .ui-grid-header-cell, .ui-grid-row .ui-grid-cell.ui-grid-row-header-cell, .ui-grid-row.ui-grid-row-selected>[ui-grid-row]>.ui-grid-cell.ui-grid-row-header-cell {
+    background: #f3f3f3;
+    color: #000;
+}
+
+
+/*表格左-选择框列样式*/
+
+.ui-grid-render-container-left {
+    background: #f3f3f3;
+    border-right: 1px solid #d4d4d4;
+    width: 30px;
+}
+
+
+/* 树形表每行头部宽度 */
+
+.ui-grid-tree .ui-grid-render-container-left {
+    width: 80px;
+}
+
+.ui-grid-pinned-container.ui-grid-pinned-container-left .ui-grid-cell:last-child, .ui-grid-pinned-container.ui-grid-pinned-container-left .ui-grid-header-cell:last-child {
+    border-color: #d4d4d4;
+}
+
+.pagination-sm > li > a, .pagination-sm > li > span {
+    padding: 4px 8px;
+}
+
+.ui-grid-menu-button {
+    height: @menu-button-height;
+}

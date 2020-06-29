@@ -1,0 +1,17 @@
+<div>
+    <layout-responsive class="max-1">
+        <div class="operation">
+            <button class="btn btn-primary" type="button" ng-click="action.back()">
+                <i class="fa fa-arrow-left"></i> {{'返回' | translate}}
+            </button>
+        </div>
+
+        <layout-responsive class="max-4">
+            <form name="query" ng-submit="action.load()" class="list-queries query-form clearfix">
+                <ui-query ng-repeat="config in config.filterItems" ng-model="filter" option="config" class="query-item form-cells cell {{config.css}}"></ui-query>
+            </form>
+        </layout-responsive>
+        <list-grid headers="config.headers" onchangepage="action.changepage" resource="invtra"></list-grid>
+
+    </layout-responsive>
+</div>

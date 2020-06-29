@@ -1,0 +1,99 @@
+<div class="layout tightly">
+	<header class="navbar navbar-inverse navbar-fixed-top">
+		<button data-target="#wrapper.sidebar" ng-click="minSize=!minSize" data-toggle="collapse" type="button" class="navbar-toggle collapsed pull-left">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+		<div class="navbar-header">
+			<ui-logo ui-href="#" class="hidden-xs">logo</ui-logo>
+		</div>
+		<nav class="collapse navbar-collapse">
+			<ul class="nav navbar-nav hidden-xs">
+				<li>
+					<a ng-click="minSize=!minSize"><i ng-class="{'fa-indent':minSize}" 
+                    class="fa fa-outdent click"></i></a>
+				</li>
+			</ul>
+			<div class="navbar-header">
+				<ul class="nav navbar-nav hidden-lg hidden-md">
+					<li class="dropdown">
+						<a data-toggle="dropdown">{{currentMenu.name||menus[0].name | translate}}<span
+ class="caret"></span></a>
+						<ul class="dropdown-menu" ng-click="showThis('minSize',true)">
+							<li ng-repeat="item in menus">
+								<a ng-click="action.nav(item, menus, true)">
+                                    {{item.name}}
+                            </a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<ul class="nav navbar-nav hidden-xs hidden-sm">
+				<li ng-repeat="item in menus" ng-class="{'active':item.active}">
+					<a class="click" ng-click="action.nav(item, menus)">
+                        {{item.name}}
+                    </a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a data-toggle="dropdown"><i class="ace-icon fa fa-user"></i><span class="hidden-xs"
+ style="margin-left: 4px;">admin</span><span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a ng-click="action.logout()">注销</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<section id="wrapper" ng-class="{'toggled':minSize}">
+		<div ng-show="treeSource" class="sidebar">
+			<div class="nav-search">
+				<form class="navbar-form">
+					<div class="form-group">
+						<input type="text" ng-model="search" uib-typeahead="menu.name for menu in getMenus($viewValue)" typeahead-on-select="onSelect($item, $model, $label)"
+							class="form-control" placeholder="搜索">
+					</div>
+				</form>
+				<!--<ul class="side-menu hidden-lg hidden-md">
+                    <li class="dropdown">
+                        <a data-toggle="dropdown">菜单<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li ng-repeat="item in menus">
+                                <a ng-click="action.nav(item)">
+                                    {{item.name}}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>-->
+			</div>
+
+			<div ng-repeat="item in treeSource " class="tree-menus">
+				<div ng-repeat="item in treeSource ">
+					<ui-tree ng-if="item.children" resource="item.children"></ui-tree>
+				</div>
+			</div>
+		</div>
+
+		<div class="main-content">
+			<div class="main-content-inner has-breadcrumbs">
+				<div class="breadcrumbs" id="breadcrumbs">
+					<ul class="breadcrumb">
+						<li>
+							<i class="ace-icon fa fa-home home-icon"></i>
+							<a href="#dashboard">{{'首页' | translate}}</a>
+						</li>
+						<li ng-if="currentMenu.name" class="active">{{currentMenu.name | translate}}</li>
+						<li ng-if="currentMenuSecond.name" class="active">{{currentMenuSecond.name | translate}}</li>
+					</ul>
+				</div>
+				<div class="content-view" ui-view="content"></div>
+			</div>
+		</div>
+	</section>
+	<footer></footer>
+</div>

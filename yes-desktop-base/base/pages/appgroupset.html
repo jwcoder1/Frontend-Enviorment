@@ -1,0 +1,97 @@
+<div ng-controller="app.page.appGroupMember">
+    <div class="page-content list-scope">
+        <div class="row">
+
+            <div class="col-xs-5" style="padding-right: 4px;">
+                <div class="my-list">
+                    <div class="my-title" style="position: relative;">
+                        <button class="btn btn-sm btn-primary" type="button" ng-click="action.addRoot();"
+                                style="left: 0;margin-top: 5px;margin-left: 3px;position: absolute;">
+                            <i class="ace-icon glyphicon glyphicon-plus bigger-110"></i> 根群组
+                        </button>
+                        <button class="btn btn-sm btn-primary" type="button" ng-disabled="current==null"
+                                ng-click="action.addChildren();"
+                                style="left: 0;margin-top: 5px;margin-left: 88px;position: absolute;">
+                            <i class="ace-icon glyphicon glyphicon-plus bigger-110"></i> 下级
+                        </button>
+                        <b>{{'应用群组列表' | translate}}</b>
+                        <button class="btn btn-sm btn-primary" type="button" ng-disabled="current==null"
+                                ng-click="action.editAppGroup();"
+                                style="right: 0;margin-top: 5px;margin-right: 75px;position: absolute;">
+                            <i class="ace-icon glyphicon glyphicon-edit bigger-110"></i> 编辑
+                        </button>
+                        <button class="btn btn-sm btn-primary" type="button" ng-disabled="current==null"
+                                ng-click="action.delAppGroup();"
+                                style="right: 0;margin-top: 5px;margin-right: 3px;position: absolute;">
+                            <i class="ace-icon glyphicon glyphicon-remove bigger-110"></i> 删除
+                        </button>
+                    </div>
+                    <div class="my-content" style="height: 459px;overflow-y: auto;">
+                        <div yes-organization-tree on-select="action.selectGroupSet" data-nodes="node.children"
+                             data-initial="node.children" data-root="true"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-7">
+                <div class="my-list">
+                    <div class="my-title" style="text-align:left;">
+                        <b style="margin-left:15px;">{{'应用成员' | translate}}</b>
+                        <button class="btn btn-sm btn-primary" type="button" ng-click="action.addmember('A');">
+                            <i class="ace-icon glyphicon glyphicon-plus bigger-110"></i> 应用
+                        </button>
+                        <!-- <button class="btn btn-sm btn-primary" type="button" ng-click="action.addmember('E');">
+                            <i class="ace-icon glyphicon glyphicon-plus bigger-110"></i> 企业
+                        </button>
+                        <button class="btn btn-sm btn-primary" type="button" ng-click="action.addmember('G');">
+                            <i class="ace-icon glyphicon glyphicon-plus bigger-110"></i> 群组
+                        </button> -->
+                    </div>
+                    <div class="my-content" style="height: 495px;padding:15px;">
+
+                        <div class="clearfix" style="margin-bottom: 6px;">
+							<span class="input-icon search-span" style="width:100%;float:left;"> <input
+                                    ng-model="memberSearch" placeholder="请输入成员信息.."
+                                    class="ng-pristine ng-valid ng-touched"> <i
+                                    class="ace-icon fa fa-search "></i>
+							</span>
+                        </div>
+                        <div style="width:100%;height:430px;border:1px solid #d4d4d4;">
+                            <div style="width:100%;height:430px;overflow-y: auto;">
+                                <div class="my-table-title">
+                                    <div style="width:37.5%;">编号</div>
+                                    <div style="width:37.5%;">名称</div>
+                                    <div style="width:25%;">操作</div>
+                                </div>
+                                <div>
+                                    <div ng-repeat="item in appGroupMembers | filter:myfilter"
+                                         ng-class="{'current':item == current}"
+                                         ng-click="action.selectAuthority(item);"
+                                         class="my-item clickable my-table-item">
+                                        <div style="width:37.5%;" title="{{item.appid}}">{{item.appid}}</div>
+                                        <div style="width:37.5%;" title="{{item.show}}">{{item.show}}</div>
+                                        <div style="width:25%;">
+										<span ng-click="action.removeMember(item);$event.stopPropagation();"
+                                              class="operate-span my-table-delete">
+											<i class="glyphicon glyphicon-remove"></i>
+										</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="page-div">
+                                <span ng-click="action.prevPage();" class="page-icon fa fa-angle-left blue"></span>
+                                <span class="curePage ng-binding">{{nowPage}} / {{sumPage}}</span>
+                                <span ng-click="action.nextPage();" class="page-icon fa fa-angle-right blue"></span>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- {{result}} -->
+
+    </div>
+</div>

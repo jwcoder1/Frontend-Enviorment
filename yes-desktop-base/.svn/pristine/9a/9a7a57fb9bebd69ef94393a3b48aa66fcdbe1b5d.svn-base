@@ -1,0 +1,5 @@
+<div class="" ng-hide="form.hide" ng-model-options="form.ngModelOptions">
+    <div ng-model="$$value$$" model="model" form="form">
+        <add-grid ng-model="$$value$$" form="form" model="model"></add-grid>
+    </div>
+</div>

@@ -1,0 +1,165 @@
+<style>
+    @media (max-width: 768px) {
+        .top-bottom{
+            bottom: 32px;
+            top: 70px;
+        }
+        .tree-div-height{
+            height: 90% !important;
+        }
+    }
+    .display-flex{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+    }
+</style>
+<div class="document-detail document-selector people-selector" ng-controller="app.base.people">
+    <div id="company-tab" class="clearfix tab-pane active">
+        <!--鼠标移动弹窗显示个人信息-->
+        <div class="show-mouse-move" style="{{mouseMoveShowStyle}}" data-ng-bind-html="mouseMoveShow" ng-if="mouseMoveShow"></div>
+        <!--左边-->
+        <div id="selector_col_1" class="drawer-left col-md-4 col-xs-4 col-sm-12 my-company top-bottom">
+            <div class="top-div">
+                <span class="input-icon search-span">
+                    <input ng-model="search[0]" placeholder="中文名/姓名全拼/英文简拼"
+                            ng-keyup="searchKeyUp($event);">
+                    <i class="ace-icon fa fa-search "></i>
+                </span>
+            </div>
+            <div class="tree-div tree-div-height">
+                <div department-tree items="items[0]" open-level="1" on-select="onSelect" on-operate="addDepartment" on-footerbuttonclick="onFooterbuttonclick">
+                </div>
+            </div>
+        </div>
+        <!--中间-->
+        <div id="selector_col_2" class="drawer-main toggled col-md-4 col-xs-4 col-sm-12 my-company top-bottom">
+            <div class="top-div" style="padding-left: 25px;">
+                <div class="abbreviation" style="width:200px;float:left;margin-top: 20px;">{{depName[0]}}</div>
+                <div class="right" style="margin-top: 20px;">( {{pCount[0]}}人 )</div>
+            </div>
+            <div class="sift-div tree-div-height">
+                <ul class="characters-ul">
+                    <li ng-click="characterSearch('a');">A</li>
+                    <li ng-click="characterSearch('b');">B</li>
+                    <li ng-click="characterSearch('c');">C</li>
+                    <li ng-click="characterSearch('d');">D</li>
+                    <li ng-click="characterSearch('e');">E</li>
+                    <li ng-click="characterSearch('f');">F</li>
+                    <li ng-click="characterSearch('g');">G</li>
+                    <li ng-click="characterSearch('h');">H</li>
+                    <li ng-click="characterSearch('i');">I</li>
+                    <li ng-click="characterSearch('j');">J</li>
+                    <li ng-click="characterSearch('k');">K</li>
+                    <li ng-click="characterSearch('l');">L</li>
+                    <li ng-click="characterSearch('m');">M</li>
+                    <li ng-click="characterSearch('n');">N</li>
+                    <li ng-click="characterSearch('o');">O</li>
+                    <li ng-click="characterSearch('p');">P</li>
+                    <li ng-click="characterSearch('q');">Q</li>
+                    <li ng-click="characterSearch('r');">R</li>
+                    <li ng-click="characterSearch('s');">S</li>
+                    <li ng-click="characterSearch('t');">T</li>
+                    <li ng-click="characterSearch('u');">U</li>
+                    <li ng-click="characterSearch('v');">V</li>
+                    <li ng-click="characterSearch('w');">W</li>
+                    <li ng-click="characterSearch('x');">X</li>
+                    <li ng-click="characterSearch('y');">Y</li>
+                    <li ng-click="characterSearch('z');">Z</li>
+                </ul>
+            </div>
+            <div class="tree-div tree-div-height" style="margin-left: 25px;overflow-y:hidden;">
+                <div style="overflow-y:auto; height: 92%;">
+                    <div ng-repeat="people in peopleItems[0]" ng-dblclick="addPeople(people)" class="people-row">
+                        <div style="margin-left: 10px;">
+                            {{::people.cname}}
+                        </div>
+                        <i class="fa {{people.selected?'fa-minus':'fa-plus'}}" style="margin-top: -16px;margin-right: 30px;" ng-click="addPeople(people)"></i>
+                        <i class="{{::people.sex=='M'?'person_man':'person_girl'}}" style="margin-top: -17px;margin-left: 10px;float: left;width: 15px;height: 15px;" 
+                            ng-mouseenter="action.mousemove(people,true,$event)" ng-mouseleave="action.mousemove(people,false,$event)"></i>
+                    </div>
+                </div>
+                <div class="display-flex" style="height: 30px;">
+                    <div style="width: 66%;">
+                        <a class="page-icon fa fa-angle-left blue" style="font-size: 25px;padding: 5px 10px 0 10px;" ng-click="goPrev();"></a>
+                        <span class="curePage" style="font-size: 20px;">{{currentPage[0]}} / {{sumPage[0]}}</span>
+                        <a class="page-icon fa fa-angle-right blue" style="font-size: 25px;padding: 5px 10px 0 10px;" ng-click="goNext();"></a>
+                    </div>
+                    <button class="btn btn-sm btn-primary" type="button" style="height: 25px;margin: 3px 5px 0 auto;" ng-click="addAll();">
+                        添加所有&nbsp;<i class="fa fa-angle-double-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!--右边-->
+        <div id="selector_col_3" class="drawer-right toggled col-md-4 col-xs-4 col-sm-12 my-company top-bottom">
+            <div class="top-div" style="padding: 0 10px;">
+                <div class="clearfix full-width">
+                    <!--<span class="left">
+                        <span class="input-icon search-span" style="width:194px;">
+                            <input ng-model="searchSelected" placeholder="查询已选"
+                                    ng-keyup="searchKeyUpSelected($event);"
+                                    class="ng-pristine ng-valid ng-touched">
+                            <i class="ace-icon fa fa-search "></i>
+                        </span>
+                    </span>-->
+                    <span class="right">
+                        排序 : <a ng-click="sortDep();">部门</a> <a ng-click="sortPost();">职位</a> <a ng-click="sortName();">姓名</a>
+                    </span>
+                </div>
+                <div class="full-width">
+                    <label class="checkbox-label">
+                        <input type="checkbox" ng-model="showDep" ng-init="showDep=true;">
+                        <span>显示部门</span>
+                    </label>
+                    
+                    <span class="right">
+                        ( {{sumCount}}人 )
+                    </span>
+                </div>
+            </div>
+            <!--右边-选择人员-->
+            <div class="tree-div tree-div-height" style="margin-left:3px;overflow-y:hidden;width: 100%;">
+                <div style="overflow-y:auto; height: 92%;">
+                    <div ng-repeat="item in sels" ng-hide="item.unfound" ng-click="removeSelected(item)" class="people-row">
+                        <div style="margin-left: 10px;">
+                            {{::item.pp_uid?item.cname:item.name}}
+                        </div>
+                        <span style="position: relative;left: 80px;top: -19.6px;font-size: 10px;color: #478fca !important;">
+                            {{showDep&&item.pp_uid?item.pp_name:""}}
+                        </span>
+                        <i class="fa fa-minus" style="margin-top: -16px;margin-right: 30px;"></i>
+                        <i class="{{::item.pp_uid?(item.sex=='M'?'person_man':'person_girl'):'person_dept'}}" style="margin-top: -17px;margin-left: 10px;float: left;width: 15px;height: 15px;" 
+                            ng-mouseenter="action.mousemove(item,true,$event)" ng-mouseleave="action.mousemove(item,false,$event)"></i>
+                    </div>
+                </div>
+                <div class="display-flex" style="height: 30px;">
+                    <button class="btn btn-sm btn-primary" type="button" style="height: 25px;margin: 3px auto 0 5px;" ng-click="removeAll();">
+                        <i class="fa fa-angle-double-left"></i>&nbsp;移除全部
+                    </button>
+                    <button class="btn btn-sm btn-primary" type="button" style="height: 25px;margin: 3px 5px 0 auto;" name="confirm" ng-click="confirm();">
+                        <i class="fa fa-save"></i> 确认
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--当屏幕小于768才显示(visible-xs)-->
+    <div class="visible-xs navbar-fixed-bottom" style="background-color: #3b485b;border-color: #27303c;">
+        <div class="btn-wrap clearfix ng-scope">
+            <div style="float: left;padding-left: 12px;">
+                <button type="button" class="btn btn-primary" style="width: 74px;" ng-click="onFooterbuttonclick('selector_col_1','buttonSection','selector_col_3')">
+                    {{footerbutton.buttonSection}}</button>
+            </div>
+            <div style="float: right;padding-right: 12px;">
+                <button type="button" class="btn btn-primary" style="width: 74px;" ng-click="onFooterbuttonclick('selector_col_3','buttonSelected','selector_col_1')">
+                    {{footerbutton.buttonSelected}}</button>
+            </div>
+        </div>
+    </div>
+</div>

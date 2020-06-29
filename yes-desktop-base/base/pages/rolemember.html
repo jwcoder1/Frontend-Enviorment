@@ -1,0 +1,73 @@
+<style>
+.showmodel .tree .tree-selected {
+    background-color: #fff !important;
+    color: #333 !important;
+}
+</style>
+<div ng-controller="app.page.rolemember">
+    <div class="page-content list-scope">
+        <div class="row">
+            <div class="col-xs-5" style="padding-right: 4px;">
+                <div class="my-list">
+                    <div class="my-content" id="con" style="height: 495px;padding:15px;">
+                        <div id="conn" style="width:100%;height:430px;border:1px solid #d4d4d4;">
+                            <div id="connn" style="width:100%;height:408px;overflow-y: auto;">
+                                <div class="my-table-title">
+                                    <div style="width:12%;">{{"编号" | translate}}</div>
+                                    <div style="width:39%;">{{"角色" | translate}}</div>
+                                    <div style="width:49%;">{{"备注" | translate}}</div>
+                                </div>
+                                <div>
+                                    <div ng-repeat="item in roles" ng-class="{'current':item == current}" ng-click="action.selectRole(item);" class="my-item clickable my-table-item">
+                                        <div style="width:12%;" title="{{item.rid | translate}}">{{item.rid | translate}}</div>
+                                        <div style="width:39%;" title="{{item.name}}">{{item.name}}</div>
+                                        <div style="width:49%;" title="{{item.describe}}">{{item.describe}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-div">
+                                <span ng-click="action.prevPage();" class="page-icon fa fa-angle-left blue"></span>
+                                <span class="curePage ng-binding">{{nowPage}} / {{sumPage}}</span>
+                                <span ng-click="action.nextPage();" class="page-icon fa fa-angle-right blue"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-7">
+                <div class="my-list">
+                    <div class="my-title" style="position: relative;">
+                        <button class="btn btn-sm btn-primary" type="button" ng-disabled="current==null" ng-click="action.save();" style="left: 0;margin-top: 5px;margin-left: 3px;position: absolute;">
+                            <i class="ace-icon fa fa-save bigger-110"></i> {{"保存" | translate}}
+                        </button>
+                        <b>{{'账号列表' | translate}}</b>
+                        <button class="btn btn-sm btn-primary" type="button" ng-disabled="current==null" ng-click="action.add();" style="right: 0;margin-top: 5px;margin-right: 78px;position: absolute;">
+                            <i class="ace-icon fa fa-plus bigger-110"></i> {{"新增" | translate}}
+                        </button>
+                        <button class="btn btn-sm btn-primary" type="button" ng-disabled="current==null" ng-click="action.delete();" style="right: 0;margin-top: 5px;margin-right: 3px;position: absolute;">
+                            <i class="ace-icon fa fa-remove bigger-110"></i> {{"删除" | translate}}
+                        </button>
+                    </div>
+                    <div class="my-content" id="bon" style="height: 495px;overflow-y: auto;">
+                        <div  style="width:100%;height:430px;border:1px solid #d4d4d4;">
+                            <div  style="width:100%;height:408px;overflow-y: auto;">
+                                <div class="my-table-title">
+                                    <div style="width:20%;">{{"账号" | translate}}</div>
+                                    <div style="width:30%;">{{"名称" | translate}}</div>
+                                    <div style="width:50%;">{{"备注" | translate}}</div>
+                                </div>
+                                <div>
+                                    <div ng-repeat="item in accounts" ng-if="!item.isDelete" ng-class="{'current':item.selected}" ng-click="item.selected = !item.selected;" class="my-item clickable my-table-item">
+                                        <div style="width:20%;" title="{{item.aid | translate}}">{{item.aid | translate}}</div>
+                                        <div style="width:30%;" title="{{item.name| translate}}">{{item.name| translate}}</div>
+                                        <div style="width:50%;" title="{{item.describe| translate}}">{{item.describe| translate}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

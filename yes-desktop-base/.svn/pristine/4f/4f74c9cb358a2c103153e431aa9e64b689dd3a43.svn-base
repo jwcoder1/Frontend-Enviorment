@@ -1,0 +1,10 @@
+<div class="input-group lov">
+    <input type="text" sf-changed="form" ng-change="onChange();" class="form-control {{form.fieldHtmlClass}}" ng-readonly="form.inputreadonly" id="{{form.key.slice(-1)[0]}}" ng-model-options="form.ngModelOptions" ng-model="ngModel" ng-disabled="form.readonly"
+        schema-validate="form" name="{{form.key.slice(-1)[0]}}" aria-describedby="{{form.key.slice(-1)[0] + 'Status'}}">
+    <span ng-disabled="form.readonly" class="input-group-btn">
+         <button ng-disabled="form.readonly" class="btn btn-default btn-sm" ng-click="dialog(form,$parent)"
+	                    type="button">
+	                <i class="fa " ng-class="searchclass" ></i>
+	            </button>
+    </span>
+</div>

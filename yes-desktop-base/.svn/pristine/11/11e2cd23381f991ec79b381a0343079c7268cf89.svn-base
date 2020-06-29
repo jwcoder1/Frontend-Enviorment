@@ -1,0 +1,18 @@
+<div class="ngdialog-content-wrap detail-view" ng-controller="base.menu.detail">
+
+    <form name="base_form" class="base-form" ng-submit="action.save($event, base_form)">
+        <div class="buttons-wrap">
+            <button class="btn btn-sm btn-primary" type="submit">
+                <i class="glyphicon glyphicon-search "></i> {{'保存' | translate}}
+            </button>
+            <button class="btn btn-sm btn-primary" type="button" ng-click="detailReset();">
+                <i class="ace-icon fa fa-undo bigger-110"></i> {{'重置' | translate}}
+            </button>
+            <button class="btn btn-sm btn-primary" type="button" ng-click="action.back() || closeThisDialog() ;">
+                <i class="ace-icon fa fa-arrow-left bigger-110"></i> {{'返回' | translate}}
+            </button>
+        </div>
+
+        <div sf-schema="detail.schema" sf-form="detail.form" sf-model="$parent.model"></div>
+    </form>
+</div>

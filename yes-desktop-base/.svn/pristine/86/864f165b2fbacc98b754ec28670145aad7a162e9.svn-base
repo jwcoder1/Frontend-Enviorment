@@ -1,0 +1,69 @@
+<div ng-controller="app.base.dictionary">
+    <layout-responsive class="max-4">
+        <div class="widget-box ui-sortable-handle" ng-show="detailUrl">
+            <div ng-include="detailUrl"></div>
+        </div>
+
+
+        <div class="row no-margin" ng-hide="detailUrl">
+
+            <div class="col-xs-3">
+                <div class="my-list">
+                    <div class="my-title">
+                        <b>{{'字典列表' | translate}}</b>
+                    </div>
+                    <div class="my-content" id="con" style="height: 460px;overflow-y: auto;">
+                        <div yes-application-tree on-select="action.selectOrganization" data-nodes="node_dictionary.children" data-initial="node_dictionary.children" data-root="true"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="list-wrap col-xs-9">
+                <div class="page-content list-scope" style="padding-left: 10px;">
+                    <div class="wrapper-md">
+                        <div class="search-controls clearfix">
+
+                            <form name="query" ng-submit="load()" class="list-queries query-form  clearfix">
+                                <ui-query ng-repeat="config in list.filters" ng-model="filter" option="config" class="query-item form-cells cell {{config.css}}"></ui-query>
+
+                                <!--<form name="query" ng-submit="load()" class="list-queries base-form clearfix">-->
+                                <!--<form name="search" ng-submit="load();">-->
+                                <!--<ui-query ng-repeat="config in list.filters" ng-model="filter" option="config"
+                                      class="col-xs-12 col-sm-6 col-md-3"></ui-query>-->
+                                <!--<div class="search-items" ng-class="{'line': list.filters.length}">
+                                <div class="item filter-{{item.type}}" ng-repeat="item in list.filters">
+                                    <div class="caption"> {{item.label | translate}} :</div>
+                                    <div class="control" yes-query="item" data-filter="filter"
+                                         data-ng-model="filter[item.name]"></div>
+                                </div>
+                            </div>-->
+                                <div class="buttons-wrap clearfix">
+                                    <button class="btn btn-sm btn-primary" type="submit">
+                                    <i class="glyphicon glyphicon-search "></i> {{'搜索' | translate}}
+                                </button>
+                                    <button class="btn btn-sm btn-primary" type="button" ng-click="action.reset();">
+                                    <i class="ace-icon fa fa-undo bigger-110"></i>{{'重置' | translate}}
+                                </button>
+                                    <button class="btn btn-sm btn-primary" type="button" ng-click="action.add();">
+                                    <i class="ace-icon fa fa-plus bigger-110"></i> {{'新建' | translate}}
+                                </button>
+                                    <button class="btn btn-sm btn-primary" type="button" ng-click="action.del();">
+                                    <i class="ace-icon fa fa-remove bigger-110"></i> {{'删除' | translate}}
+                                </button>
+
+                                    <div yes-pagination="list.pagination" class="pull-right"></div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="list-grid-wrap" ng-class="{'enable-filter':list.gridOptions.enableFiltering}">
+                            <div id="ui-grid" ui-grid="list.gridOptions" style="height: 457px;" ui-grid-selection ui-grid-resize-columns ui-grid-exporter ui-grid-move-columns ui-grid-auto-resize ui-grid-pagination class="grid"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </layout-responsive>
+</div>

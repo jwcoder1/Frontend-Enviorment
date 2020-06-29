@@ -1,0 +1,6 @@
+<div ng-controller='app.default.grid.auto.min.rows'>
+    <layout-responsive>
+        <div ui-grid='gridOptions' ui-grid-selection ui-grid-resize-columns ui-grid-exporter ui-grid-move-columns ui-grid-auto-resize
+            ui-grid-auto-min-rows ui-grid-pagination ui-grid-resize></div>
+    </layout-responsive>
+</div>

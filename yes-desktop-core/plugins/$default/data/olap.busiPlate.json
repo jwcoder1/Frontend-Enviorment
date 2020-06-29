@@ -1,0 +1,60 @@
+{
+   "error": null,
+   "body": [
+      {
+         "name": "钢铁",
+         "y": 105560779.224428,
+         "drilldown": true
+      },
+      {
+         "name": "其他业务",
+         "y": 1634486250.512204,
+         "drilldown": true
+      },
+      {
+         "name": "投资及综合",
+         "y": null,
+         "drilldown": true
+      },
+      {
+         "name": "汽车",
+         "y": 18787986.586275,
+         "drilldown": true
+      },
+      {
+         "name": "轻纺",
+         "y": 1302965377.905823,
+         "drilldown": true
+      },
+      {
+         "name": "浆纸",
+         "y": 20,
+         "drilldown": true
+      },
+      {
+         "name": "农产品",
+         "y": 1006802498.501376,
+         "drilldown": true
+      },
+      {
+         "name": "物流",
+         "y": 1965165186.832519,
+         "drilldown": true
+      },
+      {
+         "name": "机电",
+         "y": 58740102.2019,
+         "drilldown": true
+      },
+      {
+         "name": "金融服务",
+         "y": 1217,
+         "drilldown": true
+      },
+      {
+         "name": "信息技术",
+         "y": 7661497.5,
+         "drilldown": true
+      }
+   ]
+}

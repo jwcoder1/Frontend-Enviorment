@@ -1,0 +1,5 @@
+<form name="inputForm">
+    <div class="ui-grid-cell-contents">
+        <input class=" form-control esy-number" ng-change="col.colDef.onchange(row.entity)" type="text" ng-class="'colt{col.uid}'" ng-model="MODEL_COL_FIELD" number-format="{{col.colDef.num}}" ui-grid-editor>
+    </div>
+</form>

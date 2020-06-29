@@ -1,0 +1,10 @@
+{
+    "admin": "管理员",
+    "seller": "卖家",
+    "user": "普通用户",
+    "enterprise": "企业用户",
+    "true": "是",
+    "false": "否",
+    "gender_0": "女",
+    "gender_1": "男"
+}

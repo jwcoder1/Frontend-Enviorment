@@ -1,0 +1,96 @@
+<div ng-controller="app.page.interfacelist">
+    <div class="page-content list-scope">
+        <div class="row">
+            <div class="col-xs-5" style="padding-right: 4px;">
+                <div style="margin-bottom: 6px;">
+					<span class="input-icon search-span"> <input
+                            ng-model="search" placeholder="{{'请输入接口名称' | translate}}"
+                            ng-keyup="action.searchKeyUp($event);"
+                            class="ng-pristine ng-valid ng-touched"> <i
+                            class="ace-icon fa fa-search "></i>
+					</span>
+                </div>
+                <div class="my-list">
+                    <div class="my-title">
+                        <b>{{'接口列表' | translate}}</b>
+                    </div>
+                    <div class="enterprise-selector clearfix">
+                        <div class="enterprise-name">企业:</div>
+                        <div class="enterprise-input">
+	 						<span ng-click="action.changeEnterprise();" class="input-icon clickable search-span">
+	 							<input ng-model="showEnterpriseName" placeholder="请选择企业" class="clickable" readonly>
+	 							<i class="ace-icon fa fa-search "></i>
+							</span>
+                        </div>
+                    </div>
+                    <div class="my-content">
+                        <div id="con" style="overflow-y: auto; height: 402px;">
+                            <div class="my-table-title">
+                                <div style="width:60%;">{{'接口名' | translate}}</div>
+                                <div style="width:40%;min-width:58px;">{{'接口类型' | translate}}</div>
+                            </div>
+                            <div ng-repeat="group in groups" ng-click="action.selectInterface(group)"
+                                 ng-class="{'current':group == current}" class="my-item clickable my-table-item">
+                                <div style="width:60%;" title="{{group.name}}">{{group.name}}</div>
+                                <div style="width:40%;" title='{{group.type=="SEND"?"可订阅":"可访问"}}'>
+                                    {{group.type=="SEND"?"可订阅":"可访问"}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-div">
+                            <span ng-click="action.prevPage();" class="page-icon fa fa-angle-left blue"></span>
+                            <span class="curePage ng-binding">{{nowPage}} / {{sumPage}}</span>
+                            <span ng-click="action.nextPage();" class="page-icon fa fa-angle-right blue"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-7">
+
+                <div class="my-list">
+                    <div class="my-title">
+                        <b>{{'应用列表' | translate}}</b>
+                    </div>
+                    <div class="my-content" style="padding:10px;">
+                        <div style="margin-bottom: 6px;">
+                                <span class="input-icon search-span" ng-click="loadPeople()"> 
+                                <input  ng-model="filter2.search" placeholder="{{'应用名称/联系人/联系电话/负责人' | translate}}"
+                                        ng-keyup="action.searchKeyUpPeople($event);"                                        
+                                        class="ng-pristine ng-valid ng-touched">
+                                    <i class="ace-icon fa fa-search "></i>
+                                </span>
+                        </div>
+                        <div style="width:100%;border:1px solid #d4d4d4;">
+                            <div id="conn" style="overflow-y: auto;height:416px;">
+                                <div class="my-table-title">
+                                    <div style="width:25%;">{{'应用名称' | translate}}</div>
+                                    <div style="width:25%;">{{'联系人' | translate}}</div>
+                                    <div style="width:25%;">{{'联系电话' | translate}}</div>
+                                    <div style="width:25%;">{{'负责人' | translate}}</div>
+                                </div>
+                                <div ng-repeat="person in peopleMembers"
+                                     class="my-item clickable my-table-item">
+                                    <div style="width:25%;" title="{{person.name}}">{{person.name}}</div>
+                                    <div style="width:25%;" title="{{person.linkman}}">{{person.linkman}}</div>
+                                    <div style="width:25%;" title="{{person.phone}}">{{person.phone}}</div>
+                                    <div style="width:25%;" title="{{person.manager}}">{{person.manager}}</div>
+                                </div>
+                            </div>
+                            <div class="page-div">
+                                <span ng-click="action.prevPage2();"
+                                      class="page-icon fa fa-angle-left blue"></span>
+                                <span class="curePage ng-binding">{{nowPage2}} / {{sumPage2}}</span>
+                                <span ng-click="action.nextPage2();"
+                                      class="page-icon fa fa-angle-right blue"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- {{result}} -->
+
+    </div>
+</div>

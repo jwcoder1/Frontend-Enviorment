@@ -1,0 +1,33 @@
+<div ng-controller="base.enterprisestatus">
+    <div>
+        <layout-responsive class="max-1">
+            <section class="list-view ngdialog-content-wrap">
+                <div ng-init="isCollapsed=true" ng-show="isCollapsed">
+                    <layout-responsive class="max-4">
+                        <form name="query" ng-submit="action.load()" class="list-queries query-form clearfix">
+                            <ui-query ng-repeat="config in config.filterItems" ng-model="filter" option="config" class="query-item form-cells cell {{config.css}}"></ui-query>
+                        </form>
+                    </layout-responsive>
+                </div>
+
+                <div class="operation">
+                    <button data-ng-disabled="operation.disabled" ng-repeat="operation in config.listoperation" class="btn btn-primary" type="button" ng-click="operation.action($event,$parent);">
+                        <i class="fa {{operation.icon}}"></i> {{operation.name | translate}}
+                    </button>
+
+                    <button ng-if="back" class="btn btn-primary" type="button" ng-click="closeThisDialog();"><i class="fa fa-arrow-left"></i> {{'返回' | translate}}</button>
+                    <div class="buttons-icons">
+                        <button type="button" ng-click="isCollapsed=!isCollapsed"><i class="fa fa-chevron-up click" ng-class="{'fa-chevron-down':isCollapsed}"></i></button>
+                    </div>
+                </div>
+
+                <div>
+                    <div><label>在线企业:<span>69</span></label><label style=" margin-left: 90px;">在线人数:<span>153</span></label></div>
+
+                </div>
+
+                <list-grid headers="config.headers" onchangepage="action.changepage" resource="data"></list-grid>
+            </section>
+        </layout-responsive>
+    </div>
+</div>

@@ -1,0 +1,98 @@
+@import "../bootstrap/variables";
+
+/*nav-collapse*/
+
+.navbar-nav {
+  float: left;
+}
+
+.navbar-toggle {
+  float: none;
+}
+
+.navbar-nav > li {
+  float: left;
+  a {
+    line-height: 24px;
+  }
+}
+
+.navbar-collapse.collapse {
+  display: block;
+}
+
+.navbar-header {
+  float: left;
+}
+
+.navbar-nav {
+  margin: 0;
+}
+
+.navbar-left {
+  float: left !important;
+}
+
+.navbar-right {
+  float: right !important;
+}
+
+.nav-search {
+  height: @menu-searh-height;
+  .navbar-form {
+    margin: 0;
+    padding: @menu-searh-form-padding;
+    .form-group {
+      width: 100%;
+    }
+  }
+  input.form-control {
+    width: 100%;
+    border: 1px solid @silver;
+  }
+  padding: 8px 3px;
+  // border-bottom: 1px solid @silver;
+}
+
+.navbar-inverse .navbar-nav > li.open {
+  & > a, & > a:hover {
+    background-color: transparent;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: #000;
+  }
+}
+
+.navbar-inverse .navbar-toggle {
+  border-color: @brandColor;
+  margin: 5px 15px;
+  & > a:focus {
+    background-color: @brandColor;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-inverse .navbar-nav .open .dropdown-menu {
+    position: absolute;
+    background: #fff;
+    left: auto;
+    right: 0;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    & > li > a {
+      color: #444;
+      padding: 3px 20px;
+      &:hover {
+        color: #000;
+        background-color: #eee;
+      }
+    }
+  }
+}
+
+ui-tree.main-tree {
+  margin: 0 12px;
+}

@@ -1,0 +1,15 @@
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
+.toolbar {
+  margin-bottom: 7px;
+  .btn.btn-sm {
+    text-align: center;
+    width: 24px;
+    height: 22px;
+    padding: 0;
+    i {
+      font-size: 16px;
+    }
+    margin-right:5px;
+  }
+}
